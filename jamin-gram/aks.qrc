@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/photo">
+        <file>image/IMG_20230604_093748_506.jpg</file>
+        <file>image/IMG_20230604_093748_579.jpg</file>
+        <file>image/IMG_20230604_093748_642.jpg</file>
+        <file>image/IMG_20230604_093749_170.jpg</file>
+        <file>image/IMG_20230612_105708_692.png</file>
+    </qresource>
+</RCC>

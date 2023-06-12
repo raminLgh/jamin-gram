@@ -17,13 +17,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    first_page.cpp
+    first_page.cpp \
+    signup1.cpp \
+    signup2.cpp
 
 HEADERS += \
-    first_page.h
+    first_page.h \
+    signup1.h \
+    signup2.h
 
 FORMS += \
-    first_page.ui
+    first_page.ui \
+    signup1.ui \
+    signup2.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -31,4 +37,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    photo.qrc
+    aks.qrc

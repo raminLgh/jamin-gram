@@ -15,6 +15,9 @@ public:
     first_page(QWidget *parent = nullptr);
     ~first_page();
 
+private slots:
+    void on_signup_clicked();
+
 private:
     Ui::first_page *ui;
 };
