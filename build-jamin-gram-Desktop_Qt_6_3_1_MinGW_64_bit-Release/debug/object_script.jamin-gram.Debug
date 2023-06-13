@@ -1,0 +1,12 @@
+debug/main.o
+debug/first_page.o
+debug/signup1.o
+debug/signup2.o
+debug/signup3.o
+debug/signup4.o
+debug/qrc_aks.o
+debug/moc_first_page.o
+debug/moc_signup1.o
+debug/moc_signup2.o
+debug/moc_signup3.o
+debug/moc_signup4.o

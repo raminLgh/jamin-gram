@@ -19,17 +19,23 @@ SOURCES += \
     main.cpp \
     first_page.cpp \
     signup1.cpp \
-    signup2.cpp
+    signup2.cpp \
+    signup3.cpp \
+    signup4.cpp
 
 HEADERS += \
     first_page.h \
     signup1.h \
-    signup2.h
+    signup2.h \
+    signup3.h \
+    signup4.h
 
 FORMS += \
     first_page.ui \
     signup1.ui \
-    signup2.ui
+    signup2.ui \
+    signup3.ui \
+    signup4.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

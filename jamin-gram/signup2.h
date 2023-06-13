@@ -18,6 +18,8 @@ public:
 private slots:
     void on_previous_clicked();
 
+    void on_nextpb_clicked();
+
 private:
     Ui::signup2 *ui;
 };

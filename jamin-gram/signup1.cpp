@@ -1,16 +1,15 @@
-#include "signup1.h"
 #include "ui_signup1.h"
-
-#include "first_page.h"
+#include "signup1.h"
 #include "signup2.h"
+#include "first_page.h"
+
+extern QMainWindow* Prev_ptr;
 
 signup1::signup1(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::signup1)
 {
     ui->setupUi(this);
-
-    setWindowTitle("signup1");
 }
 
 signup1::~signup1()
@@ -20,14 +19,20 @@ signup1::~signup1()
 
 void signup1::on_previous_clicked()
 {
+    delete Prev_ptr;
+
+    first_page* prev_firstpage = new first_page();
+    prev_firstpage->show();
     this->close();
-    first_page* fp1 = new first_page();
-    fp1->show();
+    Prev_ptr = this;
 }
 
 void signup1::on_nextpb_clicked()
 {
+    delete Prev_ptr;
+
+    signup2* sign2 = new signup2();
+    sign2->show();
     this->close();
-    signup2* ps = new signup2();
-    ps->show();
+    Prev_ptr = this;
 }
