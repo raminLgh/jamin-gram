@@ -1,6 +1,7 @@
 #include "ui_signup4.h"
 #include "signup4.h"
 #include "signup3.h"
+#include "main_singup.h"
 
 extern QMainWindow* Prev_ptr;
 
@@ -31,6 +32,8 @@ void signup4::on_nextpb_clicked()
 {
     delete Prev_ptr;
 
+    main_singup* mainSign = new main_singup();
+    mainSign->show();
 
     this->close();
     Prev_ptr = this;
