@@ -1,11 +1,15 @@
 release/main.o
 release/first_page.o
+release/main_login.o
+release/main_singup.o
 release/signup1.o
 release/signup2.o
 release/signup3.o
 release/signup4.o
 release/qrc_aks.o
 release/moc_first_page.o
+release/moc_main_login.o
+release/moc_main_singup.o
 release/moc_signup1.o
 release/moc_signup2.o
 release/moc_signup3.o

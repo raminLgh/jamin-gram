@@ -1,6 +1,7 @@
 #include "ui_first_page.h"
 #include "first_page.h"
 #include "signup1.h"
+#include "main_login.h"
 
 QMainWindow* Prev_ptr = nullptr;
 
@@ -28,3 +29,12 @@ void first_page::on_signup_clicked()
     sign1->show();
     Prev_ptr = this;
 }
+
+void first_page::on_login_clicked()
+{
+    main_login * mainlog = new main_login();
+    mainlog->show();
+
+    this->close();
+}
+

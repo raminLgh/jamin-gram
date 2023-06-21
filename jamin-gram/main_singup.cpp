@@ -1,6 +1,7 @@
 #include "main_singup.h"
 #include "ui_main_singup.h"
 
+
 #include <QMessageBox>
 
 main_singup::main_singup(QWidget *parent) :

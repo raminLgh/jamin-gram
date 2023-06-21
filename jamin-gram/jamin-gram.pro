@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     first_page.cpp \
+    main_login.cpp \
     main_singup.cpp \
     signup1.cpp \
     signup2.cpp \
@@ -26,6 +28,7 @@ SOURCES += \
 
 HEADERS += \
     first_page.h \
+    main_login.h \
     main_singup.h \
     signup1.h \
     signup2.h \
@@ -34,6 +37,7 @@ HEADERS += \
 
 FORMS += \
     first_page.ui \
+    main_login.ui \
     main_singup.ui \
     signup1.ui \
     signup2.ui \
