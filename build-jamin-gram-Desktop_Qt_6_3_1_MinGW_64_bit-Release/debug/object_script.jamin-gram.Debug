@@ -1,3 +1,4 @@
+debug/concatenate_string.o
 debug/main.o
 debug/first_page.o
 debug/main_login.o

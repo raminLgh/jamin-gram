@@ -67,8 +67,11 @@
     <property name="styleSheet">
      <string notr="true">border-image: url(:/photo/image/adamak.jpg);</string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QLineEdit" name="username">
+   <widget class="QLineEdit" name="username2">
     <property name="geometry">
      <rect>
       <x>453</x>
@@ -103,7 +106,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="pasword">
+   <widget class="QLineEdit" name="pasword2">
     <property name="geometry">
      <rect>
       <x>453</x>

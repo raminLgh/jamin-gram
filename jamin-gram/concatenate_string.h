@@ -2,6 +2,16 @@
 #define CONCATENATE_STRING_H
 
 #include <QObject>
+#include <QApplication>
+#include <QMessageBox>
+#include <QCoreApplication>
+#include <QDebug>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QUrl>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 class concatenate_string
 {

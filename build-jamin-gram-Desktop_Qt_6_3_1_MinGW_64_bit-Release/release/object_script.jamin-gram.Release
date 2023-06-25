@@ -1,3 +1,4 @@
+release/concatenate_string.o
 release/main.o
 release/first_page.o
 release/main_login.o

@@ -1,19 +1,7 @@
 #include "main_singup.h"
 #include "ui_main_singup.h"
-
 #include "concatenate_string.h"
 
-#include <QApplication>
-
-#include <QMessageBox>
-#include <QCoreApplication>
-#include <QDebug>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QNetworkRequest>
-#include <QUrl>
-#include <QJsonDocument>
-#include <QJsonObject>
 
 main_singup::main_singup(QWidget *parent) :
     QMainWindow(parent),
@@ -51,13 +39,13 @@ void main_singup::on_verifypb_clicked()
             ||ui->lastname->text().length()==0||ui->username->text().length()==0||
             ui->firstname->text().length()==0||ui->repasword->text().length()==0)
     {
-        QMessageBox *notcomplet = new QMessageBox();
+        QMessageBox *notcomplet = new QMessageBox(this);
         notcomplet->setText("Fill all the items carefully");
         notcomplet->setWindowTitle("Error");
         notcomplet->show();
     }
     else if(ui->pasword->text()!=ui->repasword->text()){
-        QMessageBox *pasworderor = new QMessageBox();
+        QMessageBox *pasworderor = new QMessageBox(this);
         pasworderor->setText("You entered the password incorrectly");
         pasworderor->setWindowTitle("Error");
         pasworderor->show();
@@ -91,7 +79,7 @@ void main_singup::on_verifypb_clicked()
 
                 //user Successfully aded
                 if(code=="200"){
-                    QMessageBox* meb1 = new QMessageBox();
+                    QMessageBox* meb1 = new QMessageBox(this);
                     meb1->setText(obj["message"].toString());
                     meb1->setWindowTitle("message");
                     meb1->show();
@@ -117,9 +105,10 @@ void main_singup::on_verifypb_clicked()
 
                         if(reply2->error()==QNetworkReply::NoError){
                             //recive reply
-                            QByteArray data2 = reply->readAll();
-
+                            QByteArray data2 = reply2->readAll();
                             qDebug()<<data2;
+                            //new object and get token:
+
                         }
                         else{
                             qDebug()<< "EROOR to recive data from server: "<<reply2->errorString();
@@ -129,8 +118,8 @@ void main_singup::on_verifypb_clicked()
 
                     //////////////////////////end
                 }
-                else if(code=="204"){
-                    QMessageBox* meb2 = new QMessageBox();
+                else {
+                    QMessageBox* meb2 = new QMessageBox(this);
                     meb2->setText(obj["message"].toString());
                     meb2->setWindowTitle("Error");
                     meb2->show();

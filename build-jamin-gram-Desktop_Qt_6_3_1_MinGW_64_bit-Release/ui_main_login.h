@@ -27,9 +27,9 @@ public:
     QWidget *centralwidget;
     QTextEdit *textEdit_2;
     QLineEdit *lineEdit;
-    QLineEdit *username;
+    QLineEdit *username2;
     QLineEdit *lineEdit_5;
-    QLineEdit *pasword;
+    QLineEdit *pasword2;
     QCheckBox *checkBoxp;
     QPushButton *verifypb;
     QPushButton *verifypb_2;
@@ -59,18 +59,19 @@ public:
         lineEdit->setGeometry(QRect(515, 35, 65, 65));
         lineEdit->setCursor(QCursor(Qt::PointingHandCursor));
         lineEdit->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/image/adamak.jpg);"));
-        username = new QLineEdit(centralwidget);
-        username->setObjectName(QString::fromUtf8("username"));
-        username->setGeometry(QRect(453, 150, 190, 30));
+        lineEdit->setReadOnly(true);
+        username2 = new QLineEdit(centralwidget);
+        username2->setObjectName(QString::fromUtf8("username2"));
+        username2->setGeometry(QRect(453, 150, 190, 30));
         lineEdit_5 = new QLineEdit(centralwidget);
         lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
         lineEdit_5->setGeometry(QRect(420, 220, 28, 28));
         lineEdit_5->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/image/Screenshot (27).png);"));
         lineEdit_5->setReadOnly(true);
-        pasword = new QLineEdit(centralwidget);
-        pasword->setObjectName(QString::fromUtf8("pasword"));
-        pasword->setGeometry(QRect(453, 218, 190, 30));
-        pasword->setEchoMode(QLineEdit::Password);
+        pasword2 = new QLineEdit(centralwidget);
+        pasword2->setObjectName(QString::fromUtf8("pasword2"));
+        pasword2->setGeometry(QRect(453, 218, 190, 30));
+        pasword2->setEchoMode(QLineEdit::Password);
         checkBoxp = new QCheckBox(centralwidget);
         checkBoxp->setObjectName(QString::fromUtf8("checkBoxp"));
         checkBoxp->setGeometry(QRect(660, 224, 70, 17));
@@ -113,19 +114,19 @@ public:
     {
         main_login->setWindowTitle(QCoreApplication::translate("main_login", "log in", nullptr));
 #if QT_CONFIG(tooltip)
-        username->setToolTip(QCoreApplication::translate("main_login", "<html><head/><body><p>User name</p></body></html>", nullptr));
+        username2->setToolTip(QCoreApplication::translate("main_login", "<html><head/><body><p>User name</p></body></html>", nullptr));
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(statustip)
-        username->setStatusTip(QString());
+        username2->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)
-        username->setPlaceholderText(QCoreApplication::translate("main_login", " User name", nullptr));
+        username2->setPlaceholderText(QCoreApplication::translate("main_login", " User name", nullptr));
 #if QT_CONFIG(tooltip)
-        pasword->setToolTip(QCoreApplication::translate("main_login", "<html><head/><body><p> Pasword</p></body></html>", nullptr));
+        pasword2->setToolTip(QCoreApplication::translate("main_login", "<html><head/><body><p> Pasword</p></body></html>", nullptr));
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(statustip)
-        pasword->setStatusTip(QString());
+        pasword2->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)
-        pasword->setPlaceholderText(QCoreApplication::translate("main_login", " Pasword", nullptr));
+        pasword2->setPlaceholderText(QCoreApplication::translate("main_login", " Pasword", nullptr));
         checkBoxp->setText(QCoreApplication::translate("main_login", "show", nullptr));
         verifypb->setText(QCoreApplication::translate("main_login", "log in", nullptr));
         verifypb_2->setText(QCoreApplication::translate("main_login", "forgot password?", nullptr));

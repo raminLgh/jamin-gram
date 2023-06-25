@@ -1,16 +1,6 @@
 #include "main_login.h"
 #include "ui_main_login.h"
-
-#include <QCoreApplication>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QNetworkRequest>
-#include <QUrl>
-#include <QDebug>
-#include <QJsonDocument>
-#include <QJsonObject>
-
-#include <QMessageBox>
+#include "concatenate_string.h"
 
 main_login::main_login(QWidget *parent) :
     QMainWindow(parent),
@@ -29,29 +19,61 @@ main_login::~main_login()
 void main_login::on_checkBoxp_clicked(bool checked)
 {
     if(checked)
-        ui->pasword->setEchoMode(QLineEdit::Normal);
+        ui->pasword2->setEchoMode(QLineEdit::Normal);
     else
-        ui->pasword->setEchoMode(QLineEdit::Password);
+        ui->pasword2->setEchoMode(QLineEdit::Password);
 }
 
 
 void main_login::on_verifypb_clicked()
 {
-    QUrl url("http://api.barafardayebehtar.ml:8080/login?username=c&password=c");
+    if(ui->pasword2->text().length()==0||ui->username2->text().length()==0){
+        QMessageBox *notcomplet = new QMessageBox();
+        notcomplet->information(this,"Error","Fill all the items carefully");
+    }
+    else {
+        concatenate_string  cs;
+        cs.addString("login?username=");
+        cs.addString(ui->username2->text());
+        cs.addString("&password=");
+        cs.addString(ui->pasword2->text());
+        qDebug()<<cs.getUrl();
 
-    QNetworkAccessManager* manager = new QNetworkAccessManager();
+        QUrl url_d(cs.getUrl());
+        QNetworkAccessManager* manager_d = new QNetworkAccessManager();
+        QNetworkReply* reply_d = manager_d->get(QNetworkRequest(url_d));
 
 
-    QNetworkReply * reply = manager->get(QNetworkRequest(url));
-    qDebug()<<"salam1";
-    QObject::connect(reply,&QNetworkReply::finished,[=]{
-       qDebug()<<"salam2";
-        if(reply->error()==QNetworkReply::NoError){
-           QByteArray data = reply->readAll();
-           qDebug()<<data;
-       }
-       else
-           qDebug()<<"Eror";
-    });
+        QObject::connect(reply_d,&QNetworkReply::finished,[=](){
+
+            if(reply_d->error()==QNetworkReply::NoError){
+                //recive reply
+                QByteArray data_d = reply_d->readAll();
+                qDebug()<<data_d;
+                QJsonDocument duc = QJsonDocument::fromJson(data_d);
+                QJsonObject obj = duc.object();
+
+                QString code = obj["code"].toString();
+                if(code=="200"){
+                    QMessageBox* meb = new QMessageBox();
+                    meb->information(this,"message",obj["message"].toString());
+                    //new object and get token:
+
+                }
+                else {
+                    QMessageBox* meb2 = new QMessageBox();
+                    meb2->information(this,"Error",obj["message"].toString());
+                }
+            }
+            else{
+                qDebug()<< "EROOR to recive data from server: "<<reply_d->errorString();
+            }
+
+         });
+    }
 
 }
+
+
+
+

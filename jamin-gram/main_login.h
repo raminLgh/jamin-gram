@@ -17,7 +17,6 @@ public:
 
 private slots:
 
-
     void on_checkBoxp_clicked(bool checked);
 
     void on_verifypb_clicked();
