@@ -1,7 +1,8 @@
 #include "main_singup.h"
 #include "ui_main_singup.h"
 #include "concatenate_string.h"
-
+#include <QFile>
+#include <QTextStream>
 
 main_singup::main_singup(QWidget *parent) :
     QMainWindow(parent),
@@ -83,6 +84,15 @@ void main_singup::on_verifypb_clicked()
                     meb1->setText(obj["message"].toString());
                     meb1->setWindowTitle("message");
                     meb1->show();
+
+                    QFile file("Information.txt");
+                    file.open(QFile::ReadWrite | QFile::Text | QFile::Append);
+                    if(file.isOpen()){
+                        QTextStream ts(&file);
+                        ts<<ui->username->text()<<" "<< ui->phone->text() <<" "<<ui->pasword->text()<<'\n';
+                        qDebug()<< "work with file";
+                        file.close();
+                    }
 
                     //log in user to recive token
                     ///////////////////////start
