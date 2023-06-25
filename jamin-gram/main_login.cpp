@@ -1,6 +1,9 @@
 #include "main_login.h"
 #include "ui_main_login.h"
 #include "concatenate_string.h"
+#include "forget.h"
+
+extern QMainWindow* Prev_ptr;
 
 main_login::main_login(QWidget *parent) :
     QMainWindow(parent),
@@ -77,3 +80,14 @@ void main_login::on_verifypb_clicked()
 
 
 
+
+void main_login::on_verifypb_2_clicked()
+{
+    Prev_ptr = this;
+
+    forget* f1 = new forget();
+    f1->show();
+
+    Prev_ptr->hide();
+
+}

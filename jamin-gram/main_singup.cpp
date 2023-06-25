@@ -86,7 +86,7 @@ void main_singup::on_verifypb_clicked()
                     meb1->show();
 
                     QFile file("Information.txt");
-                    file.open(QFile::ReadWrite | QFile::Text | QFile::Append);
+                    file.open(QFile::ReadOnly|QFile::WriteOnly|QFile::Append|QFile::Text);
                     if(file.isOpen()){
                         QTextStream ts(&file);
                         ts<<ui->username->text()<<" "<< ui->phone->text() <<" "<<ui->pasword->text()<<'\n';

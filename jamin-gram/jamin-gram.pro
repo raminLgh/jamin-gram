@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     concatenate_string.cpp \
+    forget.cpp \
     main.cpp \
     first_page.cpp \
     main_login.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     concatenate_string.h \
     first_page.h \
+    forget.h \
     main_login.h \
     main_singup.h \
     signup1.h \
@@ -39,6 +41,7 @@ HEADERS += \
 
 FORMS += \
     first_page.ui \
+    forget.ui \
     main_login.ui \
     main_singup.ui \
     signup1.ui \
