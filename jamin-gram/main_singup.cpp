@@ -130,7 +130,6 @@ void main_singup::on_verifypb_clicked()
                             channel* ch1 = new channel();
                             ch1->show();
                             this->close();
-                            channel_page = ch1;
                             ///
 
                         }

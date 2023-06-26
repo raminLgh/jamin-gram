@@ -78,7 +78,6 @@ void main_login::on_verifypb_clicked()
                     channel* ch2 = new channel();
                     this->close();
                     ch2->show();
-                    channel_page = ch2;
                     /////////
 
                 }

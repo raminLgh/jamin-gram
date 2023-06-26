@@ -25,8 +25,7 @@ void groups::on_channelpb_clicked()
 {
     group_page = this;
 
-    channel* ch = new channel();
-    ch->show();
+    channel_page->show();
 
     this->hide();
 }

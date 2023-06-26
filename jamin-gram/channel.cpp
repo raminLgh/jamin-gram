@@ -185,8 +185,13 @@ void channel::on_grouppb_clicked()
 {
     channel_page = this;
 
+    if(group_page != nullptr){
+        group_page->show();
+    }
+    else{
     groups* g1 = new groups();
     g1->show();
+    }
 
     this->hide();
 }
