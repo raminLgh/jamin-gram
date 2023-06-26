@@ -12,6 +12,9 @@
 #include <QUrl>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMenu>
+#include <QMenuBar>
+
 
 typedef struct Person{
    QString name;

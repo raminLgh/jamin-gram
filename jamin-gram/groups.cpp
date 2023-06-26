@@ -181,3 +181,66 @@ void groups::on_actionLog_out_triggered()
 
 }
 
+
+void groups::on_actionGet_group_list_triggered()
+{
+    //check if our user alredy in channel
+    concatenate_string  cs;
+    cs.addString("getgrouplist?token=");
+    cs.addString(User.token);
+
+    qDebug()<<cs.getUrl();
+
+    QUrl url_d(cs.getUrl());
+    QNetworkAccessManager* manager_d = new QNetworkAccessManager();
+    QNetworkReply* reply_d = manager_d->get(QNetworkRequest(url_d));
+    QObject::connect(reply_d,&QNetworkReply::finished,[=](){
+        if(reply_d->error()==QNetworkReply::NoError){
+            //recive reply
+            QByteArray data_d = reply_d->readAll();
+            qDebug()<<data_d;
+            QJsonDocument duc = QJsonDocument::fromJson(data_d);
+            QJsonObject obj = duc.object();
+            QString code = obj["code"].toString();
+            if(code=="200"){
+
+                QMessageBox *m2 = new QMessageBox();
+                m2->information(this,"info",obj["message"].toString());
+
+
+                QString tmp = obj["message"].toString();
+                qDebug()<<tmp;
+
+                QString count;
+                for(int i=0;i<tmp.length();++i){
+                    if(tmp[i]=="-"){
+                        count = tmp[i+1];
+                        break;
+                    }
+                }
+                qDebug()<<count<<"count of group";
+
+                QString m = "block ";
+                ui->list->clear();
+                for(int i=0;i<count.toInt();++i){
+                    m+=QString::number(i);
+                    qDebug()<< m;
+
+                    ui->list->addItem((obj[m].toObject())["channel_name"].toString());
+
+                    m = "block ";
+                }
+                qDebug()<< obj;
+            }
+            else{
+                QMessageBox *m2 = new QMessageBox();
+                m2->information(this,"Eror",obj["message"].toString());
+            }
+        }
+        else{
+             qDebug()<< "ERROR to recive data from server: "<<reply_d->errorString();
+        }
+    });
+
+
+}

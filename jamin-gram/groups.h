@@ -24,6 +24,8 @@ private slots:
 
     void on_actionLog_out_triggered();
 
+    void on_actionGet_group_list_triggered();
+
 private:
     Ui::groups *ui;
 };

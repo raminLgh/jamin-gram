@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+
+
+
 namespace Ui {
 class channel;
 }
@@ -23,6 +26,8 @@ private slots:
     void on_Logout_triggered();
 
     void on_grouppb_clicked();
+
+    void on_action_Get_channel_list_triggered();
 
 private:
     Ui::channel *ui;
