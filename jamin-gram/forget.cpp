@@ -48,10 +48,10 @@ void forget::on_pushButton_clicked()
                 if(ui->username->text()==_name && ui->phone->text()==_phone){
 
                     //
-                    QMessageBox* m2 = new QMessageBox();
                     QString tmp = "your pasword is : ";
                     tmp+=_pasword;
-                    m2->information(this,"forget",tmp);
+                    QMessageBox::information(this,"forget",tmp);
+                    file.close();
                     return;
 
                 }
@@ -63,13 +63,11 @@ void forget::on_pushButton_clicked()
 
             //if cant find user in file
 
-            QMessageBox* m3 = new QMessageBox();
-            m3->information(this,"forget","User not find");
-
+            QMessageBox::information(this,"forget","User not find");
+            file.close();
         }
         else{
-            QMessageBox* m2 = new QMessageBox();
-            m2->information(this,"forget","File not exist");
+            QMessageBox::information(this,"forget","File not exist");
         }
     }
 }

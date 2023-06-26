@@ -40,8 +40,7 @@ void main_login::on_checkBoxp_clicked(bool checked)
 void main_login::on_verifypb_clicked()
 {
     if(ui->pasword2->text().length()==0||ui->username2->text().length()==0){
-        QMessageBox *notcomplet = new QMessageBox();
-        notcomplet->information(this,"Error","Fill the all items carefully");
+        QMessageBox::information(this,"Error","Fill the all items carefully");
     }
     else {
         concatenate_string  cs;
@@ -82,8 +81,7 @@ void main_login::on_verifypb_clicked()
 
                 }
                 else {
-                    QMessageBox* meb2 = new QMessageBox();
-                    meb2->information(this,"Error",obj["message"].toString());
+                    QMessageBox::information(this,"Error",obj["message"].toString());
                 }
             }
             else{
