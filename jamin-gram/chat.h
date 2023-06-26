@@ -20,6 +20,12 @@ private slots:
 
     void on_grouppb_clicked();
 
+    void on_addpb_clicked();
+
+    void on_actionLOg_out_triggered();
+
+    void on_actionGet_chat_lists_triggered();
+
 private:
     Ui::chat *ui;
 };

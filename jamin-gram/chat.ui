@@ -34,7 +34,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="jo_channel_lineEdit">
+   <widget class="QLineEdit" name="add_user_lineEdit">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -239,7 +239,7 @@ background:#41cd52;
      <string>chanels</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="joinpb">
+   <widget class="QPushButton" name="addpb">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -258,7 +258,7 @@ background:#41cd52;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-background-color: rgb(0, 85, 255);
+	background-color: rgb(85, 170, 255);
 font-size:14pt;
 }</string>
     </property>

@@ -244,7 +244,7 @@ void groups::on_actionGet_group_list_triggered()
                     m+=QString::number(i);
                     qDebug()<< m;
 
-                    ui->list->addItem((obj[m].toObject())["channel_name"].toString());
+                    ui->list->addItem((obj[m].toObject())["group_name"].toString());
 
                     m = "block ";
                 }
