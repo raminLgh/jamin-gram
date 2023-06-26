@@ -1,8 +1,10 @@
 #include "groups.h"
 #include "ui_groups.h"
 #include <QString>
+
 #include "concatenate_string.h"
 #include "channel.h"
+#include "chat.h"
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -28,6 +30,22 @@ void groups::on_channelpb_clicked()
     channel_page->show();
 
     this->hide();
+}
+
+
+void groups::on_chatpb_clicked()
+{
+    group_page = this;
+
+    if(chat_page==nullptr){
+        chat* c1 = new chat();
+        this->hide();
+        c1->show();
+    }
+    else{
+        chat_page->show();
+        this->hide();
+    }
 }
 
 
@@ -244,3 +262,5 @@ void groups::on_actionGet_group_list_triggered()
 
 
 }
+
+

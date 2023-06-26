@@ -29,6 +29,8 @@ private slots:
 
     void on_action_Get_channel_list_triggered();
 
+    void on_chatpb_clicked();
+
 private:
     Ui::channel *ui;
 };

@@ -26,6 +26,8 @@ private slots:
 
     void on_actionGet_group_list_triggered();
 
+    void on_chatpb_clicked();
+
 private:
     Ui::groups *ui;
 };

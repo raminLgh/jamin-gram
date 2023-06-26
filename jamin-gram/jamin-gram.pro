@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     channel.cpp \
+    chat.cpp \
     concatenate_string.cpp \
     forget.cpp \
     groups.cpp \
@@ -32,6 +33,7 @@ SOURCES += \
 
 HEADERS += \
     channel.h \
+    chat.h \
     concatenate_string.h \
     first_page.h \
     forget.h \
@@ -45,6 +47,7 @@ HEADERS += \
 
 FORMS += \
     channel.ui \
+    chat.ui \
     first_page.ui \
     forget.ui \
     groups.ui \
