@@ -20,6 +20,7 @@ SOURCES += \
     channel.cpp \
     concatenate_string.cpp \
     forget.cpp \
+    groups.cpp \
     main.cpp \
     first_page.cpp \
     main_login.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     concatenate_string.h \
     first_page.h \
     forget.h \
+    groups.h \
     main_login.h \
     main_singup.h \
     signup1.h \
@@ -45,6 +47,7 @@ FORMS += \
     channel.ui \
     first_page.ui \
     forget.ui \
+    groups.ui \
     main_login.ui \
     main_singup.ui \
     signup1.ui \

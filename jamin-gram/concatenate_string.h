@@ -13,6 +13,12 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
+typedef struct Person{
+   QString name;
+   QString pass;
+   QString token;
+} person;
+
 class concatenate_string
 {
 

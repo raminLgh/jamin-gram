@@ -3,12 +3,10 @@
 #include "concatenate_string.h"
 #include <QFile>
 #include <QTextStream>
-
 #include "channel.h"
 
 extern QMainWindow* Prev_ptr;
 extern person User;
-
 
 extern QMainWindow* channel_page;
 extern QMainWindow* group_page ;
@@ -51,16 +49,10 @@ void main_singup::on_verifypb_clicked()
             ||ui->lastname->text().length()==0||ui->username->text().length()==0||
             ui->firstname->text().length()==0||ui->repasword->text().length()==0)
     {
-        QMessageBox *notcomplet = new QMessageBox(this);
-        notcomplet->setText("Fill all the items carefully");
-        notcomplet->setWindowTitle("Error");
-        notcomplet->show();
+        QMessageBox::information(this,"Error","Fill all the items carefully");
     }
     else if(ui->pasword->text()!=ui->repasword->text()){
-        QMessageBox *pasworderor = new QMessageBox(this);
-        pasworderor->setText("You entered the password incorrectly");
-        pasworderor->setWindowTitle("Error");
-        pasworderor->show();
+        QMessageBox::information(this,"Error","You entered the password incorrectly");
     }
     //in above code we sure about our user fill item carefully and now we can connect to server
     else{
@@ -91,10 +83,7 @@ void main_singup::on_verifypb_clicked()
 
                 //user Successfully aded
                 if(code=="200"){
-                    QMessageBox* meb1 = new QMessageBox(this);
-                    meb1->setText(obj["message"].toString());
-                    meb1->setWindowTitle("message");
-                    meb1->show();
+                    QMessageBox::information(this,"message",obj["message"].toString());
 
                     QFile file("Information.txt");
                     file.open(QFile::ReadOnly|QFile::WriteOnly|QFile::Append|QFile::Text);
@@ -139,8 +128,8 @@ void main_singup::on_verifypb_clicked()
 
                             ////// show next page
                             channel* ch1 = new channel();
-                            this->close();
                             ch1->show();
+                            this->close();
                             channel_page = ch1;
                             ///
 
@@ -154,16 +143,13 @@ void main_singup::on_verifypb_clicked()
                     //////////////////////////end
                 }
                 else {
-                    QMessageBox* meb2 = new QMessageBox(this);
-                    meb2->setText(obj["message"].toString());
-                    meb2->setWindowTitle("Error");
-                    meb2->show();
+                    QMessageBox::information(this,"Error",obj["message"].toString());
 
                 }
 
             }
             else{
-                qDebug()<< "EROOR to recive data from server: "<<reply->errorString();
+                qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
             }
         });
 

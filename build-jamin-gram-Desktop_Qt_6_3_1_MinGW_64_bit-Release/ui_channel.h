@@ -53,6 +53,8 @@ public:
         if (channel->objectName().isEmpty())
             channel->setObjectName(QString::fromUtf8("channel"));
         channel->resize(700, 600);
+        channel->setMinimumSize(QSize(700, 600));
+        channel->setMaximumSize(QSize(700, 600));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/photo/image/Screenshot_20230626_132056_Chrome.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         channel->setWindowIcon(icon);
@@ -198,12 +200,14 @@ public:
         textEdit->setGeometry(QRect(160, 492, 120, 31));
         textEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
         textEdit->setFrameShape(QFrame::NoFrame);
+        textEdit->setReadOnly(true);
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
         textEdit_2->setGeometry(QRect(160, 532, 120, 31));
         textEdit_2->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(240, 240, 240);"));
         textEdit_2->setFrameShape(QFrame::NoFrame);
+        textEdit_2->setReadOnly(true);
         channel->setCentralWidget(centralwidget);
         menubar = new QMenuBar(channel);
         menubar->setObjectName(QString::fromUtf8("menubar"));

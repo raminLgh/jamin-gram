@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
+#include "concatenate_string.h"
 
 extern QMainWindow* Prev_ptr;
 extern person User;

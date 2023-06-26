@@ -1,16 +1,11 @@
 #include "channel.h"
 #include "ui_channel.h"
 
-#include <QMessageBox>
-#include <QDebug>
 #include <QString>
-
-#include "first_page.h"
 #include "concatenate_string.h"
+#include "groups.h"
 
 extern person User;
-
-
 extern QMainWindow* channel_page;
 extern QMainWindow* group_page ;
 extern QMainWindow* chat_page ;
@@ -30,8 +25,7 @@ channel::~channel()
 void channel::on_creatpb_clicked()
 {
     if(ui->cr_chanel_lineEdit->text().length()==0){
-        QMessageBox *notcomplet = new QMessageBox();
-        notcomplet->information(this,"Error","Enter channel's name first");
+        QMessageBox::information(this,"Error","Enter channel's name first");
     }
     else
     {
@@ -63,15 +57,13 @@ void channel::on_creatpb_clicked()
                 QString code = obj2["code"].toString();
 
                 if(code=="200"){
-                    QMessageBox *m1 = new QMessageBox();
-                    m1->information(this,"info",obj2["message"].toString());
+                    QMessageBox::information(this,"message",obj2["message"].toString());
 
                     ui->list->addItem(ui->cr_chanel_lineEdit->text());
                     ui->cr_chanel_lineEdit->clear();
                 }
                 else{
-                    QMessageBox *m2 = new QMessageBox();
-                    m2->information(this,"Eror",obj2["message"].toString());
+                    QMessageBox::information(this,"Eror",obj2["message"].toString());
                     ui->cr_chanel_lineEdit->clear();
                 }
 
@@ -91,8 +83,7 @@ void channel::on_creatpb_clicked()
 void channel::on_joinpb_clicked()
 {
     if(ui->jo_channel_lineEdit->text().length()==0){
-        QMessageBox *notcomplet = new QMessageBox();
-        notcomplet->information(this,"Error","Enter channel's name first");
+        QMessageBox::information(this,"Error","Enter channel's name first");
     }
     else
     {
@@ -124,15 +115,13 @@ void channel::on_joinpb_clicked()
                 QString code = obj2["code"].toString();
 
                 if(code=="200"){
-                    QMessageBox *m3 = new QMessageBox();
-                    m3->information(this,"info",obj2["message"].toString());
+                    QMessageBox::information(this,"message",obj2["message"].toString());
 
                     ui->list->addItem(ui->jo_channel_lineEdit->text());
                     ui->jo_channel_lineEdit->clear();
                 }
                 else{
-                    QMessageBox *m4 = new QMessageBox();
-                    m4->information(this,"Eror",obj2["message"].toString());
+                    QMessageBox::information(this,"Eror",obj2["message"].toString());
                     ui->jo_channel_lineEdit->clear();
                 }
 
@@ -176,15 +165,13 @@ void channel::on_Logout_triggered()
                 QString code = obj2["code"].toString();
 
                 if(code=="200"){
-                    QMessageBox *m1 = new QMessageBox();
-                    m1->information(this,"info",obj2["message"].toString());
+                    QMessageBox::information(this,"info",obj2["message"].toString());
 
                     this->close();
 
                 }
                 else{
-                    QMessageBox *m2 = new QMessageBox();
-                    m2->information(this,"Eror",obj2["message"].toString());
+                    QMessageBox::information(this,"Eror",obj2["message"].toString());
                 }
             }
             else{
@@ -193,3 +180,14 @@ void channel::on_Logout_triggered()
 
          });
 }
+
+void channel::on_grouppb_clicked()
+{
+    channel_page = this;
+
+    groups* g1 = new groups();
+    g1->show();
+
+    this->hide();
+}
+

@@ -2,6 +2,7 @@
 #include "first_page.h"
 #include "signup1.h"
 #include "main_login.h"
+#include "concatenate_string.h"
 
 QMainWindow* Prev_ptr = nullptr;
 person User;

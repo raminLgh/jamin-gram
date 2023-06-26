@@ -1,5 +1,5 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'channel.h'
+** Meta object code from reading C++ file 'groups.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.3.1)
 **
@@ -7,11 +7,11 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../jamin-gram/channel.h"
+#include "../../jamin-gram/groups.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'channel.h' doesn't include <QObject>."
+#error "The header file 'groups.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.3.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -21,29 +21,29 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_channel_t {
+struct qt_meta_stringdata_groups_t {
     const uint offsetsAndSize[12];
-    char stringdata0[85];
+    char stringdata0[93];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(offsetof(qt_meta_stringdata_channel_t, stringdata0) + ofs), len 
-static const qt_meta_stringdata_channel_t qt_meta_stringdata_channel = {
+    uint(offsetof(qt_meta_stringdata_groups_t, stringdata0) + ofs), len 
+static const qt_meta_stringdata_groups_t qt_meta_stringdata_groups = {
     {
-QT_MOC_LITERAL(0, 7), // "channel"
-QT_MOC_LITERAL(8, 18), // "on_creatpb_clicked"
-QT_MOC_LITERAL(27, 0), // ""
-QT_MOC_LITERAL(28, 17), // "on_joinpb_clicked"
-QT_MOC_LITERAL(46, 19), // "on_Logout_triggered"
-QT_MOC_LITERAL(66, 18) // "on_grouppb_clicked"
+QT_MOC_LITERAL(0, 6), // "groups"
+QT_MOC_LITERAL(7, 20), // "on_channelpb_clicked"
+QT_MOC_LITERAL(28, 0), // ""
+QT_MOC_LITERAL(29, 18), // "on_creatpb_clicked"
+QT_MOC_LITERAL(48, 17), // "on_joinpb_clicked"
+QT_MOC_LITERAL(66, 26) // "on_actionLog_out_triggered"
 
     },
-    "channel\0on_creatpb_clicked\0\0"
-    "on_joinpb_clicked\0on_Logout_triggered\0"
-    "on_grouppb_clicked"
+    "groups\0on_channelpb_clicked\0\0"
+    "on_creatpb_clicked\0on_joinpb_clicked\0"
+    "on_actionLog_out_triggered"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_channel[] = {
+static const uint qt_meta_data_groups[] = {
 
  // content:
       10,       // revision
@@ -71,30 +71,30 @@ static const uint qt_meta_data_channel[] = {
        0        // eod
 };
 
-void channel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void groups::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<channel *>(_o);
+        auto *_t = static_cast<groups *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_creatpb_clicked(); break;
-        case 1: _t->on_joinpb_clicked(); break;
-        case 2: _t->on_Logout_triggered(); break;
-        case 3: _t->on_grouppb_clicked(); break;
+        case 0: _t->on_channelpb_clicked(); break;
+        case 1: _t->on_creatpb_clicked(); break;
+        case 2: _t->on_joinpb_clicked(); break;
+        case 3: _t->on_actionLog_out_triggered(); break;
         default: ;
         }
     }
     (void)_a;
 }
 
-const QMetaObject channel::staticMetaObject = { {
+const QMetaObject groups::staticMetaObject = { {
     QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_channel.offsetsAndSize,
-    qt_meta_data_channel,
+    qt_meta_stringdata_groups.offsetsAndSize,
+    qt_meta_data_groups,
     qt_static_metacall,
     nullptr,
-qt_incomplete_metaTypeArray<qt_meta_stringdata_channel_t
-, QtPrivate::TypeAndForceComplete<channel, std::true_type>
+qt_incomplete_metaTypeArray<qt_meta_stringdata_groups_t
+, QtPrivate::TypeAndForceComplete<groups, std::true_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
@@ -103,20 +103,20 @@ qt_incomplete_metaTypeArray<qt_meta_stringdata_channel_t
 } };
 
 
-const QMetaObject *channel::metaObject() const
+const QMetaObject *groups::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *channel::qt_metacast(const char *_clname)
+void *groups::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_channel.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_groups.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int channel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int groups::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)

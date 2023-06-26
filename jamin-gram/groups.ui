@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>channel</class>
- <widget class="QMainWindow" name="channel">
+ <class>groups</class>
+ <widget class="QMainWindow" name="groups">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,11 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Channels</string>
+   <string>groups</string>
   </property>
   <property name="windowIcon">
    <iconset resource="aks.qrc">
-    <normaloff>:/photo/image/Screenshot_20230626_132056_Chrome.jpg</normaloff>:/photo/image/Screenshot_20230626_132056_Chrome.jpg</iconset>
+    <normaloff>:/photo/image/Screenshot_20230626_130222_Telegram.jpg</normaloff>:/photo/image/Screenshot_20230626_130222_Telegram.jpg</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QLineEdit{
@@ -36,14 +36,13 @@ border-radius:8px;
 }
 QLineEdit:focus{
 border:1px solid #03dac6;
-}
-</string>
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="grouppb">
+   <widget class="QPushButton" name="channelpb">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>90</x>
       <y>20</y>
       <width>100</width>
       <height>32</height>
@@ -70,42 +69,34 @@ background:#41cd52;
 }</string>
     </property>
     <property name="text">
-     <string>groups</string>
+     <string>chanels</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="list">
+   <widget class="QTextEdit" name="textEdit_2">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>60</y>
-      <width>200</width>
-      <height>414</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="jo_channel_lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>530</y>
-      <width>170</width>
+      <x>165</x>
+      <y>532</y>
+      <width>120</width>
       <height>31</height>
      </rect>
     </property>
-    <property name="toolTip">
-     <string>Type_channel_name</string>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(240, 240, 240);</string>
     </property>
-    <property name="placeholderText">
-     <string> Type_channel_name</string>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;&quot;&gt;Join&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;&quot;&gt;Group&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="chat_ted">
@@ -160,74 +151,49 @@ font-size:14pt;
      <string>join</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="channelpb">
+   <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>20</y>
-      <width>100</width>
-      <height>32</height>
+      <x>165</x>
+      <y>492</y>
+      <width>120</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>Arial Narrow</family>
-      <pointsize>14</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton{
-background:#03dac6;
-color:white;
-font-size:14pt;
-border:0px;
-border-top-left-radius:20px;
-border-bottom-right-radius:20px;
-}</string>
+     <string notr="true">background-color: rgb(240, 240, 240);</string>
     </property>
-    <property name="text">
-     <string>chanels</string>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;&quot;&gt;New&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;&quot;&gt;Group&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="chatpb">
+   <widget class="QListWidget" name="list">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>20</y>
-      <width>100</width>
-      <height>32</height>
+      <x>490</x>
+      <y>60</y>
+      <width>200</width>
+      <height>414</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial Narrow</family>
-      <pointsize>14</pointsize>
+      <pointsize>10</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton{
-background:white;
-font-size:14pt;
-border:1px solid gray;
-border-top-left-radius:20px;
-border-bottom-right-radius:20px;
-}
-
-QPushButton:hover{
-background:#41cd52;
-}
-</string>
-    </property>
-    <property name="text">
-     <string>chats</string>
-    </property>
-    <property name="autoDefault">
-     <bool>false</bool>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
+     <string notr="true"/>
     </property>
    </widget>
    <widget class="QTextEdit" name="type_ted">
@@ -265,13 +231,13 @@ border:1px solid #03dac6;
      <string> Type message</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="creatpb">
+   <widget class="QPushButton" name="grouppb">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>490</y>
+      <x>510</x>
+      <y>20</y>
       <width>100</width>
-      <height>31</height>
+      <height>32</height>
      </rect>
     </property>
     <property name="font">
@@ -282,15 +248,36 @@ border:1px solid #03dac6;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 255, 127);
+     <string notr="true">QPushButton{
+background:#03dac6;
+color:white;
 font-size:14pt;
-</string>
+border:0px;
+border-top-left-radius:20px;
+border-bottom-right-radius:20px;
+}</string>
     </property>
     <property name="text">
-     <string>create</string>
+     <string>groups</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="cr_chanel_lineEdit">
+   <widget class="QLineEdit" name="jo_group_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>530</y>
+      <width>170</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Type_channel_name</string>
+    </property>
+    <property name="placeholderText">
+     <string> Type_group_name</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="cr_group_lineEdit">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -303,39 +290,46 @@ font-size:14pt;
      <string>Type_channel_name</string>
     </property>
     <property name="placeholderText">
-     <string> Type_channel_name</string>
+     <string> Type_group_name</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QPushButton" name="chatpb">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>490</y>
-      <width>31</width>
-      <height>31</height>
+      <x>300</x>
+      <y>20</y>
+      <width>100</width>
+      <height>32</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/photo/image/Screenshot_20230626_132056_Chrome.jpg);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>530</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
+    <property name="font">
+     <font>
+      <family>Arial Narrow</family>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/photo/image/Screenshot_20230626_132056_Chrome.jpg);</string>
+     <string notr="true">QPushButton{
+background:white;
+font-size:14pt;
+border:1px solid gray;
+border-top-left-radius:20px;
+border-bottom-right-radius:20px;
+}
+
+QPushButton:hover{
+background:#41cd52;
+}</string>
     </property>
     <property name="text">
-     <string/>
+     <string>chats</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
@@ -369,57 +363,61 @@ font-size:14pt;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>492</y>
-      <width>120</width>
+      <x>130</x>
+      <y>530</y>
+      <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(240, 240, 240);</string>
+     <string notr="true">border-image: url(:/photo/image/Screenshot_20230626_130222_Telegram.jpg);</string>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::NoFrame</enum>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-    <property name="html">
-     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;&quot;&gt;New&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;&quot;&gt;Channel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <property name="text">
+     <string/>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_2">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>532</y>
-      <width>120</width>
+      <x>130</x>
+      <y>490</y>
+      <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-background-color: rgb(240, 240, 240);</string>
+     <string notr="true">border-image: url(:/photo/image/Screenshot_20230626_130222_Telegram.jpg);</string>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::NoFrame</enum>
+    <property name="text">
+     <string/>
     </property>
-    <property name="readOnly">
-     <bool>true</bool>
+   </widget>
+   <widget class="QPushButton" name="creatpb">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>490</y>
+      <width>100</width>
+      <height>31</height>
+     </rect>
     </property>
-    <property name="html">
-     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;&quot;&gt;Join&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;&quot;&gt;Channel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <property name="font">
+     <font>
+      <family>Arial Narrow</family>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(85, 255, 127);
+font-size:14pt;
+</string>
+    </property>
+    <property name="text">
+     <string>create</string>
     </property>
    </widget>
   </widget>
@@ -432,15 +430,15 @@ p, li { white-space: pre-wrap; }
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuSeting">
+   <widget class="QMenu" name="menuOptions">
     <property name="title">
      <string>Options</string>
     </property>
-    <addaction name="Logout"/>
+    <addaction name="actionLog_out"/>
    </widget>
-   <addaction name="menuSeting"/>
+   <addaction name="menuOptions"/>
   </widget>
-  <action name="Logout">
+  <action name="actionLog_out">
    <property name="text">
     <string>Log out</string>
    </property>

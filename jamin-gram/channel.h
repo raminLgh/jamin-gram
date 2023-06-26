@@ -22,6 +22,8 @@ private slots:
 
     void on_Logout_triggered();
 
+    void on_grouppb_clicked();
+
 private:
     Ui::channel *ui;
 };

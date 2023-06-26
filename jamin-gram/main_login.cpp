@@ -67,8 +67,7 @@ void main_login::on_verifypb_clicked()
 
                 QString code = obj["code"].toString();
                 if(code=="200"){
-                    QMessageBox* meb = new QMessageBox();
-                    meb->information(this,"message",obj["message"].toString());
+                    QMessageBox::information(this,"message",obj["message"].toString());
                     //new object and get token:
                     User.name= ui->username2->text();
                     User.pass= ui->pasword2->text();
