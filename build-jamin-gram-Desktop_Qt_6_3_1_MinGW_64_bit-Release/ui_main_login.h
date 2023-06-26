@@ -34,6 +34,7 @@ public:
     QPushButton *verifypb;
     QPushButton *verifypb_2;
     QLineEdit *lineEdit_7;
+    QPushButton *pushButton;
 
     void setupUi(QMainWindow *main_login)
     {
@@ -103,6 +104,9 @@ public:
         lineEdit_7->setGeometry(QRect(420, 152, 28, 28));
         lineEdit_7->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/image/Screenshot (12).png);"));
         lineEdit_7->setReadOnly(true);
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(540, 430, 93, 29));
         main_login->setCentralWidget(centralwidget);
 
         retranslateUi(main_login);
@@ -130,6 +134,7 @@ public:
         checkBoxp->setText(QCoreApplication::translate("main_login", "show", nullptr));
         verifypb->setText(QCoreApplication::translate("main_login", "log in", nullptr));
         verifypb_2->setText(QCoreApplication::translate("main_login", "forgot password?", nullptr));
+        pushButton->setText(QCoreApplication::translate("main_login", "test_ui", nullptr));
     } // retranslateUi
 
 };

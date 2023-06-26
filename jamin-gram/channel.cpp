@@ -147,7 +147,7 @@ void channel::on_joinpb_clicked()
 
 }
 
-void channel::on_actionExit_triggered()
+void channel::on_Logout_triggered()
 {
         concatenate_string c1;
         c1.addString("logout?username=");

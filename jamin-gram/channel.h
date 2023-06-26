@@ -20,7 +20,7 @@ private slots:
 
     void on_joinpb_clicked();
 
-    void on_actionExit_triggered();
+    void on_Logout_triggered();
 
 private:
     Ui::channel *ui;

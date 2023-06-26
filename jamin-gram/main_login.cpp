@@ -111,3 +111,11 @@ void main_login::on_verifypb_2_clicked()
     this->hide();
 
 }
+
+void main_login::on_pushButton_clicked()
+{
+    channel* ch2 = new channel();
+    this->close();
+    ch2->show();
+}
+

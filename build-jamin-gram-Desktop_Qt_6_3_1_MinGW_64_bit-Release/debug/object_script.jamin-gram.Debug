@@ -1,3 +1,4 @@
+debug/channel.o
 debug/concatenate_string.o
 debug/forget.o
 debug/main.o
@@ -9,6 +10,7 @@ debug/signup2.o
 debug/signup3.o
 debug/signup4.o
 debug/qrc_aks.o
+debug/moc_channel.o
 debug/moc_first_page.o
 debug/moc_forget.o
 debug/moc_main_login.o
