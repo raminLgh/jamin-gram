@@ -18,6 +18,10 @@ public:
 private slots:
     void on_creatpb_clicked();
 
+    void on_joinpb_clicked();
+
+    void on_actionExit_triggered();
+
 private:
     Ui::channel *ui;
 };

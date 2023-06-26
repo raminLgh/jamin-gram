@@ -9,6 +9,12 @@
 extern QMainWindow* Prev_ptr;
 extern person User;
 
+
+extern QMainWindow* channel_page;
+extern QMainWindow* group_page ;
+extern QMainWindow* chat_page ;
+
+
 main_singup::main_singup(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::main_singup)
@@ -135,6 +141,7 @@ void main_singup::on_verifypb_clicked()
                             channel* ch1 = new channel();
                             this->close();
                             ch1->show();
+                            channel_page = ch1;
                             ///
 
                         }

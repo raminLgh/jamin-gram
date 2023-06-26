@@ -6,6 +6,10 @@
 QMainWindow* Prev_ptr = nullptr;
 person User;
 
+QMainWindow* channel_page = nullptr;
+QMainWindow* group_page = nullptr;
+QMainWindow* chat_page = nullptr;
+
 first_page::first_page(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::first_page)

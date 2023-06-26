@@ -3,8 +3,16 @@
 #include "concatenate_string.h"
 #include "forget.h"
 
+#include "channel.h"
+
 extern QMainWindow* Prev_ptr;
 extern person User;
+
+
+extern QMainWindow* channel_page;
+extern QMainWindow* group_page ;
+extern QMainWindow* chat_page ;
+
 
 main_login::main_login(QWidget *parent) :
     QMainWindow(parent),
@@ -65,6 +73,14 @@ void main_login::on_verifypb_clicked()
                     User.name= ui->username2->text();
                     User.pass= ui->pasword2->text();
                     User.token= obj["token"].toString();
+
+
+                    /////////show next page
+                    channel* ch2 = new channel();
+                    this->close();
+                    ch2->show();
+                    channel_page = ch2;
+                    /////////
 
                 }
                 else {
