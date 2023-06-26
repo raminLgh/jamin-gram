@@ -4,6 +4,8 @@
 #include <QFile>
 #include <QTextStream>
 
+#include "channel.h"
+
 extern QMainWindow* Prev_ptr;
 extern person User;
 
@@ -127,6 +129,13 @@ void main_singup::on_verifypb_clicked()
                             User.name= ui->username->text();
                             User.pass= ui->pasword->text();
                             User.token= obj2["token"].toString();
+
+
+                            ////// show next page
+                            channel* ch1 = new channel();
+                            this->close();
+                            ch1->show();
+                            ///
 
                         }
                         else{

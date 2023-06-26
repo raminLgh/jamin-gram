@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    channel.cpp \
     concatenate_string.cpp \
     forget.cpp \
     main.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
     signup4.cpp
 
 HEADERS += \
+    channel.h \
     concatenate_string.h \
     first_page.h \
     forget.h \
@@ -40,6 +42,7 @@ HEADERS += \
     signup4.h
 
 FORMS += \
+    channel.ui \
     first_page.ui \
     forget.ui \
     main_login.ui \
