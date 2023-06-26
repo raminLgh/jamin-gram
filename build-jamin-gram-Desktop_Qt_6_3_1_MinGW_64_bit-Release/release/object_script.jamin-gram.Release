@@ -1,4 +1,5 @@
 release/concatenate_string.o
+release/forget.o
 release/main.o
 release/first_page.o
 release/main_login.o
@@ -9,6 +10,7 @@ release/signup3.o
 release/signup4.o
 release/qrc_aks.o
 release/moc_first_page.o
+release/moc_forget.o
 release/moc_main_login.o
 release/moc_main_singup.o
 release/moc_signup1.o

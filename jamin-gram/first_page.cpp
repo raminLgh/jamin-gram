@@ -4,6 +4,7 @@
 #include "main_login.h"
 
 QMainWindow* Prev_ptr = nullptr;
+person User;
 
 first_page::first_page(QWidget *parent)
     : QMainWindow(parent)

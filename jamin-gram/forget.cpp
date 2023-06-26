@@ -1,14 +1,12 @@
 #include "forget.h"
 #include "ui_forget.h"
-
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
 
-#include "main_login.h"
-
 extern QMainWindow* Prev_ptr;
+extern person User;
 
 forget::forget(QWidget *parent) :
     QMainWindow(parent),
@@ -26,7 +24,7 @@ void forget::on_pushButton_clicked()
 {
     if(ui->phone->text().length()==0||ui->username->text().length()==0){
         QMessageBox* m1 = new QMessageBox();
-        m1->information(this,"forgot","Fiel all items carefully");
+        m1->information(this,"forget","Fill all items carefully");
     }
     else{
         QFile file("Information.txt");
@@ -43,19 +41,16 @@ void forget::on_pushButton_clicked()
             while(1){
                 tes>>_name>>_phone>>_pasword;
 
-                if(_name==""||_phone==""||_pasword==""){
+                if(_name==""||_phone==""||_pasword=="")
                     break;
 
-                }
-
-                if(ui->username->text()==_name&&ui->phone->text()==_phone){
+                if(ui->username->text()==_name && ui->phone->text()==_phone){
 
                     //
-
                     QMessageBox* m2 = new QMessageBox();
                     QString tmp = "your pasword is : ";
                     tmp+=_pasword;
-                    m2->information(this,"forgot",tmp);
+                    m2->information(this,"forget",tmp);
                     return;
 
                 }
@@ -68,12 +63,12 @@ void forget::on_pushButton_clicked()
             //if cant find user in file
 
             QMessageBox* m3 = new QMessageBox();
-            m3->information(this,"forgot","User not find");
+            m3->information(this,"forget","User not find");
 
         }
         else{
             QMessageBox* m2 = new QMessageBox();
-            m2->information(this,"forgot","Fiel not exist");
+            m2->information(this,"forget","File not exist");
         }
     }
 }

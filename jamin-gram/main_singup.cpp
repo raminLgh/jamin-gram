@@ -4,6 +4,9 @@
 #include <QFile>
 #include <QTextStream>
 
+extern QMainWindow* Prev_ptr;
+extern person User;
+
 main_singup::main_singup(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::main_singup)
@@ -117,11 +120,17 @@ void main_singup::on_verifypb_clicked()
                             //recive reply
                             QByteArray data2 = reply2->readAll();
                             qDebug()<<data2;
+                            QJsonDocument duc2 = QJsonDocument::fromJson(data2);
+                            QJsonObject obj2 = duc2.object();
+
                             //new object and get token:
+                            User.name= ui->username->text();
+                            User.pass= ui->pasword->text();
+                            User.token= obj2["token"].toString();
 
                         }
                         else{
-                            qDebug()<< "EROOR to recive data from server: "<<reply2->errorString();
+                            qDebug()<< "ERROR to recive data from server: "<<reply2->errorString();
                         }
 
                      });

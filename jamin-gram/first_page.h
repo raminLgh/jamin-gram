@@ -3,6 +3,12 @@
 
 #include <QMainWindow>
 
+typedef struct Person{
+   QString name;
+   QString pass;
+   QString token;
+} person;
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class first_page; }
 QT_END_NAMESPACE

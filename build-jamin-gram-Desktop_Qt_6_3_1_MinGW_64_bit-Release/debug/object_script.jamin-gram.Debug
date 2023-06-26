@@ -1,4 +1,5 @@
 debug/concatenate_string.o
+debug/forget.o
 debug/main.o
 debug/first_page.o
 debug/main_login.o
@@ -9,6 +10,7 @@ debug/signup3.o
 debug/signup4.o
 debug/qrc_aks.o
 debug/moc_first_page.o
+debug/moc_forget.o
 debug/moc_main_login.o
 debug/moc_main_singup.o
 debug/moc_signup1.o

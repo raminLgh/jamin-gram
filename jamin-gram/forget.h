@@ -3,6 +3,12 @@
 
 #include <QMainWindow>
 
+typedef struct Person{
+   QString name;
+   QString pass;
+   QString token;
+} person;
+
 namespace Ui {
 class forget;
 }

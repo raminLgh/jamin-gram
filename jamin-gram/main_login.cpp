@@ -4,6 +4,7 @@
 #include "forget.h"
 
 extern QMainWindow* Prev_ptr;
+extern person User;
 
 main_login::main_login(QWidget *parent) :
     QMainWindow(parent),
@@ -32,7 +33,7 @@ void main_login::on_verifypb_clicked()
 {
     if(ui->pasword2->text().length()==0||ui->username2->text().length()==0){
         QMessageBox *notcomplet = new QMessageBox();
-        notcomplet->information(this,"Error","Fill all the items carefully");
+        notcomplet->information(this,"Error","Fill the all items carefully");
     }
     else {
         concatenate_string  cs;
@@ -61,6 +62,9 @@ void main_login::on_verifypb_clicked()
                     QMessageBox* meb = new QMessageBox();
                     meb->information(this,"message",obj["message"].toString());
                     //new object and get token:
+                    User.name= ui->username2->text();
+                    User.pass= ui->pasword2->text();
+                    User.token= obj["token"].toString();
 
                 }
                 else {
@@ -69,7 +73,7 @@ void main_login::on_verifypb_clicked()
                 }
             }
             else{
-                qDebug()<< "EROOR to recive data from server: "<<reply_d->errorString();
+                qDebug()<< "ERROR to recive data from server: "<<reply_d->errorString();
             }
 
          });
@@ -88,6 +92,6 @@ void main_login::on_verifypb_2_clicked()
     forget* f1 = new forget();
     f1->show();
 
-    Prev_ptr->hide();
+    this->hide();
 
 }
