@@ -1,4 +1,5 @@
 release/channel.o
+release/chat.o
 release/concatenate_string.o
 release/forget.o
 release/groups.o
@@ -12,6 +13,7 @@ release/signup3.o
 release/signup4.o
 release/qrc_aks.o
 release/moc_channel.o
+release/moc_chat.o
 release/moc_first_page.o
 release/moc_forget.o
 release/moc_groups.o

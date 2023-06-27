@@ -24,8 +24,7 @@ forget::~forget()
 void forget::on_pushButton_clicked()
 {
     if(ui->phone->text().length()==0||ui->username->text().length()==0){
-        QMessageBox* m1 = new QMessageBox();
-        m1->information(this,"forget","Fill all items carefully");
+        QMessageBox::information(this,"forget","Fill all items carefully");
     }
     else{
         QFile file("Information.txt");

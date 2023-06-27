@@ -1,6 +1,5 @@
 #include "chat.h"
 #include "ui_chat.h"
-
 #include "channel.h"
 #include "groups.h"
 #include "concatenate_string.h"
@@ -25,29 +24,25 @@ chat::~chat()
 void chat::on_channelpb_clicked()
 {
     chat_page = this;
-    if(channel_page==nullptr){
-       channel* c1 = new channel();
-       this->hide();
-       c1->show();
-    }
-    else{
-        channel_page->show();
-        this->hide();
-    }
+
+    channel_page->show();
+
+    this->hide();
 }
 
 void chat::on_grouppb_clicked()
 {
     chat_page = this;
-    if(group_page==nullptr){
-       groups* g1 = new groups();
-       this->hide();
-       g1->show();
+
+    if(group_page != nullptr){
+        group_page->show();
     }
     else{
-        group_page->show();
-        this->hide();
+        groups* g1 = new groups();
+        g1->show();
     }
+
+    this->hide();
 }
 
 void chat::on_addpb_clicked()
@@ -98,7 +93,7 @@ void chat::on_actionLOg_out_triggered()
 
             }
             else{
-                QMessageBox::information(this,"Eror",obj2["message"].toString());
+                QMessageBox::information(this,"Error",obj2["message"].toString());
             }
         }
         else{
@@ -130,37 +125,35 @@ void chat::on_actionGet_chat_lists_triggered()
             QString code = obj["code"].toString();
             if(code=="200"){
 
-                QMessageBox *m2 = new QMessageBox();
-                m2->information(this,"info",obj["message"].toString());
+                QMessageBox::information(this,"info",obj["message"].toString());
 
 
                 QString tmp = obj["message"].toString();
                 qDebug()<<tmp;
 
                 QString count;
-                for(int i=0;i<tmp.length();++i){
-                    if(tmp[i]=="-"){
-                        count = tmp[i+1];
+                for(int i=15; i<tmp.length();++i){
+
+                    count += tmp[i];
+                    if(tmp[i+1]=='-'){
                         break;
                     }
                 }
-                qDebug()<<count<<"count of contact";
+                qDebug()<< "Number of chats: " << count;
 
-                QString m = "block ";
+                QString m;
                 ui->list->clear();
                 for(int i=0;i<count.toInt();++i){
-                    m+=QString::number(i);
+                    m = "block " + QString::number(i);
                     qDebug()<< m;
 
                     ui->list->addItem((obj[m].toObject())["user_name"].toString());
 
-                    m = "block ";
                 }
                 qDebug()<< obj;
             }
             else{
-                QMessageBox *m2 = new QMessageBox();
-                m2->information(this,"Eror",obj["message"].toString());
+                QMessageBox::information(this,"Error",obj["message"].toString());
             }
         }
         else{

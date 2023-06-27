@@ -29,6 +29,7 @@ class Ui_channel
 {
 public:
     QAction *Logout;
+    QAction *action_Get_channel_list;
     QWidget *centralwidget;
     QPushButton *grouppb;
     QListWidget *list;
@@ -68,11 +69,13 @@ public:
 ""));
         Logout = new QAction(channel);
         Logout->setObjectName(QString::fromUtf8("Logout"));
+        action_Get_channel_list = new QAction(channel);
+        action_Get_channel_list->setObjectName(QString::fromUtf8("action_Get_channel_list"));
         centralwidget = new QWidget(channel);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         grouppb = new QPushButton(centralwidget);
         grouppb->setObjectName(QString::fromUtf8("grouppb"));
-        grouppb->setGeometry(QRect(510, 20, 100, 32));
+        grouppb->setGeometry(QRect(510, 14, 100, 32));
         QFont font;
         font.setFamilies({QString::fromUtf8("Arial Narrow")});
         font.setPointSize(14);
@@ -123,7 +126,7 @@ public:
 "}"));
         channelpb = new QPushButton(centralwidget);
         channelpb->setObjectName(QString::fromUtf8("channelpb"));
-        channelpb->setGeometry(QRect(90, 20, 100, 32));
+        channelpb->setGeometry(QRect(90, 14, 100, 32));
         channelpb->setFont(font);
         channelpb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background:#03dac6;\n"
@@ -135,7 +138,7 @@ public:
 "}"));
         chatpb = new QPushButton(centralwidget);
         chatpb->setObjectName(QString::fromUtf8("chatpb"));
-        chatpb->setGeometry(QRect(300, 20, 100, 32));
+        chatpb->setGeometry(QRect(300, 14, 100, 32));
         chatpb->setFont(font);
         chatpb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background:white;\n"
@@ -197,13 +200,15 @@ public:
         pushButton->setFlat(true);
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(160, 492, 120, 31));
+        textEdit->setGeometry(QRect(160, 491, 120, 31));
+        textEdit->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         textEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
         textEdit->setFrameShape(QFrame::NoFrame);
         textEdit->setReadOnly(true);
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
-        textEdit_2->setGeometry(QRect(160, 532, 120, 31));
+        textEdit_2->setGeometry(QRect(160, 531, 120, 31));
+        textEdit_2->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         textEdit_2->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(240, 240, 240);"));
         textEdit_2->setFrameShape(QFrame::NoFrame);
@@ -218,6 +223,8 @@ public:
 
         menubar->addAction(menuSeting->menuAction());
         menuSeting->addAction(Logout);
+        menuSeting->addSeparator();
+        menuSeting->addAction(action_Get_channel_list);
 
         retranslateUi(channel);
 
@@ -230,6 +237,10 @@ public:
         Logout->setText(QCoreApplication::translate("channel", "Log out", nullptr));
 #if QT_CONFIG(shortcut)
         Logout->setShortcut(QCoreApplication::translate("channel", "Ctrl+L", nullptr));
+#endif // QT_CONFIG(shortcut)
+        action_Get_channel_list->setText(QCoreApplication::translate("channel", " Get channel list", nullptr));
+#if QT_CONFIG(shortcut)
+        action_Get_channel_list->setShortcut(QCoreApplication::translate("channel", "Ctrl+C", nullptr));
 #endif // QT_CONFIG(shortcut)
         grouppb->setText(QCoreApplication::translate("channel", "groups", nullptr));
 #if QT_CONFIG(tooltip)

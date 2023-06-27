@@ -8,7 +8,6 @@
 extern QMainWindow* Prev_ptr;
 extern person User;
 
-
 extern QMainWindow* channel_page;
 extern QMainWindow* group_page ;
 extern QMainWindow* chat_page ;

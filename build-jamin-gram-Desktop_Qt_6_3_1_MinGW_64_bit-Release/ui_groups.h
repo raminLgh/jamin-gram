@@ -29,6 +29,7 @@ class Ui_groups
 {
 public:
     QAction *actionLog_out;
+    QAction *actionGet_group_list;
     QWidget *centralwidget;
     QPushButton *channelpb;
     QTextEdit *textEdit_2;
@@ -67,11 +68,13 @@ public:
 "}"));
         actionLog_out = new QAction(groups);
         actionLog_out->setObjectName(QString::fromUtf8("actionLog_out"));
+        actionGet_group_list = new QAction(groups);
+        actionGet_group_list->setObjectName(QString::fromUtf8("actionGet_group_list"));
         centralwidget = new QWidget(groups);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         channelpb = new QPushButton(centralwidget);
         channelpb->setObjectName(QString::fromUtf8("channelpb"));
-        channelpb->setGeometry(QRect(90, 20, 100, 32));
+        channelpb->setGeometry(QRect(90, 14, 100, 32));
         QFont font;
         font.setFamilies({QString::fromUtf8("Arial Narrow")});
         font.setPointSize(14);
@@ -90,7 +93,8 @@ public:
 "}"));
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
-        textEdit_2->setGeometry(QRect(165, 532, 120, 31));
+        textEdit_2->setGeometry(QRect(165, 531, 120, 31));
+        textEdit_2->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         textEdit_2->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(240, 240, 240);"));
         textEdit_2->setFrameShape(QFrame::NoFrame);
@@ -118,7 +122,8 @@ public:
 "}"));
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(165, 492, 120, 31));
+        textEdit->setGeometry(QRect(165, 491, 120, 31));
+        textEdit->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         textEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(240, 240, 240);"));
         textEdit->setFrameShape(QFrame::NoFrame);
         textEdit->setReadOnly(true);
@@ -149,7 +154,7 @@ public:
         type_ted->setFrameShadow(QFrame::Sunken);
         grouppb = new QPushButton(centralwidget);
         grouppb->setObjectName(QString::fromUtf8("grouppb"));
-        grouppb->setGeometry(QRect(510, 20, 100, 32));
+        grouppb->setGeometry(QRect(510, 14, 100, 32));
         grouppb->setFont(font);
         grouppb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background:#03dac6;\n"
@@ -167,7 +172,7 @@ public:
         cr_group_lineEdit->setGeometry(QRect(290, 490, 170, 31));
         chatpb = new QPushButton(centralwidget);
         chatpb->setObjectName(QString::fromUtf8("chatpb"));
-        chatpb->setGeometry(QRect(300, 20, 100, 32));
+        chatpb->setGeometry(QRect(300, 14, 100, 32));
         chatpb->setFont(font);
         chatpb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background:white;\n"
@@ -216,6 +221,8 @@ public:
 
         menubar->addAction(menuOptions->menuAction());
         menuOptions->addAction(actionLog_out);
+        menuOptions->addSeparator();
+        menuOptions->addAction(actionGet_group_list);
 
         retranslateUi(groups);
 
@@ -228,6 +235,10 @@ public:
         actionLog_out->setText(QCoreApplication::translate("groups", "Log out", nullptr));
 #if QT_CONFIG(shortcut)
         actionLog_out->setShortcut(QCoreApplication::translate("groups", "Ctrl+L", nullptr));
+#endif // QT_CONFIG(shortcut)
+        actionGet_group_list->setText(QCoreApplication::translate("groups", "Get group list", nullptr));
+#if QT_CONFIG(shortcut)
+        actionGet_group_list->setShortcut(QCoreApplication::translate("groups", "Ctrl+G", nullptr));
 #endif // QT_CONFIG(shortcut)
         channelpb->setText(QCoreApplication::translate("groups", "chanels", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("groups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

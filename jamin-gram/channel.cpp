@@ -225,6 +225,7 @@ void channel::on_action_Get_channel_list_triggered()
     QUrl url_d(cs.getUrl());
     QNetworkAccessManager* manager_d = new QNetworkAccessManager();
     QNetworkReply* reply_d = manager_d->get(QNetworkRequest(url_d));
+
     QObject::connect(reply_d,&QNetworkReply::finished,[=](){
         if(reply_d->error()==QNetworkReply::NoError){
             //recive reply
@@ -233,39 +234,39 @@ void channel::on_action_Get_channel_list_triggered()
             QJsonDocument duc = QJsonDocument::fromJson(data_d);
             QJsonObject obj = duc.object();
             QString code = obj["code"].toString();
+
             if(code=="200"){
 
-                QMessageBox *m2 = new QMessageBox();
-                m2->information(this,"info",obj["message"].toString());
+                QMessageBox::information(this,"info",obj["message"].toString());
 
 
                 QString tmp = obj["message"].toString();
                 qDebug()<<tmp;
 
                 QString count;
-                for(int i=0;i<tmp.length();++i){
-                    if(tmp[i]=="-"){
-                        count = tmp[i+1];
+                for(int i=12; i<tmp.length();++i){
+
+                    count += tmp[i];
+                    if(tmp[i+1]=='-'){
                         break;
                     }
                 }
-                qDebug()<<count<<"count of channel";
+                qDebug()<< "Number of channels: " << count;
 
-                QString m = "block ";
+                QString m;
                 ui->list->clear();
                 for(int i=0;i<count.toInt();++i){
-                    m+=QString::number(i);
+
+                    m = "block " + QString::number(i);
                     qDebug()<< m;
 
                     ui->list->addItem((obj[m].toObject())["channel_name"].toString());
 
-                    m = "block ";
                 }
                 qDebug()<< obj;
             }
             else{
-                QMessageBox *m2 = new QMessageBox();
-                m2->information(this,"Eror",obj["message"].toString());
+                QMessageBox::information(this,"Error",obj["message"].toString());
             }
         }
         else{
