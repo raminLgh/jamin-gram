@@ -115,16 +115,16 @@ public:
 "color: rgb(255, 255, 255);"));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(392, 350, 63, 30));
+        label_3->setGeometry(QRect(388, 350, 63, 30));
         QFont font4;
-        font4.setPointSize(12);
+        font4.setPointSize(14);
         font4.setBold(true);
         label_3->setFont(font4);
         label_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "color: rgb(138, 0, 207);"));
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(447, 350, 61, 30));
+        label_4->setGeometry(QRect(450, 350, 61, 30));
         label_4->setFont(font4);
         label_4->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "color: rgb(255, 0, 255);"));

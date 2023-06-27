@@ -14,6 +14,8 @@
 #include <QJsonObject>
 #include <QMenu>
 #include <QMenuBar>
+#include <QDir>
+#include <QFile>
 
 
 typedef struct Person{

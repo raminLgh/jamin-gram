@@ -1,7 +1,6 @@
 #include "main_singup.h"
 #include "ui_main_singup.h"
 #include "concatenate_string.h"
-#include <QFile>
 #include <QTextStream>
 #include "channel.h"
 
@@ -124,6 +123,13 @@ void main_singup::on_verifypb_clicked()
                             User.name= ui->username->text();
                             User.pass= ui->pasword->text();
                             User.token= obj2["token"].toString();
+
+                            QDir d(QDir::currentPath());
+                            d.mkdir(User.name);
+                            d.cd(User.name);
+                            d.mkdir("channels");
+                            d.mkdir("groups");
+                            d.mkdir("chats");
 
 
                             ////// show next page

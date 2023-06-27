@@ -47,12 +47,23 @@ void chat::on_grouppb_clicked()
 
 void chat::on_addpb_clicked()
 {
+    QString s;
+    s+=QDir::currentPath()+'/'+User.name+"/chats/"+ui->add_user_lineEdit->text()+".txt";
+
     if(ui->add_user_lineEdit->text().length()==0){
         QMessageBox::information(this,"Error","Enter contact's name first");
     }
+    else if(QFile::exists(s)){
+        QMessageBox::information(this,"Error","this user has already been added!");
+    }
     else
     {
-        QMessageBox::information(this,"info","contact successfuly aded");
+        QMessageBox::information(this,"message","contact successfuly aded");
+
+        QFile file(s);
+        file.open(QFile::WriteOnly|QFile::Text);
+        file.close();
+
         ui->list->addItem(ui->add_user_lineEdit->text());
         ui->add_user_lineEdit->clear();
     }
@@ -88,6 +99,11 @@ void chat::on_actionLOg_out_triggered()
 
             if(code=="200"){
                 QMessageBox::information(this,"info",obj2["message"].toString());
+
+                QString s;
+                s+=QDir::currentPath()+'/'+User.name;
+                QDir d(s);
+                d.removeRecursively();
 
                 this->close();
 

@@ -83,6 +83,12 @@ void groups::on_creatpb_clicked()
                 if(code=="200"){
                     QMessageBox::information(this,"message",obj2["message"].toString());
 
+                    QString s;
+                    s+=QDir::currentPath()+'/'+User.name+"/groups/"+ui->cr_group_lineEdit->text()+".txt";
+                    QFile file(s);
+                    file.open(QFile::WriteOnly|QFile::Text);
+                    file.close();
+
                     ui->list->addItem(ui->cr_group_lineEdit->text());
                     ui->cr_group_lineEdit->clear();
                 }
@@ -130,11 +136,16 @@ void groups::on_joinpb_clicked()
                 QJsonDocument duc3 = QJsonDocument::fromJson(data3);
                 QJsonObject obj3 = duc3.object();
 
-
                 QString code = obj3["code"].toString();
 
                 if(code=="200"){
                     QMessageBox::information(this,"message",obj3["message"].toString());
+
+                    QString s;
+                    s+=QDir::currentPath()+'/'+User.name+"/groups/"+ui->jo_group_lineEdit->text()+".txt";
+                    QFile file(s);
+                    file.open(QFile::WriteOnly|QFile::Text);
+                    file.close();
 
                     ui->list->addItem(ui->jo_group_lineEdit->text());
                     ui->jo_group_lineEdit->clear();
@@ -185,10 +196,15 @@ void groups::on_actionLog_out_triggered()
             if(code=="200"){
                 QMessageBox::information(this,"info",obj["message"].toString());
 
+                QString s;
+                s+=QDir::currentPath()+'/'+User.name;
+                QDir d(s);
+                d.removeRecursively();
+
                 this->close();
             }
             else{
-                QMessageBox::information(this,"Eror",obj["message"].toString());
+                QMessageBox::information(this,"Error",obj["message"].toString());
             }
         }
         else{

@@ -60,8 +60,16 @@ void channel::on_creatpb_clicked()
                 if(code=="200"){
                     QMessageBox::information(this,"message",obj2["message"].toString());
 
+                    QString s;
+                    s+=QDir::currentPath()+'/'+User.name+"/channels/"+ui->cr_chanel_lineEdit->text()+".txt";
+                    QFile file(s);
+                    file.open(QFile::WriteOnly|QFile::Text);
+                    file.close();
+
+
                     ui->list->addItem(ui->cr_chanel_lineEdit->text());
                     ui->cr_chanel_lineEdit->clear();
+
                 }
                 else{
                     QMessageBox::information(this,"Eror",obj2["message"].toString());
@@ -118,6 +126,12 @@ void channel::on_joinpb_clicked()
                 if(code=="200"){
                     QMessageBox::information(this,"message",obj2["message"].toString());
 
+                    QString s;
+                    s+=QDir::currentPath()+'/'+User.name+"/channels/"+ui->jo_channel_lineEdit->text()+".txt";
+                    QFile file(s);
+                    file.open(QFile::WriteOnly|QFile::Text);
+                    file.close();
+
                     ui->list->addItem(ui->jo_channel_lineEdit->text());
                     ui->jo_channel_lineEdit->clear();
                 }
@@ -168,11 +182,15 @@ void channel::on_Logout_triggered()
                 if(code=="200"){
                     QMessageBox::information(this,"info",obj2["message"].toString());
 
-                    this->close();
+                    QString s;
+                    s+=QDir::currentPath()+'/'+User.name;
+                    QDir d(s);
+                    d.removeRecursively();
 
+                    this->close();
                 }
                 else{
-                    QMessageBox::information(this,"Eror",obj2["message"].toString());
+                    QMessageBox::information(this,"Error",obj2["message"].toString());
                 }
             }
             else{

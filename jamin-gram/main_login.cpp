@@ -71,12 +71,20 @@ void main_login::on_verifypb_clicked()
                     User.pass= ui->pasword2->text();
                     User.token= obj["token"].toString();
 
+                    QDir d(QDir::currentPath());
+                    d.mkdir(User.name);
+                    d.cd(User.name);
+                    d.mkdir("channels");
+                    d.mkdir("groups");
+                    d.mkdir("chats");
 
                     /////////show next page
                     channel* ch2 = new channel();
                     this->close();
                     ch2->show();
-                    /////////
+                    //create 3 thread for write on all 3 page file's in channel class in future by an extern json object parameters
+                    //create a thread for update messages in current page in channel class
+                    ////////
 
                 }
                 else {
