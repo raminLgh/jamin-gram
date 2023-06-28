@@ -3,6 +3,11 @@
 
 #include <QMainWindow>
 
+
+#include <QListWidgetItem>
+#include <QListWidget>
+
+
 namespace Ui {
 class chat;
 }

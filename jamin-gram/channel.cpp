@@ -11,6 +11,8 @@ extern QMainWindow* channel_page;
 extern QMainWindow* group_page ;
 extern QMainWindow* chat_page ;
 
+QListWidgetItem* current_channel_item = nullptr;
+
 channel::channel(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::channel)
@@ -294,4 +296,80 @@ void channel::on_action_Get_channel_list_triggered()
 
 
 }
+
+void channel::on_list_itemClicked(QListWidgetItem *item)
+{
+    ui->chat_ted->clear();
+
+    if(current_channel_item==nullptr){
+        current_channel_item=item;
+        item->setBackgroundColor("light blue");
+        item->setTextColor("yellow");
+    }
+    else{
+        current_channel_item->setBackgroundColor("white");
+        current_channel_item->setTextColor("black");
+
+        current_channel_item=item;
+        item->setBackgroundColor("light blue");
+        item->setTextColor("yellow");
+    }
+}
+
+void channel::on_pushButton_clicked()
+{
+    if(ui->type_ted->toPlainText()==""){
+        QMessageBox::information(this,"message","Type something first");
+    }
+    else if(current_channel_item==nullptr){
+        QMessageBox::information(this,"message","Chose one Channel to send message");
+    }
+    else{
+        concatenate_string c1;
+        c1.addString("sendmessagechannel?token=");
+        c1.addString(User.token);
+        c1.addString("&dst=");
+        c1.addString(current_channel_item->text()); ///that is item clisked on listWidget
+        c1.addString("&body=");
+        c1.addString(ui->type_ted->toPlainText());
+
+        qDebug()<<c1.getUrl();
+
+        //send request
+        QUrl url2(c1.getUrl());
+        QNetworkAccessManager* manager2 = new QNetworkAccessManager();
+        QNetworkReply* reply2 = manager2->get(QNetworkRequest(url2));
+
+
+        QObject::connect(reply2,&QNetworkReply::finished,[=](){
+
+            if(reply2->error()==QNetworkReply::NoError){
+                //recive reply
+                QByteArray data2 = reply2->readAll();
+                qDebug()<<data2;
+                QJsonDocument duc2 = QJsonDocument::fromJson(data2);
+                QJsonObject obj2 = duc2.object();
+
+
+                QString code = obj2["code"].toString();
+
+                if(code=="200"){
+                    ///////append message
+                    ui->chat_ted->append(ui->type_ted->toPlainText());
+                    QMessageBox::information(this,"message",obj2["message"].toString());
+                    ///////// clear textEdit type
+                    ui->type_ted->clear();
+                }
+                else{
+                    QMessageBox::information(this,"message",obj2["message"].toString());
+                }
+            }
+            else{
+                qDebug()<< "ERROR to recive data from server: "<<reply2->errorString();
+            }
+
+         });
+    }
+}
+
 

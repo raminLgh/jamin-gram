@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 
-
+#include <QListWidgetItem>
+#include <QListWidget>
 
 
 namespace Ui {
@@ -30,6 +31,10 @@ private slots:
     void on_action_Get_channel_list_triggered();
 
     void on_chatpb_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_list_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::channel *ui;

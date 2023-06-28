@@ -82,7 +82,7 @@ border:1px solid #03dac6;
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -103,9 +103,9 @@ border:1px solid #03dac6;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>10</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -130,7 +130,9 @@ border-radius:8px;
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -310,7 +312,8 @@ border-radius:10px;
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/photo/image/logo_tell.jpg);</string>
+     <string notr="true">image: url(:/photo/image/logo_tell.jpg);
+border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);</string>
     </property>
     <property name="text">
      <string/>
