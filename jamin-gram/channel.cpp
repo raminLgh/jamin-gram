@@ -430,6 +430,7 @@ void channel::on_pushButton_2_clicked()
                 qDebug()<<"number of message"<<count;
 
                 ///read data from block
+                ui->chat_ted->clear();
 
                 QString b1;
                 for(int i=0;i<count.toInt();++i){
