@@ -250,12 +250,17 @@ void groups::on_actionGet_group_list_triggered()
                 qDebug()<<tmp;
 
                 QString count;
-                for(int i=12; i<tmp.length();++i){
-
-                    count += tmp[i];
-                    if(tmp[i+1]=='-'){
+                for(int i=0; i<tmp.length();++i){
+                   if(tmp[i]=='-'){
+                       i++;
+                    for(int j =i; j < tmp.length();j++){
+                    count += tmp[j];
+                    if(tmp[j+1]=='-'){
                         break;
                     }
+                   }
+                    break;
+                }
                 }
                 qDebug()<< "Number of groups: " << count;
 
@@ -397,12 +402,17 @@ void groups::on_pushButton_2_clicked()
                 QString count;
 
                 /////extract number of message
-                for(int i=11;i<tmp.length();++i){
-
-                    count+=tmp[i];
-
-                    if(tmp[i+1]=='-')
+                for(int i=0; i<tmp.length();++i){
+                   if(tmp[i]=='-'){
+                       i++;
+                    for(int j =i; j < tmp.length();j++){
+                    count += tmp[j];
+                    if(tmp[j+1]=='-'){
                         break;
+                    }
+                   }
+                    break;
+                }
                 }
 
                 qDebug()<<"number of message"<<count;
