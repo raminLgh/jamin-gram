@@ -173,7 +173,7 @@ void chat::on_actionGet_chat_lists_triggered()
                     m = "block " + QString::number(i);
                     qDebug()<< m;
 
-                    ui->list->addItem((obj[m].toObject())["user_name"].toString());
+                    ui->list->addItem((obj[m].toObject())["src"].toString());
 
                 }
                 qDebug()<< obj;
