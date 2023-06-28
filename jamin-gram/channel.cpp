@@ -373,3 +373,83 @@ void channel::on_pushButton_clicked()
 }
 
 
+
+void channel::on_pushButton_2_clicked()
+{
+    if(current_channel_item==nullptr){
+        QMessageBox::warning(this,"message","Chose one channel");
+    }
+    else{
+    concatenate_string c1;
+    c1.addString("getchannelchats?token=");
+    c1.addString(User.token);
+    c1.addString("&dst=");
+    c1.addString(current_channel_item->text()); ///that is item clisked on listWidget
+
+    qDebug()<<c1.getUrl();
+
+    //send request
+    QUrl url2(c1.getUrl());
+    QNetworkAccessManager* manager2 = new QNetworkAccessManager();
+    QNetworkReply* reply2 = manager2->get(QNetworkRequest(url2));
+
+
+    QObject::connect(reply2,&QNetworkReply::finished,[=](){
+
+        if(reply2->error()==QNetworkReply::NoError){
+            //recive reply
+            QByteArray data2 = reply2->readAll();
+            qDebug()<<data2;
+            QJsonDocument duc2 = QJsonDocument::fromJson(data2);
+            QJsonObject obj2 = duc2.object();
+
+
+            QString code = obj2["code"].toString();
+
+            if(code=="200"){
+                QMessageBox::information(this,"message",obj2["message"].toString());
+
+                QString tmp =obj2["message"].toString();
+
+                QString count;
+
+
+                /////extract number of message
+                for(int i=11;i<tmp.length();++i){
+
+                    count+=tmp[i];
+
+                    if(tmp[i+1]=="-")
+                        break;
+                }
+
+                qDebug()<<"number of message"<<count;
+
+                ///read data from block
+
+                QString b1 = "block ";
+                for(int i=0;i<count.toInt();++i){
+                    b1+=QString::number(i);
+
+                    QString body = (obj2[b1].toObject())["body"].toString();
+                    QString sender = (obj2[b1].toObject())["src"].toString();
+                    sender+=":";
+
+                    ui->chat_ted->append(sender);
+                    ui->chat_ted->append(body);
+
+                    b1 = "block ";
+                }
+
+
+            }
+            else{
+                QMessageBox::information(this,"message",obj2["message"].toString());
+            }
+        }
+        else{
+            qDebug()<< "ERROR to recive data from server: "<<reply2->errorString();
+        }
+    });
+ }
+}

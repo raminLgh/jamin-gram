@@ -36,6 +36,8 @@ private slots:
 
     void on_list_itemClicked(QListWidgetItem *item);
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::channel *ui;
 };

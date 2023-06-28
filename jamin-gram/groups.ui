@@ -204,7 +204,7 @@ p, li { white-space: pre-wrap; }
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">border:5px solid  purple;</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="type_ted">
