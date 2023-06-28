@@ -55,7 +55,14 @@ public:
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/photo/image/customer community.png"), QSize(), QIcon::Normal, QIcon::Off);
         main_singup->setWindowIcon(icon);
-        main_singup->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        main_singup->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         centralwidget = new QWidget(main_singup);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         textEdit = new QTextEdit(centralwidget);
@@ -71,6 +78,13 @@ public:
         firstname = new QLineEdit(centralwidget);
         firstname->setObjectName(QString::fromUtf8("firstname"));
         firstname->setGeometry(QRect(413, 90, 120, 26));
+        firstname->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         lineEdit_3 = new QLineEdit(centralwidget);
         lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
         lineEdit_3->setGeometry(QRect(560, 90, 27, 26));
@@ -79,6 +93,13 @@ public:
         lastname = new QLineEdit(centralwidget);
         lastname->setObjectName(QString::fromUtf8("lastname"));
         lastname->setGeometry(QRect(593, 90, 120, 26));
+        lastname->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         lineEdit_2 = new QLineEdit(centralwidget);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
         lineEdit_2->setGeometry(QRect(380, 220, 27, 26));
@@ -87,6 +108,13 @@ public:
         phone = new QLineEdit(centralwidget);
         phone->setObjectName(QString::fromUtf8("phone"));
         phone->setGeometry(QRect(413, 220, 190, 26));
+        phone->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         lineEdit_4 = new QLineEdit(centralwidget);
         lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
         lineEdit_4->setGeometry(QRect(380, 175, 27, 26));
@@ -95,9 +123,23 @@ public:
         Email = new QLineEdit(centralwidget);
         Email->setObjectName(QString::fromUtf8("Email"));
         Email->setGeometry(QRect(413, 176, 190, 26));
+        Email->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         username = new QLineEdit(centralwidget);
         username->setObjectName(QString::fromUtf8("username"));
         username->setGeometry(QRect(413, 133, 190, 26));
+        username->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         lineEdit_7 = new QLineEdit(centralwidget);
         lineEdit_7->setObjectName(QString::fromUtf8("lineEdit_7"));
         lineEdit_7->setGeometry(QRect(380, 134, 27, 26));
@@ -111,6 +153,13 @@ public:
         pasword = new QLineEdit(centralwidget);
         pasword->setObjectName(QString::fromUtf8("pasword"));
         pasword->setGeometry(QRect(413, 264, 190, 26));
+        pasword->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         pasword->setEchoMode(QLineEdit::Password);
         lineEdit_6 = new QLineEdit(centralwidget);
         lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
@@ -124,6 +173,13 @@ public:
         font.setPointSize(8);
         font.setBold(false);
         repasword->setFont(font);
+        repasword->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         repasword->setEchoMode(QLineEdit::Password);
         verifypb = new QPushButton(centralwidget);
         verifypb->setObjectName(QString::fromUtf8("verifypb"));
@@ -132,7 +188,8 @@ public:
         font1.setPointSize(9);
         font1.setBold(true);
         verifypb->setFont(font1);
-        verifypb->setStyleSheet(QString::fromUtf8("background-color: rgb(78, 156, 234);"));
+        verifypb->setStyleSheet(QString::fromUtf8("background-color: rgb(78, 156, 234);\n"
+"border-radius:10px;"));
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
         textEdit_2->setGeometry(QRect(428, 18, 221, 41));
@@ -214,7 +271,7 @@ public:
         repasword->setPlaceholderText(QCoreApplication::translate("main_singup", " retype pasword", nullptr));
         verifypb->setText(QCoreApplication::translate("main_singup", "verify", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("main_singup", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Arial Narrow'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; color:#aa00ff;\">sign</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt;\"> up </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; color:#0055ff;\">form</span></p></body></html>", nullptr));

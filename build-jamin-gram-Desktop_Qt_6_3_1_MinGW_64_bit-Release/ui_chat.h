@@ -42,6 +42,7 @@ public:
     QPushButton *addpb;
     QPushButton *pushButton;
     QTextEdit *textEdit_2;
+    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QMenu *menuOptions;
 
@@ -79,17 +80,17 @@ public:
         list->setObjectName(QString::fromUtf8("list"));
         list->setGeometry(QRect(490, 60, 200, 414));
         QFont font;
-        font.setPointSize(10);
+        font.setPointSize(11);
         font.setBold(true);
         list->setFont(font);
-        list->setStyleSheet(QString::fromUtf8(""));
+        list->setStyleSheet(QString::fromUtf8("border:5px solid  purple;"));
         chat_ted = new QTextEdit(centralwidget);
         chat_ted->setObjectName(QString::fromUtf8("chat_ted"));
         chat_ted->setGeometry(QRect(10, 60, 475, 370));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Arial")});
-        font1.setPointSize(10);
-        font1.setBold(false);
+        font1.setPointSize(11);
+        font1.setBold(true);
         chat_ted->setFont(font1);
         chat_ted->setStyleSheet(QString::fromUtf8("QTextEdit{\n"
 "border-image: url(:/photo/image/Screenshot_2023-06-26-19-28-14-376-edit_org.telegram.messenger.jpg);\n"
@@ -99,10 +100,7 @@ public:
         type_ted = new QTextEdit(centralwidget);
         type_ted->setObjectName(QString::fromUtf8("type_ted"));
         type_ted->setGeometry(QRect(10, 430, 431, 44));
-        QFont font2;
-        font2.setFamilies({QString::fromUtf8("Arial")});
-        font2.setPointSize(10);
-        type_ted->setFont(font2);
+        type_ted->setFont(font1);
         type_ted->setStyleSheet(QString::fromUtf8("QTextEdit{\n"
 "background:white;\n"
 "border:1px solid gray;\n"
@@ -116,11 +114,11 @@ public:
         grouppb = new QPushButton(centralwidget);
         grouppb->setObjectName(QString::fromUtf8("grouppb"));
         grouppb->setGeometry(QRect(510, 14, 100, 32));
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("Arial Narrow")});
-        font3.setPointSize(14);
-        font3.setBold(true);
-        grouppb->setFont(font3);
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Arial Narrow")});
+        font2.setPointSize(14);
+        font2.setBold(true);
+        grouppb->setFont(font2);
         grouppb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background:white;\n"
 "font-size:14pt;\n"
@@ -135,7 +133,7 @@ public:
         chatpb = new QPushButton(centralwidget);
         chatpb->setObjectName(QString::fromUtf8("chatpb"));
         chatpb->setGeometry(QRect(300, 14, 100, 32));
-        chatpb->setFont(font3);
+        chatpb->setFont(font2);
         chatpb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background:#03dac6;\n"
 "color:white;\n"
@@ -149,7 +147,7 @@ public:
         channelpb = new QPushButton(centralwidget);
         channelpb->setObjectName(QString::fromUtf8("channelpb"));
         channelpb->setGeometry(QRect(90, 14, 100, 32));
-        channelpb->setFont(font3);
+        channelpb->setFont(font2);
         channelpb->setStyleSheet(QString::fromUtf8("\n"
 "QPushButton{\n"
 "background:white;\n"
@@ -166,10 +164,11 @@ public:
         addpb = new QPushButton(centralwidget);
         addpb->setObjectName(QString::fromUtf8("addpb"));
         addpb->setGeometry(QRect(470, 512, 100, 31));
-        addpb->setFont(font3);
+        addpb->setFont(font2);
         addpb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-color: rgb(85, 170, 255);\n"
 "font-size:14pt;\n"
+"border-radius:10px;\n"
 "}"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
@@ -178,7 +177,8 @@ public:
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logo_tell.jpg);"));
+        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logo_tell.jpg);\n"
+"border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);"));
         pushButton->setFlat(true);
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
@@ -188,6 +188,9 @@ public:
 "background-color: rgb(240, 240, 240);"));
         textEdit_2->setFrameShape(QFrame::NoFrame);
         textEdit_2->setReadOnly(true);
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(0, 20, 80, 29));
         chat->setCentralWidget(centralwidget);
         menubar = new QMenuBar(chat);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -233,6 +236,7 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#55aaff;\">add</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#0000ff;\">contact</span></p></body></html>", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("chat", "PushButton", nullptr));
         menuOptions->setTitle(QCoreApplication::translate("chat", "Options", nullptr));
     } // retranslateUi
 

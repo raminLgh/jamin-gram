@@ -55,7 +55,7 @@ public:
         font.setPointSize(13);
         font.setBold(true);
         previous->setFont(font);
-        previous->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);\n"
+        previous->setStyleSheet(QString::fromUtf8("border-radius:10px;background-color: rgb(255, 170, 0);\n"
 "color: rgb(255, 255, 255);"));
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
@@ -70,7 +70,7 @@ public:
         nextpb->setObjectName(QString::fromUtf8("nextpb"));
         nextpb->setGeometry(QRect(240, 440, 80, 32));
         nextpb->setFont(font);
-        nextpb->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 85, 0);\n"
+        nextpb->setStyleSheet(QString::fromUtf8("border-radius:10px;background-color: rgb(255, 85, 0);\n"
 "color: rgb(255, 255, 255);"));
         nextpb->setAutoDefault(false);
         progressBar = new QProgressBar(centralwidget);
@@ -89,7 +89,7 @@ public:
         signup4->setCentralWidget(centralwidget);
         menubar = new QMenuBar(signup4);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 400, 26));
+        menubar->setGeometry(QRect(0, 0, 400, 21));
         signup4->setMenuBar(menubar);
         statusbar = new QStatusBar(signup4);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -108,13 +108,13 @@ public:
         signup4->setWindowTitle(QCoreApplication::translate("signup4", "Powerfull", nullptr));
         previous->setText(QCoreApplication::translate("signup4", "previous", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("signup4", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:700; color:#ff0000;\">POWER</span><span style=\" font-size:16pt; font-weight:700; color:#ffaa00;\">FULL</span></p>\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI'; font-size:16pt; font-weight:696; color:#ff0000;\">POWER</span><span style=\" font-family:'Segoe UI'; font-size:16pt; font-weight:696; color:#ffaa00;\">FULL</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text"
-                        "-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#aa00ff;\">jamin</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#643296;\">gram</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">has no limits on the </span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0"
+                        "px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#aa00ff;\">jamin</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#643296;\">gram</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">has no limits on the </span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">size of your media</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">and chats</span></p></body></html>", nullptr));
         nextpb->setText(QCoreApplication::translate("signup4", "start", nullptr));

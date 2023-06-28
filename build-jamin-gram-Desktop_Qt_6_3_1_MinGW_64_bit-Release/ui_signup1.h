@@ -56,13 +56,16 @@ public:
         font.setBold(true);
         previous->setFont(font);
         previous->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);\n"
-"color: rgb(255, 255, 255);"));
+"color: rgb(255, 255, 255);\n"
+"border-radius:10px;\n"
+""));
         nextpb = new QPushButton(centralwidget);
         nextpb->setObjectName(QString::fromUtf8("nextpb"));
         nextpb->setGeometry(QRect(240, 440, 80, 32));
         nextpb->setFont(font);
         nextpb->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 85, 0);\n"
-"color: rgb(255, 255, 255);"));
+"color: rgb(255, 255, 255);\n"
+"border-radius:10px;"));
         nextpb->setAutoDefault(false);
         progressBar = new QProgressBar(centralwidget);
         progressBar->setObjectName(QString::fromUtf8("progressBar"));
@@ -89,7 +92,7 @@ public:
         signup1->setCentralWidget(centralwidget);
         menubar = new QMenuBar(signup1);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 400, 26));
+        menubar->setGeometry(QRect(0, 0, 400, 21));
         signup1->setMenuBar(menubar);
         statusbar = new QStatusBar(signup1);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -109,16 +112,16 @@ public:
         previous->setText(QCoreApplication::translate("signup1", "previous", nullptr));
         nextpb->setText(QCoreApplication::translate("signup1", "next", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("signup1", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:700; color:#ff0000;\">FA</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:700; color:#f69900;\">ST</span></p>\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:696; color:#ff0000;\">FA</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; font-weight:696; color:#f69900;\">ST</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; marg"
-                        "in-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#aa00ff;\">jamin</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#643296;\">gram</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">deliver message</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+                        "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#aa00ff;\">jamin</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#643296;\">gram</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">deliver message</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">faster than any other </span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">application</span><span style=\""
-                        " font-family:'MS Shell Dlg 2'; font-size:10pt;\"> </span></p></body></html>", nullptr));
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">application</span><span style=\" font-family:'MS She"
+                        "ll Dlg 2'; font-size:10pt;\"> </span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

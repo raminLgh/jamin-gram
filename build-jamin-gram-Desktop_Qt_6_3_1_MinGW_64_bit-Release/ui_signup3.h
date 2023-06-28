@@ -62,13 +62,13 @@ public:
         font.setPointSize(13);
         font.setBold(true);
         previous->setFont(font);
-        previous->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 0);\n"
+        previous->setStyleSheet(QString::fromUtf8("border-radius:10px;background-color: rgb(255, 170, 0);\n"
 "color: rgb(255, 255, 255);"));
         nextpb = new QPushButton(centralwidget);
         nextpb->setObjectName(QString::fromUtf8("nextpb"));
         nextpb->setGeometry(QRect(240, 440, 80, 32));
         nextpb->setFont(font);
-        nextpb->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 85, 0);\n"
+        nextpb->setStyleSheet(QString::fromUtf8("border-radius:10px;background-color: rgb(255, 85, 0);\n"
 "color: rgb(255, 255, 255);"));
         nextpb->setAutoDefault(false);
         textEdit_2 = new QTextEdit(centralwidget);
@@ -89,7 +89,7 @@ public:
         signup3->setCentralWidget(centralwidget);
         menubar = new QMenuBar(signup3);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 400, 26));
+        menubar->setGeometry(QRect(0, 0, 400, 21));
         signup3->setMenuBar(menubar);
         statusbar = new QStatusBar(signup3);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -109,13 +109,13 @@ public:
         previous->setText(QCoreApplication::translate("signup3", "previous", nullptr));
         nextpb->setText(QCoreApplication::translate("signup3", "next", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("signup3", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:700; color:#ff0000;\">FR</span><span style=\" font-size:16pt; font-weight:700; color:#ffaa00;\">EE</span></p>\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI'; font-size:16pt; font-weight:696; color:#ff0000;\">FR</span><span style=\" font-family:'Segoe UI'; font-size:16pt; font-weight:696; color:#ffaa00;\">EE</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-inde"
-                        "nt:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#aa00ff;\">jamin</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#643296;\">gram</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">provides free unlimited </span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -"
+                        "qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#aa00ff;\">jamin</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#643296;\">gram</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">provides free unlimited </span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\">cloud storage for chats</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt;\"> and media</span></p></body></html>", nullptr));
     } // retranslateUi

@@ -33,6 +33,12 @@ private slots:
 
     void on_chatpb_clicked();
 
+    void on_list_itemClicked(QListWidgetItem *item);
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::groups *ui;
 };

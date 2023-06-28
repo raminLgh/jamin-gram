@@ -64,6 +64,13 @@ public:
         username2 = new QLineEdit(centralwidget);
         username2->setObjectName(QString::fromUtf8("username2"));
         username2->setGeometry(QRect(453, 150, 190, 30));
+        username2->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         lineEdit_5 = new QLineEdit(centralwidget);
         lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
         lineEdit_5->setGeometry(QRect(420, 220, 28, 28));
@@ -72,6 +79,13 @@ public:
         pasword2 = new QLineEdit(centralwidget);
         pasword2->setObjectName(QString::fromUtf8("pasword2"));
         pasword2->setGeometry(QRect(453, 218, 190, 30));
+        pasword2->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         pasword2->setEchoMode(QLineEdit::Password);
         checkBoxp = new QCheckBox(centralwidget);
         checkBoxp->setObjectName(QString::fromUtf8("checkBoxp"));
@@ -86,7 +100,8 @@ public:
         font1.setPointSize(10);
         font1.setBold(true);
         verifypb->setFont(font1);
-        verifypb->setStyleSheet(QString::fromUtf8("background-color: rgb(78, 156, 234);"));
+        verifypb->setStyleSheet(QString::fromUtf8("background-color: rgb(78, 156, 234);\n"
+"border-radius:10px;"));
         verifypb_2 = new QPushButton(centralwidget);
         verifypb_2->setObjectName(QString::fromUtf8("verifypb_2"));
         verifypb_2->setGeometry(QRect(455, 290, 180, 32));

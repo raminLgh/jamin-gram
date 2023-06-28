@@ -46,6 +46,7 @@ public:
     QPushButton *pushButton;
     QTextEdit *textEdit;
     QTextEdit *textEdit_2;
+    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QMenu *menuSeting;
 
@@ -96,10 +97,10 @@ public:
         list->setObjectName(QString::fromUtf8("list"));
         list->setGeometry(QRect(490, 60, 200, 414));
         QFont font1;
-        font1.setPointSize(10);
+        font1.setPointSize(11);
         font1.setBold(true);
         list->setFont(font1);
-        list->setStyleSheet(QString::fromUtf8(""));
+        list->setStyleSheet(QString::fromUtf8("border:5px solid  purple;"));
         jo_channel_lineEdit = new QLineEdit(centralwidget);
         jo_channel_lineEdit->setObjectName(QString::fromUtf8("jo_channel_lineEdit"));
         jo_channel_lineEdit->setGeometry(QRect(290, 530, 170, 31));
@@ -108,8 +109,8 @@ public:
         chat_ted->setGeometry(QRect(10, 60, 475, 370));
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Arial")});
-        font2.setPointSize(10);
-        font2.setBold(false);
+        font2.setPointSize(11);
+        font2.setBold(true);
         chat_ted->setFont(font2);
         chat_ted->setStyleSheet(QString::fromUtf8("QTextEdit{\n"
 "border-image: url(:/photo/image/Screenshot_2023-06-26-19-28-14-376-edit_org.telegram.messenger.jpg);\n"
@@ -123,6 +124,7 @@ public:
         joinpb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-color: rgb(0, 170, 0);\n"
 "font-size:14pt;\n"
+"border-radius:10px;\n"
 "}"));
         channelpb = new QPushButton(centralwidget);
         channelpb->setObjectName(QString::fromUtf8("channelpb"));
@@ -157,10 +159,7 @@ public:
         type_ted = new QTextEdit(centralwidget);
         type_ted->setObjectName(QString::fromUtf8("type_ted"));
         type_ted->setGeometry(QRect(10, 430, 431, 44));
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("Arial")});
-        font3.setPointSize(10);
-        type_ted->setFont(font3);
+        type_ted->setFont(font2);
         type_ted->setStyleSheet(QString::fromUtf8("QTextEdit{\n"
 "background:white;\n"
 "border:1px solid gray;\n"
@@ -177,7 +176,7 @@ public:
         creatpb->setFont(font);
         creatpb->setStyleSheet(QString::fromUtf8("background-color: rgb(85, 255, 127);\n"
 "font-size:14pt;\n"
-""));
+"border-radius:10px;"));
         cr_chanel_lineEdit = new QLineEdit(centralwidget);
         cr_chanel_lineEdit->setObjectName(QString::fromUtf8("cr_chanel_lineEdit"));
         cr_chanel_lineEdit->setGeometry(QRect(290, 490, 170, 31));
@@ -196,7 +195,8 @@ public:
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logo_tell.jpg);"));
+        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logo_tell.jpg);\n"
+"border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);"));
         pushButton->setFlat(true);
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
@@ -213,10 +213,13 @@ public:
 "background-color: rgb(240, 240, 240);"));
         textEdit_2->setFrameShape(QFrame::NoFrame);
         textEdit_2->setReadOnly(true);
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(10, 10, 71, 41));
         channel->setCentralWidget(centralwidget);
         menubar = new QMenuBar(channel);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 700, 26));
+        menubar->setGeometry(QRect(0, 0, 700, 21));
         menuSeting = new QMenu(menubar);
         menuSeting->setObjectName(QString::fromUtf8("menuSeting"));
         channel->setMenuBar(menubar);
@@ -260,15 +263,16 @@ public:
         label_2->setText(QString());
         pushButton->setText(QString());
         textEdit->setHtml(QCoreApplication::translate("channel", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;\">New</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;\">Channel</span></p></body></html>", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("channel", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;\">Join</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;\">Channel</span></p></body></html>", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("channel", "PushButton", nullptr));
         menuSeting->setTitle(QCoreApplication::translate("channel", "Options", nullptr));
     } // retranslateUi
 

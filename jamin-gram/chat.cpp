@@ -4,10 +4,15 @@
 #include "groups.h"
 #include "concatenate_string.h"
 
+#define setBackgroundColor setBackground
+#define setTextColor setForeground
+
 extern person User;
 extern QMainWindow* channel_page;
 extern QMainWindow* group_page ;
 extern QMainWindow* chat_page ;
+
+QListWidgetItem* current_chat_item = nullptr;
 
 chat::chat(QWidget *parent) :
     QMainWindow(parent),
@@ -178,3 +183,159 @@ void chat::on_actionGet_chat_lists_triggered()
     });
 
 }
+
+void chat::on_list_itemClicked(QListWidgetItem *item)
+{
+    ui->chat_ted->clear();
+
+    if(current_chat_item==nullptr){
+        current_chat_item=item;
+        item->setBackgroundColor((QBrush)"light blue");
+        item->setTextColor((QBrush)"yellow");
+    }
+    else{
+        current_chat_item->setBackgroundColor((QBrush)"white");
+        current_chat_item->setTextColor((QBrush)"black");
+
+        current_chat_item=item;
+        item->setBackgroundColor((QBrush)"light blue");
+        item->setTextColor((QBrush)"yellow");
+    }
+}
+
+void chat::on_pushButton_clicked()
+{
+    if(ui->type_ted->toPlainText()==""){
+        QMessageBox::information(this,"message","Type something first");
+    }
+    else if(current_chat_item==nullptr){
+        QMessageBox::information(this,"message","Choose one user to send message");
+    }
+    else{
+        concatenate_string concat;
+        concat.addString("sendmessageuser?token=");
+        concat.addString(User.token);
+        concat.addString("&dst=");
+        concat.addString(current_chat_item->text()); ///that is item clicked on listWidget
+        concat.addString("&body=");
+        concat.addString(ui->type_ted->toPlainText());
+
+        qDebug()<<concat.getUrl();
+
+        //send request
+        QUrl url(concat.getUrl());
+        QNetworkAccessManager* manager = new QNetworkAccessManager();
+        QNetworkReply* reply = manager->get(QNetworkRequest(url));
+
+
+        QObject::connect(reply,&QNetworkReply::finished,[=](){
+
+            if(reply->error()==QNetworkReply::NoError){
+                //recive reply
+                QByteArray data = reply->readAll();
+                qDebug()<<data;
+                QJsonDocument duc = QJsonDocument::fromJson(data);
+                QJsonObject obj = duc.object();
+
+
+                QString code = obj["code"].toString();
+
+                if(code=="200"){
+                    ///////append message
+                    ui->chat_ted->append(ui->type_ted->toPlainText());
+                    QMessageBox::information(this,"message",obj["message"].toString());
+                    ///////// clear textEdit type
+                    ui->type_ted->clear();
+                }
+                else{
+                    QMessageBox::information(this,"message",obj["message"].toString());
+                }
+            }
+            else{
+                qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
+            }
+
+         });
+    }
+}
+
+void chat::on_pushButton_2_clicked()
+{
+    if(current_chat_item==nullptr){
+        QMessageBox::warning(this,"message","Choose one user");
+    }
+    else{
+    concatenate_string concat;
+    concat.addString("getuserchats?token=");
+    concat.addString(User.token);
+    concat.addString("&dst=");
+    concat.addString(current_chat_item->text()); ///that is item clicked on listWidget
+
+    qDebug()<<concat.getUrl();
+    //send request
+    QUrl url(concat.getUrl());
+    QNetworkAccessManager* manager = new QNetworkAccessManager();
+    QNetworkReply* reply = manager->get(QNetworkRequest(url));
+
+
+    QObject::connect(reply,&QNetworkReply::finished,[=](){
+
+        if(reply->error()==QNetworkReply::NoError){
+            //recive reply
+            QByteArray data = reply->readAll();
+            qDebug()<<data;
+            QJsonDocument duc = QJsonDocument::fromJson(data);
+            QJsonObject obj = duc.object();
+
+
+            QString code = obj["code"].toString();
+
+            if(code=="200"){
+                QMessageBox::information(this,"message",obj["message"].toString());
+
+                QString tmp =obj["message"].toString();
+                QString count;
+
+                /////extract number of message
+                for(int i=11;i<tmp.length();++i){
+
+                    count+=tmp[i];
+
+                    if(tmp[i+1]=='-')
+                        break;
+                }
+
+                qDebug()<<"number of message"<<count;
+
+                ///read data from block
+
+                QString b1;
+                for(int i=0;i<count.toInt();++i){
+                    b1 = "block " + QString::number(i);
+
+                    QString body = (obj[b1].toObject())["body"].toString();
+                    QString sender = (obj[b1].toObject())["src"].toString();
+
+                    if(sender == User.name)
+                        ui->chat_ted->append("you:");
+                    else
+                        ui->chat_ted->append(sender+':');
+
+                    ui->chat_ted->append(body);
+
+                }
+
+            }
+            else{
+                QMessageBox::information(this,"message",obj["message"].toString());
+            }
+        }
+        else{
+            qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
+        }
+    });
+ }
+}
+
+
+

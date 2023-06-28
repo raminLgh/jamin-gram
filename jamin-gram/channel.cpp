@@ -1,6 +1,9 @@
 #include "channel.h"
 #include "ui_channel.h"
 
+#define setBackgroundColor setBackground
+#define setTextColor setForeground
+
 #include <QString>
 #include "concatenate_string.h"
 #include "groups.h"
@@ -138,7 +141,7 @@ void channel::on_joinpb_clicked()
                     ui->jo_channel_lineEdit->clear();
                 }
                 else{
-                    QMessageBox::information(this,"Eror",obj2["message"].toString());
+                    QMessageBox::information(this,"Error",obj2["message"].toString());
                     ui->jo_channel_lineEdit->clear();
                 }
 
@@ -303,16 +306,16 @@ void channel::on_list_itemClicked(QListWidgetItem *item)
 
     if(current_channel_item==nullptr){
         current_channel_item=item;
-        item->setBackgroundColor("light blue");
-        item->setTextColor("yellow");
+        item->setBackgroundColor((QBrush)"light blue");
+        item->setTextColor((QBrush)"yellow");
     }
     else{
-        current_channel_item->setBackgroundColor("white");
-        current_channel_item->setTextColor("black");
+        current_channel_item->setBackgroundColor((QBrush)"white");
+        current_channel_item->setTextColor((QBrush)"black");
 
         current_channel_item=item;
-        item->setBackgroundColor("light blue");
-        item->setTextColor("yellow");
+        item->setBackgroundColor((QBrush)"light blue");
+        item->setTextColor((QBrush)"yellow");
     }
 }
 
@@ -322,14 +325,14 @@ void channel::on_pushButton_clicked()
         QMessageBox::information(this,"message","Type something first");
     }
     else if(current_channel_item==nullptr){
-        QMessageBox::information(this,"message","Chose one Channel to send message");
+        QMessageBox::information(this,"message","Choose one Channel to send message");
     }
     else{
         concatenate_string c1;
         c1.addString("sendmessagechannel?token=");
         c1.addString(User.token);
         c1.addString("&dst=");
-        c1.addString(current_channel_item->text()); ///that is item clisked on listWidget
+        c1.addString(current_channel_item->text()); ///that is item clicked on listWidget
         c1.addString("&body=");
         c1.addString(ui->type_ted->toPlainText());
 
@@ -355,6 +358,7 @@ void channel::on_pushButton_clicked()
 
                 if(code=="200"){
                     ///////append message
+                    // احتمالا باید پاک کنیم این قسمت رو
                     ui->chat_ted->append(ui->type_ted->toPlainText());
                     QMessageBox::information(this,"message",obj2["message"].toString());
                     ///////// clear textEdit type
@@ -377,14 +381,14 @@ void channel::on_pushButton_clicked()
 void channel::on_pushButton_2_clicked()
 {
     if(current_channel_item==nullptr){
-        QMessageBox::warning(this,"message","Chose one channel");
+        QMessageBox::warning(this,"message","Choose one channel");
     }
     else{
     concatenate_string c1;
     c1.addString("getchannelchats?token=");
     c1.addString(User.token);
     c1.addString("&dst=");
-    c1.addString(current_channel_item->text()); ///that is item clisked on listWidget
+    c1.addString(current_channel_item->text()); ///that is item clicked on listWidget
 
     qDebug()<<c1.getUrl();
 
@@ -419,7 +423,7 @@ void channel::on_pushButton_2_clicked()
 
                     count+=tmp[i];
 
-                    if(tmp[i+1]=="-")
+                    if(tmp[i+1]=='-')
                         break;
                 }
 
@@ -427,18 +431,20 @@ void channel::on_pushButton_2_clicked()
 
                 ///read data from block
 
-                QString b1 = "block ";
+                QString b1;
                 for(int i=0;i<count.toInt();++i){
-                    b1+=QString::number(i);
+                    b1 = "block " + QString::number(i);
 
                     QString body = (obj2[b1].toObject())["body"].toString();
                     QString sender = (obj2[b1].toObject())["src"].toString();
-                    sender+=":";
 
-                    ui->chat_ted->append(sender);
+                    if(sender == User.name)
+                        ui->chat_ted->append("you:");
+                    else
+                        ui->chat_ted->append(sender+':');
+
                     ui->chat_ted->append(body);
 
-                    b1 = "block ";
                 }
 
 

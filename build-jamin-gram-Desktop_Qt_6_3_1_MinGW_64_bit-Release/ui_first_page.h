@@ -88,7 +88,8 @@ public:
         login->setFont(font2);
         login->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "border-color: rgb(255, 255, 255);\n"
-"background-color: rgb(255, 0, 255);"));
+"background-color: rgb(255, 0, 255);\n"
+"border-radius:10px;"));
         login->setIconSize(QSize(16, 16));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -112,7 +113,8 @@ public:
         signup->setGeometry(QRect(405, 400, 80, 32));
         signup->setFont(font2);
         signup->setStyleSheet(QString::fromUtf8("background-color: rgb(137, 69, 206);\n"
-"color: rgb(255, 255, 255);"));
+"color: rgb(255, 255, 255);\n"
+"border-radius:10px;"));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(388, 350, 63, 30));
@@ -131,7 +133,7 @@ public:
         first_page->setCentralWidget(centralwidget);
         menubar = new QMenuBar(first_page);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 700, 26));
+        menubar->setGeometry(QRect(0, 0, 700, 21));
         first_page->setMenuBar(menubar);
         statusbar = new QStatusBar(first_page);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

@@ -43,7 +43,9 @@ public:
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/photo/image/forgot-password-concept-isolated-white_263070-194.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         forget->setWindowIcon(icon);
-        forget->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        forget->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"\n"
+""));
         centralwidget = new QWidget(forget);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         textEdit = new QTextEdit(centralwidget);
@@ -61,6 +63,13 @@ public:
         phone = new QLineEdit(centralwidget);
         phone->setObjectName(QString::fromUtf8("phone"));
         phone->setGeometry(QRect(380, 170, 190, 26));
+        phone->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         lineEdit_2 = new QLineEdit(centralwidget);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
         lineEdit_2->setGeometry(QRect(350, 170, 27, 26));
@@ -74,6 +83,13 @@ public:
         username = new QLineEdit(centralwidget);
         username->setObjectName(QString::fromUtf8("username"));
         username->setGeometry(QRect(380, 110, 190, 26));
+        username->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"border:1px solid gray;\n"
+"border-radius:8px;\n"
+"}\n"
+"QLineEdit:focus{\n"
+"border:1px solid #03dac6;\n"
+"}"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(430, 220, 91, 31));
@@ -83,7 +99,8 @@ public:
         font.setBold(true);
         pushButton->setFont(font);
         pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(157, 78, 235);\n"
-"color: rgb(255, 255, 0);"));
+"color: rgb(255, 255, 0);\n"
+"border-radius:10px;"));
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setGeometry(QRect(410, 280, 131, 31));
@@ -93,7 +110,7 @@ public:
         font1.setBold(true);
         pushButton_2->setFont(font1);
         pushButton_2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 0);\n"
-"\n"
+"border-radius:10px;\n"
 "background-color: rgb(0, 0, 255);"));
         forget->setCentralWidget(centralwidget);
 
@@ -106,10 +123,10 @@ public:
     {
         forget->setWindowTitle(QCoreApplication::translate("forget", "forget password", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("forget", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:700; color:#0055ff;\">forget</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:700;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:700; color:#aa00ff;\">page</span></p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:696; color:#0055ff;\">forget</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:696;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:696; color:#aa00ff;\">page</span></p></body></html>", nullptr));
 #if QT_CONFIG(tooltip)
         phone->setToolTip(QCoreApplication::translate("forget", "<html><head/><body><p>Phone</p></body></html>", nullptr));
 #endif // QT_CONFIG(tooltip)

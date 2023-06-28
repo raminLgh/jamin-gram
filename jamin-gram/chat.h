@@ -31,6 +31,12 @@ private slots:
 
     void on_actionGet_chat_lists_triggered();
 
+    void on_list_itemClicked(QListWidgetItem *item);
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::chat *ui;
 };
