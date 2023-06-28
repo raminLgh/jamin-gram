@@ -44,6 +44,7 @@
     </property>
     <property name="font">
      <font>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
@@ -90,6 +91,7 @@ border-color: rgb(170, 85, 255);</string>
      <font>
       <family>Arial Narrow</family>
       <pointsize>15</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
@@ -115,13 +117,15 @@ color: rgb(255, 255, 255);
      <font>
       <family>Arial Narrow</family>
       <pointsize>11</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);
-background-color: rgb(255, 0, 255);</string>
+background-color: rgb(255, 0, 255);
+border-radius:10px;</string>
     </property>
     <property name="text">
      <string>Log in</string>
@@ -146,6 +150,7 @@ background-color: rgb(255, 0, 255);</string>
      <font>
       <family>Arial Narrow</family>
       <pointsize>14</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
       <underline>true</underline>
      </font>
@@ -190,12 +195,14 @@ border-image: url(:/photo/image/IMG_20230612_105708_692.png);</string>
      <font>
       <family>Arial Narrow</family>
       <pointsize>11</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(137, 69, 206);
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+border-radius:10px;</string>
     </property>
     <property name="text">
      <string>Sign up</string>
@@ -213,6 +220,7 @@ color: rgb(255, 255, 255);</string>
     <property name="font">
      <font>
       <pointsize>14</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
@@ -236,6 +244,7 @@ color: rgb(138, 0, 207);</string>
     <property name="font">
      <font>
       <pointsize>14</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
@@ -254,7 +263,7 @@ color: rgb(255, 0, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>700</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

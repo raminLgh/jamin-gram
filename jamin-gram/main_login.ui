@@ -86,6 +86,15 @@
     <property name="statusTip">
      <string/>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+border:1px solid gray;
+border-radius:8px;
+}
+QLineEdit:focus{
+border:1px solid #03dac6;
+}</string>
+    </property>
     <property name="placeholderText">
      <string> User name</string>
     </property>
@@ -120,6 +129,15 @@
     </property>
     <property name="statusTip">
      <string/>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+border:1px solid gray;
+border-radius:8px;
+}
+QLineEdit:focus{
+border:1px solid #03dac6;
+}</string>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
@@ -158,11 +176,13 @@
     <property name="font">
      <font>
       <pointsize>10</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(78, 156, 234);</string>
+     <string notr="true">background-color: rgb(78, 156, 234);
+border-radius:10px;</string>
     </property>
     <property name="text">
      <string>log in</string>
@@ -180,6 +200,7 @@
     <property name="font">
      <font>
       <pointsize>10</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
       <underline>true</underline>
      </font>
