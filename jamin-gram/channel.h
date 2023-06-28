@@ -2,7 +2,7 @@
 #define CHANNEL_H
 
 #include <QMainWindow>
-
+#include <QColor>
 #include <QListWidgetItem>
 #include <QListWidget>
 

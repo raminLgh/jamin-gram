@@ -4,8 +4,8 @@
 #include "groups.h"
 #include "concatenate_string.h"
 
-#define setBackgroundColor setBackground
-#define setTextColor setForeground
+//#define setBackgroundColor setBackground
+//#define setTextColor setForeground
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -169,6 +169,7 @@ void chat::on_actionGet_chat_lists_triggered()
 
                 QString m;
                 ui->list->clear();
+                current_chat_item = nullptr;
                 for(int i=0;i<count.toInt();++i){
                     m = "block " + QString::number(i);
                     qDebug()<< m;
@@ -195,16 +196,16 @@ void chat::on_list_itemClicked(QListWidgetItem *item)
 
     if(current_chat_item==nullptr){
         current_chat_item=item;
-        item->setBackgroundColor((QBrush)"light blue");
-        item->setTextColor((QBrush)"yellow");
+        item->setBackground((QBrush)"light blue");
+        item->setForeground((QBrush)"yellow");
     }
     else{
-        current_chat_item->setBackgroundColor((QBrush)"white");
-        current_chat_item->setTextColor((QBrush)"black");
+        current_chat_item->setBackground((QBrush)"white");
+        current_chat_item->setForeground((QBrush)"black");
 
         current_chat_item=item;
-        item->setBackgroundColor((QBrush)"light blue");
-        item->setTextColor((QBrush)"yellow");
+        item->setBackground((QBrush)"light blue");
+        item->setForeground((QBrush)"yellow");
     }
 }
 
@@ -327,12 +328,19 @@ void chat::on_pushButton_2_clicked()
                     QString body = (obj[b1].toObject())["body"].toString();
                     QString sender = (obj[b1].toObject())["src"].toString();
 
-                    if(sender == User.name)
+                    if(sender == User.name){
+                        ui->chat_ted->setTextColor(QColor(0, 0, 255));
                         ui->chat_ted->append("you:");
-                    else
+                        ui->chat_ted->setAlignment(Qt::AlignRight);
+                        ui->chat_ted->append(body);
+                    }
+                    else{
+                        ui->chat_ted->setTextColor(QColor(250, 83, 0));
                         ui->chat_ted->append(sender+':');
+                        ui->chat_ted->setAlignment(Qt::AlignLeft);
+                        ui->chat_ted->append(body);
+                    }
 
-                    ui->chat_ted->append(body);
 
                 }
 
