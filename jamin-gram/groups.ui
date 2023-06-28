@@ -362,8 +362,7 @@ background:#41cd52;
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/photo/image/logo_tell.jpg);
-border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);</string>
+     <string notr="true">image: url(:/photo/image/tell.jpg);</string>
     </property>
     <property name="text">
      <string/>

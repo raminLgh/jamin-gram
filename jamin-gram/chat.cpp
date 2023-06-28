@@ -111,6 +111,8 @@ void chat::on_actionLOg_out_triggered()
                 d.removeRecursively();
 
                 this->close();
+                channel_page->close();
+                group_page->close();
 
             }
             else{

@@ -187,6 +187,7 @@ debug/qrc_aks.cpp: ../jamin-gram/aks.qrc \
 		../jamin-gram/image/Screenshot_20230625_074115_Bale.jpg \
 		../jamin-gram/image/Screen-Shot-2018-01-29-at-14.08.31.png \
 		../jamin-gram/image/Screenshot_2023-06-26-19-28-14-376-edit_org.telegram.messenger.jpg \
+		../jamin-gram/image/tell.jpg \
 		../jamin-gram/image/Screenshot\ (27).png \
 		../jamin-gram/image/istockphoto-1222383033-612x612.jpg \
 		../jamin-gram/image/Screenshot_20230626_130222_Telegram.jpg \
@@ -339,6 +340,27 @@ debug/moc_channel.cpp: ../jamin-gram/channel.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/QTransform \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/QColor \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget \
 		debug/moc_predefs.h \
 		../../../Qt/6.3.1/mingw_64/bin/moc.exe
 	C:\Qt\6.3.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/ProjectAP/jamin-gram/build-jamin-gram-Desktop_Qt_6_3_1_MinGW_64_bit-Release/debug/moc_predefs.h -IC:/Qt/6.3.1/mingw_64/mkspecs/win32-g++ -IC:/ProjectAP/jamin-gram/jamin-gram -IC:/Qt/6.3.1/mingw_64/include -IC:/Qt/6.3.1/mingw_64/include/QtWidgets -IC:/Qt/6.3.1/mingw_64/include/QtGui -IC:/Qt/6.3.1/mingw_64/include/QtNetwork -IC:/Qt/6.3.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\jamin-gram\channel.h -o debug\moc_channel.cpp
@@ -478,6 +500,26 @@ debug/moc_chat.cpp: ../jamin-gram/chat.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/QTransform \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget \
 		debug/moc_predefs.h \
 		../../../Qt/6.3.1/mingw_64/bin/moc.exe
 	C:\Qt\6.3.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/ProjectAP/jamin-gram/build-jamin-gram-Desktop_Qt_6_3_1_MinGW_64_bit-Release/debug/moc_predefs.h -IC:/Qt/6.3.1/mingw_64/mkspecs/win32-g++ -IC:/ProjectAP/jamin-gram/jamin-gram -IC:/Qt/6.3.1/mingw_64/include -IC:/Qt/6.3.1/mingw_64/include/QtWidgets -IC:/Qt/6.3.1/mingw_64/include/QtGui -IC:/Qt/6.3.1/mingw_64/include/QtNetwork -IC:/Qt/6.3.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\jamin-gram\chat.h -o debug\moc_chat.cpp
@@ -895,6 +937,26 @@ debug/moc_groups.cpp: ../jamin-gram/groups.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/QTransform \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget \
 		debug/moc_predefs.h \
 		../../../Qt/6.3.1/mingw_64/bin/moc.exe
 	C:\Qt\6.3.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/ProjectAP/jamin-gram/build-jamin-gram-Desktop_Qt_6_3_1_MinGW_64_bit-Release/debug/moc_predefs.h -IC:/Qt/6.3.1/mingw_64/mkspecs/win32-g++ -IC:/ProjectAP/jamin-gram/jamin-gram -IC:/Qt/6.3.1/mingw_64/include -IC:/Qt/6.3.1/mingw_64/include/QtWidgets -IC:/Qt/6.3.1/mingw_64/include/QtGui -IC:/Qt/6.3.1/mingw_64/include/QtNetwork -IC:/Qt/6.3.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\jamin-gram\groups.h -o debug\moc_groups.cpp
@@ -1931,6 +1993,27 @@ debug/channel.o: ../jamin-gram/channel.cpp ../jamin-gram/channel.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/QTransform \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/QColor \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget \
 		ui_channel.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QVariant \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/QAction \
@@ -1954,11 +2037,9 @@ debug/channel.o: ../jamin-gram/channel.cpp ../jamin-gram/channel.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qpromise.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qguiapplication.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qinputmethod.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QLabel \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlabel.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qpicture.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextdocument.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QLineEdit \
@@ -1967,23 +2048,6 @@ debug/channel.o: ../jamin-gram/channel.cpp ../jamin-gram/channel.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextformat.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qpen.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextoption.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenu \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenu.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenuBar \
@@ -2037,6 +2101,12 @@ debug/channel.o: ../jamin-gram/channel.cpp ../jamin-gram/channel.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/quuid.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QJsonObject \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qjsonobject.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QDir \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qdir.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfile.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QFile \
 		../jamin-gram/groups.h \
 		../jamin-gram/chat.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\channel.o ..\jamin-gram\channel.cpp
@@ -2176,10 +2246,30 @@ debug/chat.o: ../jamin-gram/chat.cpp ../jamin-gram/chat.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/QTransform \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget \
 		ui_chat.h \
-		../jamin-gram/channel.h \
-		../jamin-gram/groups.h \
-		../jamin-gram/concatenate_string.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/QAction \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/QIcon \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QApplication \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qapplication.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qcoreapplication.h \
@@ -2199,8 +2289,31 @@ debug/chat.o: ../jamin-gram/chat.cpp ../jamin-gram/chat.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qpromise.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qguiapplication.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qinputmethod.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qguiapplication_platform.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QLabel \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlabel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qpicture.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenu \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenu.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenuBar \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QTextEdit \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtextedit.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
+		../jamin-gram/channel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/QColor \
+		../jamin-gram/groups.h \
+		../jamin-gram/concatenate_string.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMessageBox \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qdialog.h \
@@ -2215,7 +2328,6 @@ debug/chat.o: ../jamin-gram/chat.cpp ../jamin-gram/chat.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QSharedDataPointer \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QString \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QUrl \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/QVariant \
 		../../../Qt/6.3.1/mingw_64/include/QtNetwork/QSslConfiguration \
 		../../../Qt/6.3.1/mingw_64/include/QtNetwork/qsslconfiguration.h \
 		../../../Qt/6.3.1/mingw_64/include/QtNetwork/qsslsocket.h \
@@ -2241,14 +2353,15 @@ debug/chat.o: ../jamin-gram/chat.cpp ../jamin-gram/chat.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qjsonvalue.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qcborvalue.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qcborcommon.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/quuid.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QJsonObject \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qjsonobject.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenu \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenu.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenuBar \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenubar.h
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QDir \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qdir.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfile.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QFile
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\chat.o ..\jamin-gram\chat.cpp
 
 debug/concatenate_string.o: ../jamin-gram/concatenate_string.cpp ../jamin-gram/concatenate_string.h \
@@ -2451,7 +2564,13 @@ debug/concatenate_string.o: ../jamin-gram/concatenate_string.cpp ../jamin-gram/c
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenu \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenu.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenuBar \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenubar.h
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QDir \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qdir.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfile.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QFile
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\concatenate_string.o ..\jamin-gram\concatenate_string.cpp
 
 debug/forget.o: ../jamin-gram/forget.cpp ../jamin-gram/forget.h \
@@ -2679,7 +2798,10 @@ debug/forget.o: ../jamin-gram/forget.cpp ../jamin-gram/forget.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenu \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenu.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenuBar \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenubar.h
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QDir \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qdir.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\forget.o ..\jamin-gram\forget.cpp
 
 debug/groups.o: ../jamin-gram/groups.cpp ../jamin-gram/groups.h \
@@ -2817,6 +2939,26 @@ debug/groups.o: ../jamin-gram/groups.cpp ../jamin-gram/groups.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/QTransform \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget \
 		ui_groups.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QVariant \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/QAction \
@@ -2840,11 +2982,9 @@ debug/groups.o: ../jamin-gram/groups.cpp ../jamin-gram/groups.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qpromise.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qguiapplication.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qinputmethod.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QLabel \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlabel.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qpicture.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextdocument.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QLineEdit \
@@ -2853,23 +2993,6 @@ debug/groups.o: ../jamin-gram/groups.cpp ../jamin-gram/groups.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextformat.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qpen.h \
 		../../../Qt/6.3.1/mingw_64/include/QtGui/qtextoption.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenu \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenu.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenuBar \
@@ -2923,7 +3046,14 @@ debug/groups.o: ../jamin-gram/groups.cpp ../jamin-gram/groups.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/quuid.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QJsonObject \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qjsonobject.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QDir \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qdir.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfile.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QFile \
 		../jamin-gram/channel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/QColor \
 		../jamin-gram/chat.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\groups.o ..\jamin-gram\groups.cpp
 
@@ -3311,7 +3441,13 @@ debug/first_page.o: ../jamin-gram/first_page.cpp ui_first_page.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/quuid.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QJsonObject \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qjsonobject.h \
-		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenu
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenu \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QDir \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qdir.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfile.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QFile
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\first_page.o ..\jamin-gram\first_page.cpp
 
 debug/main_login.o: ../jamin-gram/main_login.cpp ../jamin-gram/main_login.h \
@@ -3538,8 +3674,31 @@ debug/main_login.o: ../jamin-gram/main_login.cpp ../jamin-gram/main_login.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenu.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenuBar \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QDir \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qdir.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfile.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QFile \
 		../jamin-gram/forget.h \
-		../jamin-gram/channel.h
+		../jamin-gram/channel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/QColor \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main_login.o ..\jamin-gram\main_login.cpp
 
 debug/main_singup.o: ../jamin-gram/main_singup.cpp ../jamin-gram/main_singup.h \
@@ -3766,11 +3925,31 @@ debug/main_singup.o: ../jamin-gram/main_singup.cpp ../jamin-gram/main_singup.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenu.h \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QMenuBar \
 		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qmenubar.h \
-		../../../Qt/6.3.1/mingw_64/include/QtCore/QFile \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QDir \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qdir.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qfile.h \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/qfiledevice.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qfileinfo.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/QFile \
 		../../../Qt/6.3.1/mingw_64/include/QtCore/QTextStream \
-		../jamin-gram/channel.h
+		../jamin-gram/channel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/QColor \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidgetItem \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qlistview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.3.1/mingw_64/include/QtWidgets/QListWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main_singup.o ..\jamin-gram\main_singup.cpp
 
 debug/signup1.o: ../jamin-gram/signup1.cpp ui_signup1.h \

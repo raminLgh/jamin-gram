@@ -193,8 +193,7 @@ public:
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logo_tell.jpg);\n"
-"border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);"));
+        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/tell.jpg);"));
         pushButton->setFlat(true);
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));

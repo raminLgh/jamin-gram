@@ -193,6 +193,8 @@ void channel::on_Logout_triggered()
                     d.removeRecursively();
 
                     this->close();
+                    group_page->close();
+                    chat_page->close();
                 }
                 else{
                     QMessageBox::information(this,"Error",obj2["message"].toString());
