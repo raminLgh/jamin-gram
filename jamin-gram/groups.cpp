@@ -41,6 +41,7 @@ void groups::on_channelpb_clicked()
 
     channel_page->show();
     dynamic_cast<channel*>(channel_page)->timer_cn->start(arg_g);
+    dynamic_cast<channel*>(channel_page)->on_pushButton_2_clicked();
 
     this->hide();
 }
@@ -54,6 +55,7 @@ void groups::on_chatpb_clicked()
     if(chat_page != nullptr){
        chat_page->show();
        dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_g);
+       dynamic_cast<chat*>(chat_page)->on_pushButton_2_clicked();
     }
     else{
         chat* ca = new chat();

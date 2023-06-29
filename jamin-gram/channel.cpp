@@ -221,6 +221,8 @@ void channel::on_grouppb_clicked()
     if(group_page != nullptr){
         group_page->show();
         dynamic_cast<groups*>(group_page)->timer_g->start(arg_cn);
+        dynamic_cast<groups*>(group_page)->on_pushButton_2_clicked();
+
     }
     else{
     groups* g1 = new groups();
@@ -238,6 +240,7 @@ void channel::on_chatpb_clicked()
     if(chat_page != nullptr){
         chat_page->show();
         dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_cn);
+        dynamic_cast<chat*>(chat_page)->on_pushButton_2_clicked();
     }
     else{
     chat* c1 = new chat();
