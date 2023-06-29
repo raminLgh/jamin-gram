@@ -235,19 +235,6 @@ color: rgb(5, 147, 255);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>430</y>
-      <width>93</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>test_ui</string>
-    </property>
-   </widget>
   </widget>
  </widget>
  <resources>

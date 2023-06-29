@@ -48,7 +48,7 @@ void chat::on_channelpb_clicked()
     dynamic_cast<channel*>(channel_page)->timer_cn->start(arg_ca);
     ////first update
     dynamic_cast<channel*>(channel_page)->on_pushButton_2_clicked();
-    dynamic_cast<channel*>(channel_page)->on_action_Get_channel_list_triggered();
+    //dynamic_cast<channel*>(channel_page)->on_action_Get_channel_list_triggered();
 
     this->hide();
 }
@@ -63,7 +63,7 @@ void chat::on_grouppb_clicked()
         dynamic_cast<groups*>(group_page)->timer_g->start(arg_ca);
         /////first update
         dynamic_cast<groups*>(group_page)->on_pushButton_2_clicked();
-        dynamic_cast<groups*>(group_page)->on_actionGet_group_list_triggered();
+        //dynamic_cast<groups*>(group_page)->on_actionGet_group_list_triggered();
     }
     else{
         groups* g1 = new groups();

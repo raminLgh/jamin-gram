@@ -45,7 +45,7 @@ void groups::on_channelpb_clicked()
 
     ///first time updatae
     dynamic_cast<channel*>(channel_page)->on_pushButton_2_clicked();
-    dynamic_cast<channel*>(channel_page)->on_action_Get_channel_list_triggered();
+    //dynamic_cast<channel*>(channel_page)->on_action_Get_channel_list_triggered();
 
     this->hide();
 }

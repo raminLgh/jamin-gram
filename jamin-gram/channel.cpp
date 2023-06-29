@@ -226,7 +226,7 @@ void channel::on_grouppb_clicked()
 
         /////first update
         dynamic_cast<groups*>(group_page)->on_pushButton_2_clicked();
-        dynamic_cast<groups*>(group_page)->on_actionGet_group_list_triggered();
+        //dynamic_cast<groups*>(group_page)->on_actionGet_group_list_triggered();
 
     }
     else{
@@ -246,10 +246,11 @@ void channel::on_chatpb_clicked()
     if(chat_page != nullptr){
         chat_page->show();
         dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_cn);
+        //dynamic_cast<chat*>(chat_page)->timer_list_chat->start(time_t);
 
         ////first page
         dynamic_cast<chat*>(chat_page)->on_pushButton_2_clicked();
-        dynamic_cast<chat*>(chat_page)->on_actionGet_chat_lists_triggered();
+        dynamic_cast<chat*>(chat_page)->on_actionGet_chat_lists_triggered();//not important
     }
     else{
     chat* c1 = new chat();
