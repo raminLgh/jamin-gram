@@ -2,7 +2,7 @@
 #define GROUPS_H
 
 #include <QMainWindow>
-
+#include <QTimer>
 #include <QListWidgetItem>
 #include <QListWidget>
 
@@ -14,6 +14,9 @@ class groups;
 class groups : public QMainWindow
 {
     Q_OBJECT
+
+    friend class channel;
+    friend class chat;
 
 public:
     explicit groups(QWidget *parent = nullptr);
@@ -39,6 +42,7 @@ private slots:
     void on_pushButton_clicked();
 
 private:
+    QTimer* timer_g;
     Ui::groups *ui;
 };
 

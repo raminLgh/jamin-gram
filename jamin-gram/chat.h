@@ -2,8 +2,7 @@
 #define CHAT_H
 
 #include <QMainWindow>
-
-
+#include <QTimer>
 #include <QListWidgetItem>
 #include <QListWidget>
 
@@ -15,6 +14,9 @@ class chat;
 class chat : public QMainWindow
 {
     Q_OBJECT
+
+    friend class channel;
+    friend class groups;
 
 public:
     explicit chat(QWidget *parent = nullptr);
@@ -38,6 +40,7 @@ private slots:
     void on_pushButton_clicked();
 
 private:
+    QTimer* timer_ca;
     Ui::chat *ui;
 };
 

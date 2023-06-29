@@ -3,7 +3,7 @@
 
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
-
+#define arg_cn 15000
 #include <QString>
 #include "concatenate_string.h"
 #include "groups.h"
@@ -21,11 +21,15 @@ channel::channel(QWidget *parent) :
     ui(new Ui::channel)
 {
     ui->setupUi(this);
+    timer_cn = new QTimer();
+    connect(timer_cn,SIGNAL(timeout()),this,SLOT(on_pushButton_2_clicked()));
+    timer_cn->start(arg_cn);
 }
 
 channel::~channel()
 {
     delete ui;
+    delete timer_cn;
 }
 
 void channel::on_creatpb_clicked()
@@ -193,7 +197,9 @@ void channel::on_Logout_triggered()
                     d.removeRecursively();
 
                     this->close();
+                    if(group_page != nullptr)
                     group_page->close();
+                    if(chat_page != nullptr)
                     chat_page->close();
                 }
                 else{
@@ -210,9 +216,11 @@ void channel::on_Logout_triggered()
 void channel::on_grouppb_clicked()
 {
     channel_page = this;
+    timer_cn->stop();
 
     if(group_page != nullptr){
         group_page->show();
+        dynamic_cast<groups*>(group_page)->timer_g->start(arg_cn);
     }
     else{
     groups* g1 = new groups();
@@ -225,9 +233,11 @@ void channel::on_grouppb_clicked()
 void channel::on_chatpb_clicked()
 {
     channel_page = this;
+    timer_cn->stop();
 
     if(chat_page != nullptr){
         chat_page->show();
+        dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_cn);
     }
     else{
     chat* c1 = new chat();
@@ -283,9 +293,15 @@ void channel::on_action_Get_channel_list_triggered()
                 }
                 qDebug()<< "Number of channels: " << count;
 
-                QString m;
-                ui->list->clear();
+                QString curr;
+                if(current_channel_item != nullptr){
+                curr = current_channel_item->text();
                 current_channel_item = nullptr;
+                }
+
+                ui->list->clear();
+                QString m;
+
                 for(int i=0;i<count.toInt();++i){
 
                     m = "block " + QString::number(i);
@@ -293,6 +309,18 @@ void channel::on_action_Get_channel_list_triggered()
 
                     ui->list->addItem((obj[m].toObject())["channel_name"].toString());
 
+                }
+
+                if(curr != ""){
+                    for(int i=0; i<ui->list->count(); ++i){
+                        if(ui->list->item(i)->text() == curr){
+                            current_channel_item = ui->list->item(i);
+                            break;
+                        }
+                    }
+                    ui->list->setCurrentItem(current_channel_item);
+                    current_channel_item->setBackground((QBrush)"light blue");
+                    current_channel_item->setForeground((QBrush)"yellow");
                 }
                 qDebug()<< obj;
             }
@@ -325,6 +353,7 @@ void channel::on_list_itemClicked(QListWidgetItem *item)
         item->setBackground((QBrush)"light blue");
         item->setForeground((QBrush)"yellow");
     }
+    on_pushButton_2_clicked();
 }
 
 void channel::on_pushButton_clicked()
@@ -343,6 +372,8 @@ void channel::on_pushButton_clicked()
         c1.addString(current_channel_item->text()); ///that is item clicked on listWidget
         c1.addString("&body=");
         c1.addString(ui->type_ted->toPlainText());
+
+        QString accuracy2 = current_channel_item->text();
 
         qDebug()<<c1.getUrl();
 
@@ -365,11 +396,16 @@ void channel::on_pushButton_clicked()
                 QString code = obj2["code"].toString();
 
                 if(code=="200"){
+                    if(accuracy2 == current_channel_item->text()){
                     ///////append message
                     // احتمالا باید پاک کنیم این قسمت رو
+                    ui->chat_ted->setTextColor(QColor(0, 0, 255));
+                    ui->chat_ted->append("you(Admin):");
+                    ui->chat_ted->setAlignment(Qt::AlignRight);
                     ui->chat_ted->append(ui->type_ted->toPlainText());
-                    QMessageBox::information(this,"message",obj2["message"].toString());
+                    //QMessageBox::information(this,"message",obj2["message"].toString());
                     ///////// clear textEdit type
+                    }
                     ui->type_ted->clear();
                 }
                 else{
@@ -389,7 +425,7 @@ void channel::on_pushButton_clicked()
 void channel::on_pushButton_2_clicked()
 {
     if(current_channel_item==nullptr){
-        QMessageBox::warning(this,"message","Choose one channel");
+        //QMessageBox::warning(this,"message","Choose one channel");
     }
     else{
     concatenate_string c1;
@@ -397,6 +433,7 @@ void channel::on_pushButton_2_clicked()
     c1.addString(User.token);
     c1.addString("&dst=");
     c1.addString(current_channel_item->text()); ///that is item clicked on listWidget
+    QString accuracy = current_channel_item->text();
 
     qDebug()<<c1.getUrl();
 
@@ -419,7 +456,8 @@ void channel::on_pushButton_2_clicked()
             QString code = obj2["code"].toString();
 
             if(code=="200"){
-                QMessageBox::information(this,"message",obj2["message"].toString());
+                //QMessageBox::information(this,"message",obj2["message"].toString());
+                if(accuracy == current_channel_item->text()){
 
                 QString tmp =obj2["message"].toString();
 
@@ -454,20 +492,20 @@ void channel::on_pushButton_2_clicked()
 
                     if(sender == User.name){
                         ui->chat_ted->setTextColor(QColor(0, 0, 255));
-                        ui->chat_ted->append("you:");
+                        ui->chat_ted->append("you(Admin):");
                         ui->chat_ted->setAlignment(Qt::AlignRight);
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(250, 83, 0));
-                        ui->chat_ted->append(sender+':');
+                        ui->chat_ted->setTextColor(QColor(255, 70, 0));
+                        ui->chat_ted->append(sender+"(Admin):");
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
                     }
 
 
                 }
-
+                }
 
 
             }

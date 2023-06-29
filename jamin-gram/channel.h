@@ -5,6 +5,7 @@
 #include <QColor>
 #include <QListWidgetItem>
 #include <QListWidget>
+#include <QTimer>
 
 
 namespace Ui {
@@ -14,6 +15,9 @@ class channel;
 class channel : public QMainWindow
 {
     Q_OBJECT
+
+    friend class groups;
+    friend class chat;
 
 public:
     explicit channel(QWidget *parent = nullptr);
@@ -39,6 +43,7 @@ private slots:
     void on_pushButton_2_clicked();
 
 private:
+    QTimer* timer_cn;
     Ui::channel *ui;
 };
 

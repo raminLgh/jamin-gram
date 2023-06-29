@@ -6,6 +6,7 @@
 
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
+#define arg_ca 15000
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -19,18 +20,24 @@ chat::chat(QWidget *parent) :
     ui(new Ui::chat)
 {
     ui->setupUi(this);
+    timer_ca = new QTimer();
+    connect(timer_ca,SIGNAL(timeout()),this,SLOT(on_pushButton_2_clicked()));
+    timer_ca->start(arg_ca);
 }
 
 chat::~chat()
 {
     delete ui;
+    delete timer_ca;
 }
 
 void chat::on_channelpb_clicked()
 {
     chat_page = this;
+    timer_ca->stop();
 
     channel_page->show();
+    dynamic_cast<channel*>(channel_page)->timer_cn->start(arg_ca);
 
     this->hide();
 }
@@ -38,9 +45,11 @@ void chat::on_channelpb_clicked()
 void chat::on_grouppb_clicked()
 {
     chat_page = this;
+    timer_ca->stop();
 
     if(group_page != nullptr){
         group_page->show();
+        dynamic_cast<groups*>(group_page)->timer_g->start(arg_ca);
     }
     else{
         groups* g1 = new groups();
@@ -111,7 +120,9 @@ void chat::on_actionLOg_out_triggered()
                 d.removeRecursively();
 
                 this->close();
+                if(channel_page != nullptr)
                 channel_page->close();
+                if(group_page != nullptr)
                 group_page->close();
 
             }
@@ -139,6 +150,7 @@ void chat::on_actionGet_chat_lists_triggered()
     QNetworkAccessManager* manager_d = new QNetworkAccessManager();
     QNetworkReply* reply_d = manager_d->get(QNetworkRequest(url_d));
     QObject::connect(reply_d,&QNetworkReply::finished,[=](){
+
         if(reply_d->error()==QNetworkReply::NoError){
             //recive reply
             QByteArray data_d = reply_d->readAll();
@@ -169,15 +181,33 @@ void chat::on_actionGet_chat_lists_triggered()
                 }
                 qDebug()<< "Number of chats: " << count;
 
-                QString m;
-                ui->list->clear();
+                QString curr;
+                if(current_chat_item != nullptr){
+                curr = current_chat_item->text();
                 current_chat_item = nullptr;
+                }
+
+                ui->list->clear();
+                QString m;
+
                 for(int i=0;i<count.toInt();++i){
                     m = "block " + QString::number(i);
                     qDebug()<< m;
 
                     ui->list->addItem((obj[m].toObject())["src"].toString());
 
+                }
+
+                if(curr != ""){
+                    for(int i=0; i<ui->list->count(); ++i){
+                        if(ui->list->item(i)->text() == curr){
+                            current_chat_item = ui->list->item(i);
+                            break;
+                        }
+                    }
+                    ui->list->setCurrentItem(current_chat_item);
+                    current_chat_item->setBackground((QBrush)"light blue");
+                    current_chat_item->setForeground((QBrush)"yellow");
                 }
                 qDebug()<< obj;
             }
@@ -209,6 +239,7 @@ void chat::on_list_itemClicked(QListWidgetItem *item)
         item->setBackground((QBrush)"light blue");
         item->setForeground((QBrush)"yellow");
     }
+    on_pushButton_2_clicked();
 }
 
 void chat::on_pushButton_clicked()
@@ -227,6 +258,8 @@ void chat::on_pushButton_clicked()
         concat.addString(current_chat_item->text()); ///that is item clicked on listWidget
         concat.addString("&body=");
         concat.addString(ui->type_ted->toPlainText());
+
+        QString accuracy2 = current_chat_item->text();
 
         qDebug()<<concat.getUrl();
 
@@ -249,9 +282,14 @@ void chat::on_pushButton_clicked()
                 QString code = obj["code"].toString();
 
                 if(code=="200"){
+                    if(accuracy2 == current_chat_item->text()){
                     ///////append message
+                    ui->chat_ted->setTextColor(QColor(0, 0, 255));
+                    ui->chat_ted->append("you:");
+                    ui->chat_ted->setAlignment(Qt::AlignRight);
                     ui->chat_ted->append(ui->type_ted->toPlainText());
                     QMessageBox::information(this,"message",obj["message"].toString());
+                    }
                     ///////// clear textEdit type
                     ui->type_ted->clear();
                 }
@@ -270,7 +308,7 @@ void chat::on_pushButton_clicked()
 void chat::on_pushButton_2_clicked()
 {
     if(current_chat_item==nullptr){
-        QMessageBox::warning(this,"message","Choose one user");
+        //QMessageBox::warning(this,"message","Choose one user");
     }
     else{
     concatenate_string concat;
@@ -278,6 +316,7 @@ void chat::on_pushButton_2_clicked()
     concat.addString(User.token);
     concat.addString("&dst=");
     concat.addString(current_chat_item->text()); ///that is item clicked on listWidget
+    QString accuracy = current_chat_item->text();
 
     qDebug()<<concat.getUrl();
     //send request
@@ -299,7 +338,8 @@ void chat::on_pushButton_2_clicked()
             QString code = obj["code"].toString();
 
             if(code=="200"){
-                QMessageBox::information(this,"message",obj["message"].toString());
+                //QMessageBox::information(this,"message",obj["message"].toString());
+                if(accuracy == current_chat_item->text()){
 
                 QString tmp =obj["message"].toString();
                 QString count;
@@ -337,12 +377,12 @@ void chat::on_pushButton_2_clicked()
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(250, 83, 0));
+                        ui->chat_ted->setTextColor(QColor(255, 70, 0));
                         ui->chat_ted->append(sender+':');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
                     }
-
+                }
 
                 }
 

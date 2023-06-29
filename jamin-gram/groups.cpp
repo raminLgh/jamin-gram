@@ -8,6 +8,7 @@
 
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
+#define arg_g 15000
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -21,18 +22,25 @@ groups::groups(QWidget *parent) :
     ui(new Ui::groups)
 {
     ui->setupUi(this);
+    timer_g = new QTimer();
+    connect(timer_g,SIGNAL(timeout()),this,SLOT(on_pushButton_2_clicked()));
+    timer_g->start(arg_g);
+
 }
 
 groups::~groups()
 {
     delete ui;
+    delete timer_g;
 }
 
 void groups::on_channelpb_clicked()
 {
     group_page = this;
+    timer_g->stop();
 
     channel_page->show();
+    dynamic_cast<channel*>(channel_page)->timer_cn->start(arg_g);
 
     this->hide();
 }
@@ -41,9 +49,11 @@ void groups::on_channelpb_clicked()
 void groups::on_chatpb_clicked()
 {
     group_page = this;
+    timer_g->stop();
 
     if(chat_page != nullptr){
        chat_page->show();
+       dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_g);
     }
     else{
         chat* ca = new chat();
@@ -207,7 +217,9 @@ void groups::on_actionLog_out_triggered()
                 d.removeRecursively();
 
                 this->close();
+                if(channel_page != nullptr)
                 channel_page->close();
+                if(chat_page != nullptr)
                 chat_page->close();
             }
             else{
@@ -266,15 +278,32 @@ void groups::on_actionGet_group_list_triggered()
                 }
                 qDebug()<< "Number of groups: " << count;
 
-                QString m;
-                ui->list->clear();
+                QString curr;
+                if(current_group_item != nullptr){
+                curr = current_group_item->text();
                 current_group_item = nullptr;
+                }
+                ui->list->clear();
+                QString m;
+
                 for(int i=0;i<count.toInt();++i){
                     m = "block " + QString::number(i);
                     qDebug()<< m;
 
                     ui->list->addItem((obj[m].toObject())["group_name"].toString());
 
+                }
+
+                if(curr != ""){
+                    for(int i=0; i<ui->list->count(); ++i){
+                        if(ui->list->item(i)->text() == curr){
+                            current_group_item = ui->list->item(i);
+                            break;
+                        }
+                    }
+                ui->list->setCurrentItem(current_group_item);
+                current_group_item->setBackground((QBrush)"light blue");
+                current_group_item->setForeground((QBrush)"yellow");
                 }
                 qDebug()<< obj;
             }
@@ -309,6 +338,7 @@ void groups::on_list_itemClicked(QListWidgetItem *item)
         item->setBackground((QBrush)"light blue");
         item->setForeground((QBrush)"yellow");
     }
+    on_pushButton_2_clicked();
 }
 
 void groups::on_pushButton_clicked()
@@ -327,6 +357,8 @@ void groups::on_pushButton_clicked()
         concat.addString(current_group_item->text()); ///that is item clicked on listWidget
         concat.addString("&body=");
         concat.addString(ui->type_ted->toPlainText());
+
+        QString accuracy2 = current_group_item->text();
 
         qDebug()<<concat.getUrl();
 
@@ -349,9 +381,14 @@ void groups::on_pushButton_clicked()
                 QString code = obj["code"].toString();
 
                 if(code=="200"){
+                    if(accuracy2 == current_group_item->text()){
                     ///////append message
+                    ui->chat_ted->setTextColor(QColor(0, 0, 255));
+                    ui->chat_ted->append("you:");
+                    ui->chat_ted->setAlignment(Qt::AlignRight);
                     ui->chat_ted->append(ui->type_ted->toPlainText());
                     QMessageBox::information(this,"message",obj["message"].toString());
+                    }
                     ///////// clear textEdit type
                     ui->type_ted->clear();
                 }
@@ -370,7 +407,7 @@ void groups::on_pushButton_clicked()
 void groups::on_pushButton_2_clicked()
 {
     if(current_group_item==nullptr){
-        QMessageBox::warning(this,"message","Choose one group");
+        //QMessageBox::warning(this,"message","Choose one group");
     }
     else{
     concatenate_string concat;
@@ -378,6 +415,7 @@ void groups::on_pushButton_2_clicked()
     concat.addString(User.token);
     concat.addString("&dst=");
     concat.addString(current_group_item->text()); ///that is item clicked on listWidget
+    QString accuracy = current_group_item->text();
 
     qDebug()<<concat.getUrl();
     //send request
@@ -399,7 +437,8 @@ void groups::on_pushButton_2_clicked()
             QString code = obj["code"].toString();
 
             if(code=="200"){
-                QMessageBox::information(this,"message",obj["message"].toString());
+                //QMessageBox::information(this,"message",obj["message"].toString());
+                if(accuracy == current_group_item->text()){
 
                 QString tmp =obj["message"].toString();
                 QString count;
@@ -437,12 +476,13 @@ void groups::on_pushButton_2_clicked()
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(250, 83, 0));
+                        ui->chat_ted->setTextColor(QColor(255, 70, 0));
                         ui->chat_ted->append(sender+':');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
                     }
 
+                }
                 }
 
             }
