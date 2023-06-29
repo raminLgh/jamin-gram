@@ -43,6 +43,7 @@ private slots:
 
 private:
     QTimer* timer_g;
+
     Ui::groups *ui;
 };
 

@@ -135,6 +135,7 @@ void main_singup::on_verifypb_clicked()
                             ////// show next page
                             channel* ch1 = new channel();
                             ch1->show();
+                            ch1->on_action_Get_channel_list_triggered();
                             this->close();
                             ///
 

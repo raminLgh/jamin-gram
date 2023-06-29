@@ -4,6 +4,7 @@
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
 #define arg_cn 15000
+#define time_t 20000
 #include <QString>
 #include "concatenate_string.h"
 #include "groups.h"
@@ -24,6 +25,7 @@ channel::channel(QWidget *parent) :
     timer_cn = new QTimer();
     connect(timer_cn,SIGNAL(timeout()),this,SLOT(on_pushButton_2_clicked()));
     timer_cn->start(arg_cn);
+
 }
 
 channel::~channel()
@@ -221,12 +223,16 @@ void channel::on_grouppb_clicked()
     if(group_page != nullptr){
         group_page->show();
         dynamic_cast<groups*>(group_page)->timer_g->start(arg_cn);
+
+        /////first update
         dynamic_cast<groups*>(group_page)->on_pushButton_2_clicked();
+        dynamic_cast<groups*>(group_page)->on_actionGet_group_list_triggered();
 
     }
     else{
     groups* g1 = new groups();
     g1->show();
+    g1->on_actionGet_group_list_triggered();
     }
 
     this->hide();
@@ -240,19 +246,23 @@ void channel::on_chatpb_clicked()
     if(chat_page != nullptr){
         chat_page->show();
         dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_cn);
+
+        ////first page
         dynamic_cast<chat*>(chat_page)->on_pushButton_2_clicked();
+        dynamic_cast<chat*>(chat_page)->on_actionGet_chat_lists_triggered();
     }
     else{
     chat* c1 = new chat();
     c1->show();
+    c1->on_actionGet_chat_lists_triggered();
     }
 
     this->hide();
 }
 
-
 void channel::on_action_Get_channel_list_triggered()
 {
+
     //check if our user alredy in channel
     concatenate_string  cs;
     cs.addString("getchannellist?token=");
@@ -298,8 +308,8 @@ void channel::on_action_Get_channel_list_triggered()
 
                 QString curr;
                 if(current_channel_item != nullptr){
-                curr = current_channel_item->text();
-                current_channel_item = nullptr;
+                    curr = current_channel_item->text();
+                    current_channel_item = nullptr;
                 }
 
                 ui->list->clear();
@@ -422,8 +432,6 @@ void channel::on_pushButton_clicked()
          });
     }
 }
-
-
 
 void channel::on_pushButton_2_clicked()
 {

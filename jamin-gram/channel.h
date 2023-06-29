@@ -23,6 +23,9 @@ public:
     explicit channel(QWidget *parent = nullptr);
     ~channel();
 
+public slots:
+    void on_action_Get_channel_list_triggered();
+
 private slots:
     void on_creatpb_clicked();
 
@@ -31,8 +34,6 @@ private slots:
     void on_Logout_triggered();
 
     void on_grouppb_clicked();
-
-    void on_action_Get_channel_list_triggered();
 
     void on_chatpb_clicked();
 
@@ -44,6 +45,7 @@ private slots:
 
 private:
     QTimer* timer_cn;
+
     Ui::channel *ui;
 };
 

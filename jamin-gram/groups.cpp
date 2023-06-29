@@ -9,6 +9,7 @@
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
 #define arg_g 15000
+#define time_t 20000
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -41,7 +42,10 @@ void groups::on_channelpb_clicked()
 
     channel_page->show();
     dynamic_cast<channel*>(channel_page)->timer_cn->start(arg_g);
+
+    ///first time updatae
     dynamic_cast<channel*>(channel_page)->on_pushButton_2_clicked();
+    dynamic_cast<channel*>(channel_page)->on_action_Get_channel_list_triggered();
 
     this->hide();
 }
@@ -55,11 +59,15 @@ void groups::on_chatpb_clicked()
     if(chat_page != nullptr){
        chat_page->show();
        dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_g);
+
+       ///first time update
        dynamic_cast<chat*>(chat_page)->on_pushButton_2_clicked();
+       dynamic_cast<chat*>(chat_page)->on_actionGet_chat_lists_triggered();
     }
     else{
         chat* ca = new chat();
         ca->show();
+        ca->on_actionGet_chat_lists_triggered();
     }
 
     this->hide();

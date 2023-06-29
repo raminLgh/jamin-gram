@@ -41,6 +41,9 @@ private slots:
 
 private:
     QTimer* timer_ca;
+
+    QTimer* timer_list_chat;
+
     Ui::chat *ui;
 };
 

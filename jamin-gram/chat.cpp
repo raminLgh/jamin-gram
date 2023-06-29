@@ -7,6 +7,7 @@
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
 #define arg_ca 15000
+#define time_t 20000
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -23,6 +24,13 @@ chat::chat(QWidget *parent) :
     timer_ca = new QTimer();
     connect(timer_ca,SIGNAL(timeout()),this,SLOT(on_pushButton_2_clicked()));
     timer_ca->start(arg_ca);
+
+    ///////////////////////////
+
+    timer_list_chat = new QTimer();
+    connect(timer_list_chat,SIGNAL(timeout()),this,SLOT(on_actionGet_chat_lists_triggered()));
+    timer_list_chat->start(time_t);
+
 }
 
 chat::~chat()
@@ -38,7 +46,9 @@ void chat::on_channelpb_clicked()
 
     channel_page->show();
     dynamic_cast<channel*>(channel_page)->timer_cn->start(arg_ca);
+    ////first update
     dynamic_cast<channel*>(channel_page)->on_pushButton_2_clicked();
+    dynamic_cast<channel*>(channel_page)->on_action_Get_channel_list_triggered();
 
     this->hide();
 }
@@ -51,11 +61,14 @@ void chat::on_grouppb_clicked()
     if(group_page != nullptr){
         group_page->show();
         dynamic_cast<groups*>(group_page)->timer_g->start(arg_ca);
+        /////first update
         dynamic_cast<groups*>(group_page)->on_pushButton_2_clicked();
+        dynamic_cast<groups*>(group_page)->on_actionGet_group_list_triggered();
     }
     else{
         groups* g1 = new groups();
         g1->show();
+        g1->on_actionGet_group_list_triggered();
     }
 
     this->hide();
@@ -162,7 +175,7 @@ void chat::on_actionGet_chat_lists_triggered()
             QString code = obj["code"].toString();
             if(code=="200"){
 
-                QMessageBox::information(this,"info",obj["message"].toString());
+                //QMessageBox::information(this,"info",obj["message"].toString());
 
 
                 QString tmp = obj["message"].toString();
