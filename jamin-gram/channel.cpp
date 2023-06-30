@@ -10,6 +10,12 @@
 #include "groups.h"
 #include "chat.h"
 
+#include <QFile>
+#include <QDir>
+#include <QTextStream>
+
+QString save_prv_count = "0";
+
 extern person User;
 extern QMainWindow* channel_page;
 extern QMainWindow* group_page ;
@@ -102,6 +108,7 @@ void channel::on_creatpb_clicked()
 
 void channel::on_joinpb_clicked()
 {
+
     if(ui->jo_channel_lineEdit->text().length()==0){
         QMessageBox::information(this,"Error","Enter channel's name first");
     }
@@ -137,6 +144,7 @@ void channel::on_joinpb_clicked()
                 if(code=="200"){
                     QMessageBox::information(this,"message",obj2["message"].toString());
 
+                     ///////working whit file
                     QString s;
                     s+=QDir::currentPath()+'/'+User.name+"/channels/"+ui->jo_channel_lineEdit->text()+".txt";
                     QFile file(s);
@@ -313,6 +321,8 @@ void channel::on_action_Get_channel_list_triggered()
                     current_channel_item = nullptr;
                 }
 
+
+
                 ui->list->clear();
                 QString m;
 
@@ -321,7 +331,26 @@ void channel::on_action_Get_channel_list_triggered()
                     m = "block " + QString::number(i);
                     qDebug()<< m;
 
+                    ///////////////////
+                    QString s;
+                    s+=QDir::currentPath()+'/'+User.name+"/channels/"+(obj[m].toObject())["channel_name"].toString()+".txt";
+                    QFile file(s);
+                    if(!file.exists()){
+                        qDebug()<<s;
+                        qDebug()<<"file is open";
+                        file.open(QFile::WriteOnly|QFile::Text);
+                        if(file.isOpen()){
+                            qDebug()<<"in file";
+                        }
+                        file.close();
+
+                    }
+                    //////////////////////
+
                     ui->list->addItem((obj[m].toObject())["channel_name"].toString());
+
+
+
 
                 }
 
@@ -476,6 +505,7 @@ void channel::on_pushButton_2_clicked()
                 QString count;
 
 
+
                 /////extract number of message
                 for(int i=0; i<tmp.length();++i){
                    if(tmp[i]=='-'){
@@ -487,13 +517,20 @@ void channel::on_pushButton_2_clicked()
                     }
                    }
                     break;
-                }
+                  }
                 }
 
                 qDebug()<<"number of message"<<count;
 
                 ///read data from block
                 ui->chat_ted->clear();
+                ///////////////
+                //work whit file
+                QString s;
+                s+=QDir::currentPath()+'/'+User.name+"/channels/"+accuracy+".txt";
+                QFile file(s);
+                /////////////////
+                file.open(QFile::ReadOnly|QFile::WriteOnly|QFile::Text);
 
                 QString b1;
                 for(int i=0;i<count.toInt();++i){
@@ -502,6 +539,17 @@ void channel::on_pushButton_2_clicked()
                     QString body = (obj2[b1].toObject())["body"].toString();
                     QString sender = (obj2[b1].toObject())["src"].toString();
 
+                    //////////////////////////////////////////
+                    if(save_prv_count != count){
+                        if(file.isOpen()){
+                            qDebug()<<"now we in file and want to write";
+                            QTextStream out(&file);
+                            out<<sender<<" "<<body<<"\n";
+                        }
+                        else
+                            qDebug()<<"cant open file for write";
+                    }
+                    //////////////////////////////////////////
                     if(sender == User.name){
                         ui->chat_ted->setTextColor(QColor(0, 0, 255));
                         ui->chat_ted->append("you(Admin):");
@@ -513,12 +561,11 @@ void channel::on_pushButton_2_clicked()
                         ui->chat_ted->append(sender+"(Admin):");
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
-                    }
-
-
+                        }
+                  }
+                   file.close();
+                   save_prv_count = count;
                 }
-                }
-
 
             }
             else{

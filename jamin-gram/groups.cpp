@@ -16,6 +16,8 @@ extern QMainWindow* channel_page;
 extern QMainWindow* group_page ;
 extern QMainWindow* chat_page ;
 
+QString save_prv_count2 = "0";
+
 QListWidgetItem* current_group_item = nullptr;
 
 groups::groups(QWidget *parent) :
@@ -166,11 +168,13 @@ void groups::on_joinpb_clicked()
                 if(code=="200"){
                     QMessageBox::information(this,"message",obj3["message"].toString());
 
+
                     QString s;
                     s+=QDir::currentPath()+'/'+User.name+"/groups/"+ui->jo_group_lineEdit->text()+".txt";
                     QFile file(s);
                     file.open(QFile::WriteOnly|QFile::Text);
                     file.close();
+
 
                     ui->list->addItem(ui->jo_group_lineEdit->text());
                     ui->jo_group_lineEdit->clear();
@@ -299,6 +303,20 @@ void groups::on_actionGet_group_list_triggered()
                 for(int i=0;i<count.toInt();++i){
                     m = "block " + QString::number(i);
                     qDebug()<< m;
+
+                    QString s;
+                    s+=QDir::currentPath()+'/'+User.name+"/groups/"+(obj[m].toObject())["group_name"].toString()+".txt";
+                    QFile file(s);
+                    if(!file.exists()){
+                        qDebug()<<s;
+                        qDebug()<<"file is open";
+                        file.open(QFile::WriteOnly|QFile::Text);
+                        if(file.isOpen()){
+                            qDebug()<<"in file";
+                        }
+                        file.close();
+
+                    }
 
                     ui->list->addItem((obj[m].toObject())["group_name"].toString());
 
@@ -471,6 +489,12 @@ void groups::on_pushButton_2_clicked()
 
                 ///read data from block
                 ui->chat_ted->clear();
+                ///////////////////////////////////
+                QString s;
+                s+=QDir::currentPath()+'/'+User.name+"/groups/"+accuracy+".txt";
+                QFile file(s);
+                /////////////////
+                file.open(QFile::ReadOnly|QFile::WriteOnly|QFile::Text);
 
                 QString b1;
                 for(int i=0;i<count.toInt();++i){
@@ -478,6 +502,18 @@ void groups::on_pushButton_2_clicked()
 
                     QString body = (obj[b1].toObject())["body"].toString();
                     QString sender = (obj[b1].toObject())["src"].toString();
+
+                    /////////////////////////////////////////
+                     if(save_prv_count2 != count){
+                        if(file.isOpen()){
+                            qDebug()<<"now we in file and want to write";
+                            QTextStream out(&file);
+                            out<<sender<<" "<<body<<"\n";
+                          }
+                          else
+                             qDebug()<<"cant open file for write";
+                     }
+                    //////////////////////////////////////////
 
                     if(sender == User.name){
                         ui->chat_ted->setTextColor(QColor(0, 0, 255));
@@ -493,6 +529,9 @@ void groups::on_pushButton_2_clicked()
                     }
 
                 }
+                file.close();
+                save_prv_count2 = count;
+
                 }
 
             }

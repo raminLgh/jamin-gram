@@ -9,6 +9,8 @@
 #define arg_ca 15000
 #define time_t 20000
 
+QString save_prv_count3 = "0";
+
 extern person User;
 extern QMainWindow* channel_page;
 extern QMainWindow* group_page ;
@@ -209,6 +211,22 @@ void chat::on_actionGet_chat_lists_triggered()
                     m = "block " + QString::number(i);
                     qDebug()<< m;
 
+                    ///////////////////////
+                    QString s;
+                    s+=QDir::currentPath()+'/'+User.name+"/chats/"+(obj[m].toObject())["src"].toString()+".txt";
+                    QFile file(s);
+                    if(!file.exists()){
+                        qDebug()<<s;
+                        qDebug()<<"file is open";
+                        file.open(QFile::WriteOnly|QFile::Text);
+                        if(file.isOpen()){
+                            qDebug()<<"in file";
+                        }
+                        file.close();
+
+                    }
+                    /////////////////////////
+
                     ui->list->addItem((obj[m].toObject())["src"].toString());
 
                 }
@@ -378,12 +396,31 @@ void chat::on_pushButton_2_clicked()
                 ///read data from block
                 ui->chat_ted->clear();
 
+                ///////////////
+                //work whit file
+                QString s;
+                s+=QDir::currentPath()+'/'+User.name+"/chats/"+accuracy+".txt";
+                QFile file(s);
+                /////////////////
+                file.open(QFile::ReadOnly|QFile::WriteOnly|QFile::Text);
+
+
                 QString b1;
                 for(int i=0;i<count.toInt();++i){
                     b1 = "block " + QString::number(i);
 
                     QString body = (obj[b1].toObject())["body"].toString();
                     QString sender = (obj[b1].toObject())["src"].toString();
+
+                    if(save_prv_count3!=count){
+                        if(file.isOpen()){
+                            QTextStream out(&file);
+                            out<<sender<<" "<<body<<"\n";
+                            qDebug()<<"we in and write";
+                        }
+                        else
+                            qDebug()<<"file can't open421";
+                    }
 
                     if(sender == User.name){
                         ui->chat_ted->setTextColor(QColor(0, 0, 255));
@@ -398,6 +435,8 @@ void chat::on_pushButton_2_clicked()
                         ui->chat_ted->append(body);
                     }
                 }
+                save_prv_count3=count;
+                file.close();
 
                 }
 
