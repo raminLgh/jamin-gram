@@ -254,6 +254,7 @@ void channel::on_chatpb_clicked()
     if(chat_page != nullptr){
         chat_page->show();
         dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_cn);
+        dynamic_cast<chat*>(chat_page)->timer_list_chat->start(time_t);
         //dynamic_cast<chat*>(chat_page)->timer_list_chat->start(time_t);
 
         ////first page

@@ -52,7 +52,6 @@ void groups::on_channelpb_clicked()
     this->hide();
 }
 
-
 void groups::on_chatpb_clicked()
 {
     group_page = this;
@@ -61,6 +60,7 @@ void groups::on_chatpb_clicked()
     if(chat_page != nullptr){
        chat_page->show();
        dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_g);
+       dynamic_cast<chat*>(chat_page)->timer_list_chat->start(time_t);
 
        ///first time update
        dynamic_cast<chat*>(chat_page)->on_pushButton_2_clicked();
@@ -74,7 +74,6 @@ void groups::on_chatpb_clicked()
 
     this->hide();
 }
-
 
 void groups::on_creatpb_clicked()
 {
@@ -130,7 +129,6 @@ void groups::on_creatpb_clicked()
         });
     }
 }
-
 
 void groups::on_joinpb_clicked()
 {
@@ -194,7 +192,6 @@ void groups::on_joinpb_clicked()
     }
 }
 
-
 void groups::on_actionLog_out_triggered()
 {
     concatenate_string cs;
@@ -247,7 +244,6 @@ void groups::on_actionLog_out_triggered()
      });
 
 }
-
 
 void groups::on_actionGet_group_list_triggered()
 {
@@ -346,8 +342,6 @@ void groups::on_actionGet_group_list_triggered()
 
 
 }
-
-
 
 void groups::on_list_itemClicked(QListWidgetItem *item)
 {

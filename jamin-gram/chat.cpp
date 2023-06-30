@@ -45,6 +45,7 @@ void chat::on_channelpb_clicked()
 {
     chat_page = this;
     timer_ca->stop();
+    timer_list_chat->stop();
 
     channel_page->show();
     dynamic_cast<channel*>(channel_page)->timer_cn->start(arg_ca);
@@ -59,6 +60,7 @@ void chat::on_grouppb_clicked()
 {
     chat_page = this;
     timer_ca->stop();
+    timer_list_chat->stop();
 
     if(group_page != nullptr){
         group_page->show();
@@ -78,25 +80,75 @@ void chat::on_grouppb_clicked()
 
 void chat::on_addpb_clicked()
 {
-    QString s;
-    s+=QDir::currentPath()+'/'+User.name+"/chats/"+ui->add_user_lineEdit->text()+".txt";
+    QString b;
+    b+=QDir::currentPath()+'/'+User.name+"/chats/"+ui->add_user_lineEdit->text()+".txt";
 
     if(ui->add_user_lineEdit->text().length()==0){
         QMessageBox::information(this,"Error","Enter contact's name first");
     }
-    else if(QFile::exists(s)){
-        QMessageBox::information(this,"Error","this user has already been added!");
+    else if(QFile::exists(b)){
+        QMessageBox::warning(this,"Error","this user has already been added!");
+        ui->add_user_lineEdit->clear();
     }
     else
     {
-        QMessageBox::information(this,"message","contact successfuly aded");
+        //QMessageBox::information(this,"message","contact successfuly aded");
+        //we check if user exist in server we add it
 
-        QFile file(s);
-        file.open(QFile::WriteOnly|QFile::Text);
-        file.close();
+        qDebug()<<"sa";
+        concatenate_string concat;
+        concat.addString("sendmessageuser?token=");
+        concat.addString(User.token);
+        concat.addString("&dst=");
+        concat.addString(ui->add_user_lineEdit->text()); ///that is item clicked on listWidget
+        concat.addString("&body=");
+        concat.addString("");
+        qDebug()<<"sa2";
+        QString accuracy2 = ui->chat_ted->toPlainText(); //////////save name
 
-        ui->list->addItem(ui->add_user_lineEdit->text());
-        ui->add_user_lineEdit->clear();
+        qDebug()<<concat.getUrl();
+
+        //send request
+        QUrl url(concat.getUrl());
+        QNetworkAccessManager* manager = new QNetworkAccessManager();
+        QNetworkReply* reply = manager->get(QNetworkRequest(url));
+
+
+        QObject::connect(reply,&QNetworkReply::finished,[=](){
+
+            if(reply->error()==QNetworkReply::NoError){
+                //recive reply
+                QByteArray data = reply->readAll();
+                qDebug()<<data;
+                QJsonDocument duc = QJsonDocument::fromJson(data);
+                QJsonObject obj = duc.object();
+                qDebug()<<obj["code"].toString();
+
+                QString code = obj["code"].toString();
+
+                if(code=="200"){
+                    QMessageBox::information(this,"message","contact successfuly aded");
+                    ui->list->addItem(ui->add_user_lineEdit->text());
+                    ui->add_user_lineEdit->clear();
+                    QString s;
+                    s+=QDir::currentPath()+'/'+User.name+"/chats/"+ui->add_user_lineEdit->text()+".txt";
+                    QFile file(s);
+                    file.open(QFile::WriteOnly|QFile::Text);
+                    file.close();
+                }
+                else{
+                    //\"Destination User Not Found\", \"code\": \"404\
+
+                    QMessageBox::warning(this,"message","Destination User Not Found");
+                    ui->add_user_lineEdit->clear();
+                }
+
+            }
+            else{
+                qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
+            }
+
+         });
     }
 }
 
@@ -412,6 +464,8 @@ void chat::on_pushButton_2_clicked()
                     QString body = (obj[b1].toObject())["body"].toString();
                     QString sender = (obj[b1].toObject())["src"].toString();
 
+                if(body!=""){
+
                     if(save_prv_count3!=count){
                         if(file.isOpen()){
                             QTextStream out(&file);
@@ -434,6 +488,7 @@ void chat::on_pushButton_2_clicked()
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
                     }
+                  }
                 }
                 save_prv_count3=count;
                 file.close();
