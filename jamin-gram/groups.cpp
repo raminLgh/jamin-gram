@@ -8,8 +8,8 @@
 
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
-#define arg_g 15000
-#define time_t 20000
+#define arg_g  15000
+#define time_t 15000
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -25,6 +25,7 @@ groups::groups(QWidget *parent) :
     ui(new Ui::groups)
 {
     ui->setupUi(this);
+
     timer_g = new QTimer();
     connect(timer_g,SIGNAL(timeout()),this,SLOT(on_pushButton_2_clicked()));
     timer_g->start(arg_g);
@@ -42,12 +43,12 @@ void groups::on_channelpb_clicked()
     group_page = this;
     timer_g->stop();
 
+    channel_page->setGeometry(this->geometry());
     channel_page->show();
     dynamic_cast<channel*>(channel_page)->timer_cn->start(arg_g);
 
     ///first time updatae
     dynamic_cast<channel*>(channel_page)->on_pushButton_2_clicked();
-    //dynamic_cast<channel*>(channel_page)->on_action_Get_channel_list_triggered();
 
     this->hide();
 }
@@ -58,6 +59,7 @@ void groups::on_chatpb_clicked()
     timer_g->stop();
 
     if(chat_page != nullptr){
+       chat_page->setGeometry(this->geometry());
        chat_page->show();
        dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_g);
        dynamic_cast<chat*>(chat_page)->timer_list_chat->start(time_t);
@@ -68,6 +70,7 @@ void groups::on_chatpb_clicked()
     }
     else{
         chat* ca = new chat();
+        ca->setGeometry(this->geometry());
         ca->show();
         ca->on_actionGet_chat_lists_triggered();
     }
@@ -409,7 +412,7 @@ void groups::on_pushButton_clicked()
                     ui->chat_ted->append("you:");
                     ui->chat_ted->setAlignment(Qt::AlignRight);
                     ui->chat_ted->append(ui->type_ted->toPlainText());
-                    QMessageBox::information(this,"message",obj["message"].toString());
+                    //QMessageBox::information(this,"message",obj["message"].toString());
                     }
                     ///////// clear textEdit type
                     ui->type_ted->clear();

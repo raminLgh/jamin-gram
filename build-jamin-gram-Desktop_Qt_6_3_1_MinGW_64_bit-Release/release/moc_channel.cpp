@@ -30,12 +30,12 @@ struct qt_meta_stringdata_channel_t {
 static const qt_meta_stringdata_channel_t qt_meta_stringdata_channel = {
     {
 QT_MOC_LITERAL(0, 7), // "channel"
-QT_MOC_LITERAL(8, 18), // "on_creatpb_clicked"
-QT_MOC_LITERAL(27, 0), // ""
-QT_MOC_LITERAL(28, 17), // "on_joinpb_clicked"
-QT_MOC_LITERAL(46, 19), // "on_Logout_triggered"
-QT_MOC_LITERAL(66, 18), // "on_grouppb_clicked"
-QT_MOC_LITERAL(85, 36), // "on_action_Get_channel_list_tr..."
+QT_MOC_LITERAL(8, 36), // "on_action_Get_channel_list_tr..."
+QT_MOC_LITERAL(45, 0), // ""
+QT_MOC_LITERAL(46, 18), // "on_creatpb_clicked"
+QT_MOC_LITERAL(65, 17), // "on_joinpb_clicked"
+QT_MOC_LITERAL(83, 19), // "on_Logout_triggered"
+QT_MOC_LITERAL(103, 18), // "on_grouppb_clicked"
 QT_MOC_LITERAL(122, 17), // "on_chatpb_clicked"
 QT_MOC_LITERAL(140, 21), // "on_pushButton_clicked"
 QT_MOC_LITERAL(162, 19), // "on_list_itemClicked"
@@ -44,10 +44,9 @@ QT_MOC_LITERAL(199, 4), // "item"
 QT_MOC_LITERAL(204, 23) // "on_pushButton_2_clicked"
 
     },
-    "channel\0on_creatpb_clicked\0\0"
-    "on_joinpb_clicked\0on_Logout_triggered\0"
-    "on_grouppb_clicked\0"
-    "on_action_Get_channel_list_triggered\0"
+    "channel\0on_action_Get_channel_list_triggered\0"
+    "\0on_creatpb_clicked\0on_joinpb_clicked\0"
+    "on_Logout_triggered\0on_grouppb_clicked\0"
     "on_chatpb_clicked\0on_pushButton_clicked\0"
     "on_list_itemClicked\0QListWidgetItem*\0"
     "item\0on_pushButton_2_clicked"
@@ -68,7 +67,7 @@ static const uint qt_meta_data_channel[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   68,    2, 0x08,    1 /* Private */,
+       1,    0,   68,    2, 0x0a,    1 /* Public */,
        3,    0,   69,    2, 0x08,    2 /* Private */,
        4,    0,   70,    2, 0x08,    3 /* Private */,
        5,    0,   71,    2, 0x08,    4 /* Private */,
@@ -98,11 +97,11 @@ void channel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         auto *_t = static_cast<channel *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_creatpb_clicked(); break;
-        case 1: _t->on_joinpb_clicked(); break;
-        case 2: _t->on_Logout_triggered(); break;
-        case 3: _t->on_grouppb_clicked(); break;
-        case 4: _t->on_action_Get_channel_list_triggered(); break;
+        case 0: _t->on_action_Get_channel_list_triggered(); break;
+        case 1: _t->on_creatpb_clicked(); break;
+        case 2: _t->on_joinpb_clicked(); break;
+        case 3: _t->on_Logout_triggered(); break;
+        case 4: _t->on_grouppb_clicked(); break;
         case 5: _t->on_chatpb_clicked(); break;
         case 6: _t->on_pushButton_clicked(); break;
         case 7: _t->on_list_itemClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;

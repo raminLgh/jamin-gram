@@ -42,7 +42,6 @@ public:
     QPushButton *addpb;
     QPushButton *pushButton;
     QTextEdit *textEdit_2;
-    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QMenu *menuOptions;
 
@@ -177,7 +176,7 @@ public:
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/tell.jpg);"));
+        pushButton->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);"));
         pushButton->setFlat(true);
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
@@ -187,13 +186,10 @@ public:
 "background-color: rgb(240, 240, 240);"));
         textEdit_2->setFrameShape(QFrame::NoFrame);
         textEdit_2->setReadOnly(true);
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(0, 20, 80, 29));
         chat->setCentralWidget(centralwidget);
         menubar = new QMenuBar(chat);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 700, 26));
+        menubar->setGeometry(QRect(0, 0, 700, 21));
         menuOptions = new QMenu(menubar);
         menuOptions->setObjectName(QString::fromUtf8("menuOptions"));
         chat->setMenuBar(menubar);
@@ -231,11 +227,10 @@ public:
         addpb->setText(QCoreApplication::translate("chat", "add", nullptr));
         pushButton->setText(QString());
         textEdit_2->setHtml(QCoreApplication::translate("chat", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#55aaff;\">add</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#0000ff;\">contact</span></p></body></html>", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("chat", "PushButton", nullptr));
         menuOptions->setTitle(QCoreApplication::translate("chat", "Options", nullptr));
     } // retranslateUi
 

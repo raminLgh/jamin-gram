@@ -46,7 +46,6 @@ public:
     QLabel *label_2;
     QLabel *label;
     QPushButton *creatpb;
-    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QMenu *menuOptions;
 
@@ -193,7 +192,7 @@ public:
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/tell.jpg);"));
+        pushButton->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);"));
         pushButton->setFlat(true);
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -211,13 +210,10 @@ public:
 "font-size:14pt;\n"
 "border-radius:10px;\n"
 ""));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(0, 20, 80, 29));
         groups->setCentralWidget(centralwidget);
         menubar = new QMenuBar(groups);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 700, 26));
+        menubar->setGeometry(QRect(0, 0, 700, 21));
         menuOptions = new QMenu(menubar);
         menuOptions->setObjectName(QString::fromUtf8("menuOptions"));
         groups->setMenuBar(menubar);
@@ -245,15 +241,15 @@ public:
 #endif // QT_CONFIG(shortcut)
         channelpb->setText(QCoreApplication::translate("groups", "chanels", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("groups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;\">Join</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;\">Group</span></p></body></html>", nullptr));
         joinpb->setText(QCoreApplication::translate("groups", "join", nullptr));
         textEdit->setHtml(QCoreApplication::translate("groups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;\">New</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;\">Group</span></p></body></html>", nullptr));
         type_ted->setPlaceholderText(QCoreApplication::translate("groups", " Type message", nullptr));
         grouppb->setText(QCoreApplication::translate("groups", "groups", nullptr));
@@ -270,7 +266,6 @@ public:
         label_2->setText(QString());
         label->setText(QString());
         creatpb->setText(QCoreApplication::translate("groups", "create", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("groups", "PushButton", nullptr));
         menuOptions->setTitle(QCoreApplication::translate("groups", "Options", nullptr));
     } // retranslateUi
 

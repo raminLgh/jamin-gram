@@ -4,7 +4,7 @@
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
 #define arg_cn 15000
-#define time_t 20000
+#define time_t 15000
 #include <QString>
 #include "concatenate_string.h"
 #include "groups.h"
@@ -28,6 +28,7 @@ channel::channel(QWidget *parent) :
     ui(new Ui::channel)
 {
     ui->setupUi(this);
+
     timer_cn = new QTimer();
     connect(timer_cn,SIGNAL(timeout()),this,SLOT(on_pushButton_2_clicked()));
     timer_cn->start(arg_cn);
@@ -229,16 +230,17 @@ void channel::on_grouppb_clicked()
     timer_cn->stop();
 
     if(group_page != nullptr){
+        group_page->setGeometry(this->geometry());
         group_page->show();
         dynamic_cast<groups*>(group_page)->timer_g->start(arg_cn);
 
         /////first update
         dynamic_cast<groups*>(group_page)->on_pushButton_2_clicked();
-        //dynamic_cast<groups*>(group_page)->on_actionGet_group_list_triggered();
 
     }
     else{
     groups* g1 = new groups();
+    g1->setGeometry(this->geometry());
     g1->show();
     g1->on_actionGet_group_list_triggered();
     }
@@ -252,10 +254,10 @@ void channel::on_chatpb_clicked()
     timer_cn->stop();
 
     if(chat_page != nullptr){
+        chat_page->setGeometry(this->geometry());
         chat_page->show();
         dynamic_cast<chat*>(chat_page)->timer_ca->start(arg_cn);
         dynamic_cast<chat*>(chat_page)->timer_list_chat->start(time_t);
-        //dynamic_cast<chat*>(chat_page)->timer_list_chat->start(time_t);
 
         ////first page
         dynamic_cast<chat*>(chat_page)->on_pushButton_2_clicked();
@@ -263,6 +265,7 @@ void channel::on_chatpb_clicked()
     }
     else{
     chat* c1 = new chat();
+    c1->setGeometry(this->geometry());
     c1->show();
     c1->on_actionGet_chat_lists_triggered();
     }

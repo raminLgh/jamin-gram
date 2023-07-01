@@ -7,7 +7,7 @@
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
 #define arg_ca 15000
-#define time_t 20000
+#define time_t 15000
 
 QString save_prv_count3 = "0";
 
@@ -39,6 +39,7 @@ chat::~chat()
 {
     delete ui;
     delete timer_ca;
+    delete timer_list_chat;
 }
 
 void chat::on_channelpb_clicked()
@@ -47,11 +48,11 @@ void chat::on_channelpb_clicked()
     timer_ca->stop();
     timer_list_chat->stop();
 
+    channel_page->setGeometry(this->geometry());
     channel_page->show();
     dynamic_cast<channel*>(channel_page)->timer_cn->start(arg_ca);
     ////first update
     dynamic_cast<channel*>(channel_page)->on_pushButton_2_clicked();
-    //dynamic_cast<channel*>(channel_page)->on_action_Get_channel_list_triggered();
 
     this->hide();
 }
@@ -63,14 +64,15 @@ void chat::on_grouppb_clicked()
     timer_list_chat->stop();
 
     if(group_page != nullptr){
+        group_page->setGeometry(this->geometry());
         group_page->show();
         dynamic_cast<groups*>(group_page)->timer_g->start(arg_ca);
         /////first update
         dynamic_cast<groups*>(group_page)->on_pushButton_2_clicked();
-        //dynamic_cast<groups*>(group_page)->on_actionGet_group_list_triggered();
     }
     else{
         groups* g1 = new groups();
+        g1->setGeometry(this->geometry());
         g1->show();
         g1->on_actionGet_group_list_triggered();
     }
@@ -373,7 +375,7 @@ void chat::on_pushButton_clicked()
                     ui->chat_ted->append("you:");
                     ui->chat_ted->setAlignment(Qt::AlignRight);
                     ui->chat_ted->append(ui->type_ted->toPlainText());
-                    QMessageBox::information(this,"message",obj["message"].toString());
+                    //QMessageBox::information(this,"message",obj["message"].toString());
                     }
                     ///////// clear textEdit type
                     ui->type_ted->clear();
