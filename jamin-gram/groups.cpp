@@ -8,7 +8,7 @@
 
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
-#define arg_g  15000
+#define arg_g  14000
 #define time_t 15000
 
 extern person User;
@@ -81,7 +81,7 @@ void groups::on_chatpb_clicked()
 void groups::on_creatpb_clicked()
 {
     if(ui->cr_group_lineEdit->text().length()==0){
-        QMessageBox::information(this,"Error","Enter channel's name first");
+        QMessageBox::information(this,"Error","Enter group's name first");
     }
     else
     {
@@ -136,7 +136,7 @@ void groups::on_creatpb_clicked()
 void groups::on_joinpb_clicked()
 {
     if(ui->jo_group_lineEdit->text().length()==0){
-        QMessageBox::information(this,"Error","Enter channel's name first");
+        QMessageBox::information(this,"Error","Enter group's name first");
     }
     else
     {
@@ -363,6 +363,7 @@ void groups::on_list_itemClicked(QListWidgetItem *item)
         item->setBackground((QBrush)"light blue");
         item->setForeground((QBrush)"yellow");
     }
+    save_prv_count2 = "0";
     on_pushButton_2_clicked();
 }
 
@@ -485,6 +486,8 @@ void groups::on_pushButton_2_clicked()
                 qDebug()<<"number of message"<<count;
 
                 ///read data from block
+                if(save_prv_count2 != count){
+
                 ui->chat_ted->clear();
                 ///////////////////////////////////
                 QString s;
@@ -501,7 +504,8 @@ void groups::on_pushButton_2_clicked()
                     QString sender = (obj[b1].toObject())["src"].toString();
 
                     /////////////////////////////////////////
-                     if(save_prv_count2 != count){
+                    if(body!=""){
+
                         if(file.isOpen()){
                             qDebug()<<"now we in file and want to write";
                             QTextStream out(&file);
@@ -509,7 +513,7 @@ void groups::on_pushButton_2_clicked()
                           }
                           else
                              qDebug()<<"cant open file for write";
-                     }
+
                     //////////////////////////////////////////
 
                     if(sender == User.name){
@@ -524,13 +528,13 @@ void groups::on_pushButton_2_clicked()
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
                     }
-
+                  }
                 }
                 file.close();
                 save_prv_count2 = count;
 
                 }
-
+                }
             }
             else{
                 QMessageBox::information(this,"message",obj["message"].toString());

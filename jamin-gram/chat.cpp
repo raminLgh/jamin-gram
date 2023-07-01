@@ -6,10 +6,11 @@
 
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
-#define arg_ca 15000
+#define arg_ca 14000
 #define time_t 15000
 
 QString save_prv_count3 = "0";
+QString save_list_count = "0";
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -86,7 +87,7 @@ void chat::on_addpb_clicked()
     b+=QDir::currentPath()+'/'+User.name+"/chats/"+ui->add_user_lineEdit->text()+".txt";
 
     if(ui->add_user_lineEdit->text().length()==0){
-        QMessageBox::information(this,"Error","Enter contact's name first");
+        QMessageBox::information(this,"attention","Enter contact's name first");
     }
     else if(QFile::exists(b)){
         QMessageBox::warning(this,"Error","this user has already been added!");
@@ -129,17 +130,17 @@ void chat::on_addpb_clicked()
                 QString code = obj["code"].toString();
 
                 if(code=="200"){
-                    QMessageBox::information(this,"message","contact successfuly aded");
-                    ui->list->addItem(ui->add_user_lineEdit->text());
-                    ui->add_user_lineEdit->clear();
+                    QMessageBox::information(this,"message","contact successfuly added");
                     QString s;
                     s+=QDir::currentPath()+'/'+User.name+"/chats/"+ui->add_user_lineEdit->text()+".txt";
                     QFile file(s);
                     file.open(QFile::WriteOnly|QFile::Text);
                     file.close();
+
+                    ui->list->addItem(ui->add_user_lineEdit->text());
+                    ui->add_user_lineEdit->clear();
                 }
                 else{
-                    //\"Destination User Not Found\", \"code\": \"404\
 
                     QMessageBox::warning(this,"message","Destination User Not Found");
                     ui->add_user_lineEdit->clear();
@@ -233,9 +234,8 @@ void chat::on_actionGet_chat_lists_triggered()
 
                 //QMessageBox::information(this,"info",obj["message"].toString());
 
-
                 QString tmp = obj["message"].toString();
-                qDebug()<<tmp;
+                qDebug()<< tmp;
 
                 QString count;
                 for(int i=0; i<tmp.length();++i){
@@ -251,6 +251,8 @@ void chat::on_actionGet_chat_lists_triggered()
                 }
                 }
                 qDebug()<< "Number of chats: " << count;
+
+                if(save_list_count != count){
 
                 QString curr;
                 if(current_chat_item != nullptr){
@@ -280,7 +282,6 @@ void chat::on_actionGet_chat_lists_triggered()
 
                     }
                     /////////////////////////
-
                     ui->list->addItem((obj[m].toObject())["src"].toString());
 
                 }
@@ -296,6 +297,8 @@ void chat::on_actionGet_chat_lists_triggered()
                     current_chat_item->setBackground((QBrush)"light blue");
                     current_chat_item->setForeground((QBrush)"yellow");
                 }
+                save_list_count = count;
+             }
                 qDebug()<< obj;
             }
             else{
@@ -326,6 +329,7 @@ void chat::on_list_itemClicked(QListWidgetItem *item)
         item->setBackground((QBrush)"light blue");
         item->setForeground((QBrush)"yellow");
     }
+    save_prv_count3 = "0";
     on_pushButton_2_clicked();
 }
 
@@ -448,8 +452,9 @@ void chat::on_pushButton_2_clicked()
                 qDebug()<<"number of message"<<count;
 
                 ///read data from block
-                ui->chat_ted->clear();
+                if(save_prv_count3!=count){
 
+                ui->chat_ted->clear();
                 ///////////////
                 //work whit file
                 QString s;
@@ -468,7 +473,6 @@ void chat::on_pushButton_2_clicked()
 
                 if(body!=""){
 
-                    if(save_prv_count3!=count){
                         if(file.isOpen()){
                             QTextStream out(&file);
                             out<<sender<<" "<<body<<"\n";
@@ -476,7 +480,7 @@ void chat::on_pushButton_2_clicked()
                         }
                         else
                             qDebug()<<"file can't open421";
-                    }
+
 
                     if(sender == User.name){
                         ui->chat_ted->setTextColor(QColor(0, 0, 255));
@@ -496,7 +500,7 @@ void chat::on_pushButton_2_clicked()
                 file.close();
 
                 }
-
+                }
             }
             else{
                 QMessageBox::information(this,"message",obj["message"].toString());
