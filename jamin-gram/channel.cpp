@@ -485,7 +485,7 @@ void channel::on_pushButton_clicked()
                     ///////append message
                     // احتمالا باید پاک کنیم این قسمت رو
                     ui->chat_ted->setTextColor(QColor(0, 0, 255));
-                    ui->chat_ted->append("you(Admin):");
+                    ui->chat_ted->append("you(Admin): [now]");
                     ui->chat_ted->setAlignment(Qt::AlignRight);
                     ui->chat_ted->append(ui->type_ted->toPlainText());
                     //QMessageBox::information(this,"message",obj2["message"].toString());
@@ -589,6 +589,8 @@ void channel::on_pushButton_2_clicked()
 
                     QString body = (obj2[b1].toObject())["body"].toString();
                     QString sender = (obj2[b1].toObject())["src"].toString();
+                    QString date = (obj2[b1].toObject())["date"].toString();
+                    date.replace('-','/');
 
                     //////////////////////////////////////////
                     if(body!=""){
@@ -597,13 +599,13 @@ void channel::on_pushButton_2_clicked()
                     //////////////////////////////////////////
                     if(sender == User.name){
                         ui->chat_ted->setTextColor(QColor(0, 0, 255));
-                        ui->chat_ted->append("you(Admin):");
+                        ui->chat_ted->append("you(Admin): ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignRight);
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(255, 70, 0));
-                        ui->chat_ted->append(sender+"(Admin):");
+                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->append(sender+"(Admin): ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
                         }
@@ -658,20 +660,21 @@ void channel::on_pushButton_2_clicked()
 
                     QString body = (object[b1].toObject())["body"].toString();
                     QString sender = (object[b1].toObject())["src"].toString();
-
+                    QString date = (object[b1].toObject())["date"].toString();
+                    date.replace('-','/');
 
                     if(body!=""){
 
                     //////////////////////////////////////////
                     if(sender == User.name){
                         ui->chat_ted->setTextColor(QColor(0, 0, 255));
-                        ui->chat_ted->append("you(Admin):");
+                        ui->chat_ted->append("you(Admin): ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignRight);
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(255, 70, 0));
-                        ui->chat_ted->append(sender+"(Admin):");
+                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->append(sender+"(Admin): ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
                         }

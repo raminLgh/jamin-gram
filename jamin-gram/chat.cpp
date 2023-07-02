@@ -427,7 +427,7 @@ void chat::on_pushButton_clicked()
                     if(accuracy2 == current_chat_item->text()){
                     ///////append message
                     ui->chat_ted->setTextColor(QColor(0, 0, 255));
-                    ui->chat_ted->append("you:");
+                    ui->chat_ted->append("you: [now]");
                     ui->chat_ted->setAlignment(Qt::AlignRight);
                     ui->chat_ted->append(ui->type_ted->toPlainText());
                     //QMessageBox::information(this,"message",obj["message"].toString());
@@ -530,6 +530,8 @@ void chat::on_pushButton_2_clicked()
 
                     QString body = (obj[b1].toObject())["body"].toString();
                     QString sender = (obj[b1].toObject())["src"].toString();
+                    QString date = (obj[b1].toObject())["date"].toString();
+                    date.replace('-','/');
 
                 if(body!=""){
 
@@ -537,13 +539,13 @@ void chat::on_pushButton_2_clicked()
 
                     if(sender == User.name){
                         ui->chat_ted->setTextColor(QColor(0, 0, 255));
-                        ui->chat_ted->append("you:");
+                        ui->chat_ted->append("you: ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignRight);
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(255, 70, 0));
-                        ui->chat_ted->append(sender+':');
+                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->append(sender+": ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
                     }
@@ -597,20 +599,21 @@ void chat::on_pushButton_2_clicked()
 
                     QString body = (object[b1].toObject())["body"].toString();
                     QString sender = (object[b1].toObject())["src"].toString();
-
+                    QString date = (object[b1].toObject())["date"].toString();
+                    date.replace('-','/');
 
                     if(body!=""){
 
                     //////////////////////////////////////////
                     if(sender == User.name){
                         ui->chat_ted->setTextColor(QColor(0, 0, 255));
-                        ui->chat_ted->append("you:");
+                        ui->chat_ted->append("you: ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignRight);
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(255, 70, 0));
-                        ui->chat_ted->append(sender+':');
+                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->append(sender+": ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
                         }
