@@ -30,6 +30,8 @@ class Ui_channel
 public:
     QAction *Logout;
     QAction *action_Get_channel_list;
+    QAction *actionExit;
+    QAction *actionSwitch_account;
     QWidget *centralwidget;
     QPushButton *grouppb;
     QListWidget *list;
@@ -71,6 +73,10 @@ public:
         Logout->setObjectName(QString::fromUtf8("Logout"));
         action_Get_channel_list = new QAction(channel);
         action_Get_channel_list->setObjectName(QString::fromUtf8("action_Get_channel_list"));
+        actionExit = new QAction(channel);
+        actionExit->setObjectName(QString::fromUtf8("actionExit"));
+        actionSwitch_account = new QAction(channel);
+        actionSwitch_account->setObjectName(QString::fromUtf8("actionSwitch_account"));
         centralwidget = new QWidget(channel);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         grouppb = new QPushButton(centralwidget);
@@ -214,13 +220,17 @@ public:
         channel->setCentralWidget(centralwidget);
         menubar = new QMenuBar(channel);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 700, 21));
+        menubar->setGeometry(QRect(0, 0, 700, 26));
         menuSeting = new QMenu(menubar);
         menuSeting->setObjectName(QString::fromUtf8("menuSeting"));
         channel->setMenuBar(menubar);
 
         menubar->addAction(menuSeting->menuAction());
         menuSeting->addAction(Logout);
+        menuSeting->addSeparator();
+        menuSeting->addAction(actionExit);
+        menuSeting->addSeparator();
+        menuSeting->addAction(actionSwitch_account);
         menuSeting->addSeparator();
         menuSeting->addAction(action_Get_channel_list);
 
@@ -240,11 +250,19 @@ public:
 #if QT_CONFIG(shortcut)
         action_Get_channel_list->setShortcut(QCoreApplication::translate("channel", "Ctrl+C", nullptr));
 #endif // QT_CONFIG(shortcut)
+        actionExit->setText(QCoreApplication::translate("channel", "Exit", nullptr));
+#if QT_CONFIG(shortcut)
+        actionExit->setShortcut(QCoreApplication::translate("channel", "Ctrl+E", nullptr));
+#endif // QT_CONFIG(shortcut)
+        actionSwitch_account->setText(QCoreApplication::translate("channel", "Switch account", nullptr));
+#if QT_CONFIG(shortcut)
+        actionSwitch_account->setShortcut(QCoreApplication::translate("channel", "Ctrl+Tab", nullptr));
+#endif // QT_CONFIG(shortcut)
         grouppb->setText(QCoreApplication::translate("channel", "groups", nullptr));
 #if QT_CONFIG(tooltip)
         jo_channel_lineEdit->setToolTip(QCoreApplication::translate("channel", "Type_channel_name", nullptr));
 #endif // QT_CONFIG(tooltip)
-        jo_channel_lineEdit->setPlaceholderText(QCoreApplication::translate("channel", " Type_channel_name", nullptr));
+        jo_channel_lineEdit->setPlaceholderText(QCoreApplication::translate("channel", " Type channel_name", nullptr));
         joinpb->setText(QCoreApplication::translate("channel", "join", nullptr));
         channelpb->setText(QCoreApplication::translate("channel", "chanels", nullptr));
         chatpb->setText(QCoreApplication::translate("channel", "chats", nullptr));
@@ -253,19 +271,22 @@ public:
 #if QT_CONFIG(tooltip)
         cr_chanel_lineEdit->setToolTip(QCoreApplication::translate("channel", "Type_channel_name", nullptr));
 #endif // QT_CONFIG(tooltip)
-        cr_chanel_lineEdit->setPlaceholderText(QCoreApplication::translate("channel", " Type_channel_name", nullptr));
+        cr_chanel_lineEdit->setPlaceholderText(QCoreApplication::translate("channel", " Type channel_name", nullptr));
         label->setText(QString());
         label_2->setText(QString());
         pushButton->setText(QString());
+#if QT_CONFIG(shortcut)
+        pushButton->setShortcut(QCoreApplication::translate("channel", "Ctrl+S", nullptr));
+#endif // QT_CONFIG(shortcut)
         textEdit->setHtml(QCoreApplication::translate("channel", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;\">New</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;\">Channel</span></p></body></html>", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("channel", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;\">Join</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;\">Channel</span></p></body></html>", nullptr));
         menuSeting->setTitle(QCoreApplication::translate("channel", "Options", nullptr));
     } // retranslateUi

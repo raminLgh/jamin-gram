@@ -23,10 +23,14 @@ public:
     explicit channel(QWidget *parent = nullptr);
     ~channel();
 
+    void write_data();
+
 public slots:
+
     void on_action_Get_channel_list_triggered();
 
 private slots:
+
     void on_creatpb_clicked();
 
     void on_joinpb_clicked();
@@ -42,6 +46,10 @@ private slots:
     void on_list_itemClicked(QListWidgetItem *item);
 
     void on_pushButton_2_clicked();
+
+    void on_actionExit_triggered();
+
+    void on_actionSwitch_account_triggered();
 
 private:
     QTimer* timer_cn;

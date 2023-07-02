@@ -30,6 +30,8 @@ class Ui_groups
 public:
     QAction *actionLog_out;
     QAction *actionGet_group_list;
+    QAction *actionExit;
+    QAction *actionSwitch_account;
     QWidget *centralwidget;
     QPushButton *channelpb;
     QTextEdit *textEdit_2;
@@ -70,6 +72,10 @@ public:
         actionLog_out->setObjectName(QString::fromUtf8("actionLog_out"));
         actionGet_group_list = new QAction(groups);
         actionGet_group_list->setObjectName(QString::fromUtf8("actionGet_group_list"));
+        actionExit = new QAction(groups);
+        actionExit->setObjectName(QString::fromUtf8("actionExit"));
+        actionSwitch_account = new QAction(groups);
+        actionSwitch_account->setObjectName(QString::fromUtf8("actionSwitch_account"));
         centralwidget = new QWidget(groups);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         channelpb = new QPushButton(centralwidget);
@@ -213,13 +219,17 @@ public:
         groups->setCentralWidget(centralwidget);
         menubar = new QMenuBar(groups);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 700, 21));
+        menubar->setGeometry(QRect(0, 0, 700, 26));
         menuOptions = new QMenu(menubar);
         menuOptions->setObjectName(QString::fromUtf8("menuOptions"));
         groups->setMenuBar(menubar);
 
         menubar->addAction(menuOptions->menuAction());
         menuOptions->addAction(actionLog_out);
+        menuOptions->addSeparator();
+        menuOptions->addAction(actionExit);
+        menuOptions->addSeparator();
+        menuOptions->addAction(actionSwitch_account);
         menuOptions->addSeparator();
         menuOptions->addAction(actionGet_group_list);
 
@@ -239,30 +249,41 @@ public:
 #if QT_CONFIG(shortcut)
         actionGet_group_list->setShortcut(QCoreApplication::translate("groups", "Ctrl+G", nullptr));
 #endif // QT_CONFIG(shortcut)
+        actionExit->setText(QCoreApplication::translate("groups", "Exit", nullptr));
+#if QT_CONFIG(shortcut)
+        actionExit->setShortcut(QCoreApplication::translate("groups", "Ctrl+E", nullptr));
+#endif // QT_CONFIG(shortcut)
+        actionSwitch_account->setText(QCoreApplication::translate("groups", "Switch account", nullptr));
+#if QT_CONFIG(shortcut)
+        actionSwitch_account->setShortcut(QCoreApplication::translate("groups", "Ctrl+Tab", nullptr));
+#endif // QT_CONFIG(shortcut)
         channelpb->setText(QCoreApplication::translate("groups", "chanels", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("groups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;\">Join</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;\">Group</span></p></body></html>", nullptr));
         joinpb->setText(QCoreApplication::translate("groups", "join", nullptr));
         textEdit->setHtml(QCoreApplication::translate("groups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#00aa00;\">New</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#4eea72;\">Group</span></p></body></html>", nullptr));
         type_ted->setPlaceholderText(QCoreApplication::translate("groups", " Type message", nullptr));
         grouppb->setText(QCoreApplication::translate("groups", "groups", nullptr));
 #if QT_CONFIG(tooltip)
         jo_group_lineEdit->setToolTip(QCoreApplication::translate("groups", "Type_channel_name", nullptr));
 #endif // QT_CONFIG(tooltip)
-        jo_group_lineEdit->setPlaceholderText(QCoreApplication::translate("groups", " Type_group_name", nullptr));
+        jo_group_lineEdit->setPlaceholderText(QCoreApplication::translate("groups", " Type group_name", nullptr));
 #if QT_CONFIG(tooltip)
         cr_group_lineEdit->setToolTip(QCoreApplication::translate("groups", "Type_channel_name", nullptr));
 #endif // QT_CONFIG(tooltip)
-        cr_group_lineEdit->setPlaceholderText(QCoreApplication::translate("groups", " Type_group_name", nullptr));
+        cr_group_lineEdit->setPlaceholderText(QCoreApplication::translate("groups", " Type group_name", nullptr));
         chatpb->setText(QCoreApplication::translate("groups", "chats", nullptr));
         pushButton->setText(QString());
+#if QT_CONFIG(shortcut)
+        pushButton->setShortcut(QCoreApplication::translate("groups", "Ctrl+S", nullptr));
+#endif // QT_CONFIG(shortcut)
         label_2->setText(QString());
         label->setText(QString());
         creatpb->setText(QCoreApplication::translate("groups", "create", nullptr));

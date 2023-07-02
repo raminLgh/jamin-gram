@@ -20,6 +20,8 @@ private slots:
 
     void on_login_clicked();
 
+    void on_addpb_clicked();
+
 private:
     Ui::first_page *ui;
 };

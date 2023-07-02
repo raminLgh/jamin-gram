@@ -3,9 +3,9 @@
 
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
-#define arg_cn 15000
+#define arg_cn 14000
 #define time_t 15000
-#include <QString>
+#include "first_page.h"
 #include "concatenate_string.h"
 #include "groups.h"
 #include "chat.h"
@@ -39,6 +39,27 @@ channel::~channel()
 {
     delete ui;
     delete timer_cn;
+}
+
+void channel::write_data()
+{
+    QString s;
+    s += QDir::currentPath()+ '/' + User.name + "/channel_list.txt";
+    QFile file(s);
+    file.open(QFile::ReadWrite|QFile::Text);
+
+    if(file.isOpen()){
+        QTextStream out(&file);
+
+        out<< User.token <<" "<< User.name <<" "<< User.pass <<"\n";
+
+        for(int i=0 ; i< ui->list->count(); i++){
+            out << ui->list->item(i)->text() << "\n";
+        }
+
+    }
+    file.close();
+
 }
 
 void channel::on_creatpb_clicked()
@@ -368,6 +389,30 @@ void channel::on_action_Get_channel_list_triggered()
         }
         else{
              qDebug()<< "ERROR to recive data from server: "<<reply_d->errorString();
+             qDebug()<<"in Offline mode";
+
+             QString s;
+             s += QDir::currentPath()+"/"+ User.name+ "/channel_list.txt";
+             QFile file(s);
+             file.open(QFile::ReadWrite|QFile::Text);
+             QTextStream in(&file);
+             QString _token;
+             QString _name;
+             QString _pass;
+             in >> _token >> _name >> _pass;
+
+             QString listmember;
+             while(1){
+                 in>>listmember;
+                 qDebug()<<listmember;
+
+                 if(listmember=="")
+                     break;
+
+                 ui->list->addItem(listmember);
+             }
+         file.close();
+
         }
     });
 
@@ -576,3 +621,29 @@ void channel::on_pushButton_2_clicked()
     });
  }
 }
+
+void channel::on_actionExit_triggered()
+{
+    write_data();
+    this->close();
+
+    if(group_page != nullptr){
+        dynamic_cast<groups*>(group_page)->write_data3();
+        group_page->close();
+    }
+
+    if(chat_page != nullptr){
+        dynamic_cast<chat*>(chat_page)->write_data2();
+        chat_page->close();
+    }
+}
+
+
+void channel::on_actionSwitch_account_triggered()
+{
+    first_page* fp = new first_page();
+    fp->setGeometry(this->geometry());
+    fp->show();
+    on_actionExit_triggered();
+}
+

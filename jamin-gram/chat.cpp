@@ -3,6 +3,7 @@
 #include "channel.h"
 #include "groups.h"
 #include "concatenate_string.h"
+#include "first_page.h"
 
 //#define setBackgroundColor setBackground
 //#define setTextColor setForeground
@@ -10,7 +11,7 @@
 #define time_t 15000
 
 QString save_prv_count3 = "0";
-QString save_list_count = "0";
+QString save_list_count = "-1";
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -41,6 +42,26 @@ chat::~chat()
     delete ui;
     delete timer_ca;
     delete timer_list_chat;
+}
+
+void chat::write_data2()
+{
+    QString s;
+    s+= QDir::currentPath()+'/'+User.name+ "/chat_list.txt";
+    QFile file(s);
+    file.open(QFile::ReadWrite|QFile::Text);
+
+    if(file.isOpen()){
+        QTextStream out(&file);
+
+        out<< User.token <<" "<< User.name <<" "<< User.pass <<"\n";
+
+        for(int i=0; i<ui->list->count(); i++){
+            out << ui->list->item(i)->text() << "\n";
+        }
+    }
+    file.close();
+
 }
 
 void chat::on_channelpb_clicked()
@@ -307,6 +328,34 @@ void chat::on_actionGet_chat_lists_triggered()
         }
         else{
              qDebug()<< "ERROR to recive data from server: "<<reply_d->errorString();
+
+             if(save_list_count == "-1"){
+                 qDebug()<<"in Offline mode";
+                 QString s;
+                 s += QDir::currentPath()+"/"+ User.name+ "/chat_list.txt";
+                 QFile file(s);
+                 file.open(QFile::ReadWrite|QFile::Text);
+                 QTextStream in(&file);
+                 QString _token;
+                 QString _name;
+                 QString _pass;
+                 in >> _token >> _name >> _pass;
+
+                 QString listmember;
+
+                 while(1){
+                     in>>listmember;
+                     qDebug()<<listmember;
+
+                     if(listmember=="")
+                         break;
+
+                     ui->list->addItem(listmember);
+                 }
+             file.close();
+
+             save_list_count = QString::number(ui->list->count());
+             }
         }
     });
 
@@ -514,4 +563,30 @@ void chat::on_pushButton_2_clicked()
 }
 
 
+
+
+void chat::on_actionExit_triggered()
+{
+    write_data2();
+    this->close();
+
+    if(group_page != nullptr){
+        dynamic_cast<groups*>(group_page)->write_data3();
+        group_page->close();
+    }
+
+    if(channel_page != nullptr){
+        dynamic_cast<channel*>(channel_page)->write_data();
+        channel_page->close();
+    }
+}
+
+
+void chat::on_actionSwitch_account_triggered()
+{
+    first_page* fp = new first_page();
+    fp->setGeometry(this->geometry());
+    fp->show();
+    on_actionExit_triggered();
+}
 

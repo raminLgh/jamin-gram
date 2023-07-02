@@ -22,6 +22,8 @@ public:
     explicit groups(QWidget *parent = nullptr);
     ~groups();
 
+    void write_data3();
+
 private slots:
     void on_channelpb_clicked();
 
@@ -40,6 +42,10 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButton_clicked();
+
+    void on_actionExit_triggered();
+
+    void on_actionSwitch_account_triggered();
 
 private:
     QTimer* timer_g;

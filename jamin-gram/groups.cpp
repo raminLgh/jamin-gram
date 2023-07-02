@@ -1,6 +1,6 @@
 #include "groups.h"
 #include "ui_groups.h"
-#include <QString>
+#include "first_page.h"
 
 #include "concatenate_string.h"
 #include "channel.h"
@@ -36,6 +36,26 @@ groups::~groups()
 {
     delete ui;
     delete timer_g;
+}
+
+void groups::write_data3()
+{
+    QString s;
+    s+= QDir::currentPath()+'/'+User.name+ "/group_list.txt";
+    QFile file(s);
+    file.open(QFile::ReadWrite|QFile::Text);
+
+    if(file.isOpen()){
+        QTextStream out(&file);
+
+        out<< User.token <<" "<< User.name <<" "<< User.pass <<"\n";
+
+        for(int i=0; i<ui->list->count(); i++){
+            out << ui->list->item(i)->text() << "\n";
+        }
+    }
+    file.close();
+
 }
 
 void groups::on_channelpb_clicked()
@@ -270,7 +290,7 @@ void groups::on_actionGet_group_list_triggered()
             QString code = obj["code"].toString();
             if(code=="200"){
 
-                QMessageBox::information(this,"info",obj["message"].toString());
+                //QMessageBox::information(this,"info",obj["message"].toString());
 
 
                 QString tmp = obj["message"].toString();
@@ -340,6 +360,32 @@ void groups::on_actionGet_group_list_triggered()
         }
         else{
              qDebug()<< "ERROR to recive data from server: "<<reply_d->errorString();
+             qDebug()<<"in Offline mode";
+
+             QString s;
+             s += QDir::currentPath()+ "/"+ User.name+ "/group_list.txt";
+             QFile file(s);
+             file.open(QFile::ReadWrite|QFile::Text);
+
+             QTextStream in(&file);
+             QString _token;
+             QString _name;
+             QString _pass;
+             in >> _token >> _name >> _pass;
+
+             QString listmember;
+
+             while(1){
+                 in>>listmember;
+                 qDebug()<<listmember;
+
+                 if(listmember=="")
+                     break;
+
+                 ui->list->addItem(listmember);
+             }
+         file.close();
+
         }
     });
 
@@ -548,4 +594,30 @@ void groups::on_pushButton_2_clicked()
 }
 
 
+
+
+void groups::on_actionExit_triggered()
+{
+    write_data3();
+    this->close();
+
+    if(channel_page != nullptr){
+        dynamic_cast<channel*>(channel_page)->write_data();
+        channel_page->close();
+    }
+
+    if(chat_page != nullptr){
+        dynamic_cast<chat*>(chat_page)->write_data2();
+        chat_page->close();
+    }
+}
+
+
+void groups::on_actionSwitch_account_triggered()
+{
+    first_page* fp = new first_page();
+    fp->setGeometry(this->geometry());
+    fp->show();
+    on_actionExit_triggered();
+}
 

@@ -2,6 +2,7 @@
 #include "first_page.h"
 #include "signup1.h"
 #include "main_login.h"
+#include "channel.h"
 #include "concatenate_string.h"
 
 QMainWindow* Prev_ptr = nullptr;
@@ -42,5 +43,55 @@ void first_page::on_login_clicked()
     mainlog->show();
 
     this->close();
+}
+
+
+void first_page::on_addpb_clicked()
+{
+    if(ui->offline->text()==""){
+        QMessageBox::information(nullptr,"attention","please type your user_name");
+    }
+    else{
+    QString s;
+    s+=QDir::currentPath()+'/'+ ui->offline->text();
+
+    QDir dir(s);
+    qDebug()<<s;
+
+    if(dir.exists()){
+        qDebug()<<"open folder succesfuly";
+
+        s+="/channel_list.txt";
+        QFile file(s);
+        file.open(QFile::ReadWrite|QFile::Text);
+        qDebug()<<s;
+
+        if(file.isOpen()){
+            qDebug()<< "open channel_list.txt seccesfuly";
+            QTextStream in(&file);
+
+            QString _token;
+            QString _name;
+            QString _pass;
+            in>>_token>>_name>>_pass;
+            User.token =_token;
+            User.name = _name;
+            User.pass = _pass;
+
+            file.close();
+            qDebug()<<_token<<" "<<_name<<" "<<_pass;
+        }
+        else{
+            qDebug()<<"can not open channel_list.txt";
+        }
+
+        channel* ch = new channel();
+        ch->show();
+        this->close();
+        ch->on_action_Get_channel_list_triggered();
+    }
+    else
+        qDebug()<< "dir is note exist";
+    }
 }
 

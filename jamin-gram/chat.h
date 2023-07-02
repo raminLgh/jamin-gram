@@ -22,6 +22,8 @@ public:
     explicit chat(QWidget *parent = nullptr);
     ~chat();
 
+    void write_data2();
+
 private slots:
     void on_channelpb_clicked();
 
@@ -38,6 +40,10 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButton_clicked();
+
+    void on_actionExit_triggered();
+
+    void on_actionSwitch_account_triggered();
 
 private:
     QTimer* timer_ca;

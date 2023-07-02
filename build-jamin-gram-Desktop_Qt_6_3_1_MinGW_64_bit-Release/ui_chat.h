@@ -30,6 +30,8 @@ class Ui_chat
 public:
     QAction *actionLOg_out;
     QAction *actionGet_chat_lists;
+    QAction *actionExit;
+    QAction *actionSwitch_account;
     QWidget *centralwidget;
     QLabel *label_2;
     QLineEdit *add_user_lineEdit;
@@ -66,6 +68,10 @@ public:
         actionLOg_out->setObjectName(QString::fromUtf8("actionLOg_out"));
         actionGet_chat_lists = new QAction(chat);
         actionGet_chat_lists->setObjectName(QString::fromUtf8("actionGet_chat_lists"));
+        actionExit = new QAction(chat);
+        actionExit->setObjectName(QString::fromUtf8("actionExit"));
+        actionSwitch_account = new QAction(chat);
+        actionSwitch_account->setObjectName(QString::fromUtf8("actionSwitch_account"));
         centralwidget = new QWidget(chat);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label_2 = new QLabel(centralwidget);
@@ -189,13 +195,17 @@ public:
         chat->setCentralWidget(centralwidget);
         menubar = new QMenuBar(chat);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 700, 21));
+        menubar->setGeometry(QRect(0, 0, 700, 26));
         menuOptions = new QMenu(menubar);
         menuOptions->setObjectName(QString::fromUtf8("menuOptions"));
         chat->setMenuBar(menubar);
 
         menubar->addAction(menuOptions->menuAction());
         menuOptions->addAction(actionLOg_out);
+        menuOptions->addSeparator();
+        menuOptions->addAction(actionExit);
+        menuOptions->addSeparator();
+        menuOptions->addAction(actionSwitch_account);
         menuOptions->addSeparator();
         menuOptions->addAction(actionGet_chat_lists);
 
@@ -215,21 +225,32 @@ public:
 #if QT_CONFIG(shortcut)
         actionGet_chat_lists->setShortcut(QCoreApplication::translate("chat", "Ctrl+C", nullptr));
 #endif // QT_CONFIG(shortcut)
+        actionExit->setText(QCoreApplication::translate("chat", "Exit", nullptr));
+#if QT_CONFIG(shortcut)
+        actionExit->setShortcut(QCoreApplication::translate("chat", "Ctrl+E", nullptr));
+#endif // QT_CONFIG(shortcut)
+        actionSwitch_account->setText(QCoreApplication::translate("chat", "Switch account", nullptr));
+#if QT_CONFIG(shortcut)
+        actionSwitch_account->setShortcut(QCoreApplication::translate("chat", "Ctrl+Tab", nullptr));
+#endif // QT_CONFIG(shortcut)
         label_2->setText(QString());
 #if QT_CONFIG(tooltip)
         add_user_lineEdit->setToolTip(QCoreApplication::translate("chat", "Type_channel_name", nullptr));
 #endif // QT_CONFIG(tooltip)
-        add_user_lineEdit->setPlaceholderText(QCoreApplication::translate("chat", "  Type_user_name", nullptr));
+        add_user_lineEdit->setPlaceholderText(QCoreApplication::translate("chat", "  Type user_name", nullptr));
         type_ted->setPlaceholderText(QCoreApplication::translate("chat", " Type message", nullptr));
         grouppb->setText(QCoreApplication::translate("chat", "groups", nullptr));
         chatpb->setText(QCoreApplication::translate("chat", "chats", nullptr));
         channelpb->setText(QCoreApplication::translate("chat", "chanels", nullptr));
         addpb->setText(QCoreApplication::translate("chat", "add", nullptr));
         pushButton->setText(QString());
+#if QT_CONFIG(shortcut)
+        pushButton->setShortcut(QCoreApplication::translate("chat", "Ctrl+S", nullptr));
+#endif // QT_CONFIG(shortcut)
         textEdit_2->setHtml(QCoreApplication::translate("chat", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#55aaff;\">add</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#0000ff;\">contact</span></p></body></html>", nullptr));
         menuOptions->setTitle(QCoreApplication::translate("chat", "Options", nullptr));
     } // retranslateUi
