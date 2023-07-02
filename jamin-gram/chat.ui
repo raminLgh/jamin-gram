@@ -367,7 +367,6 @@ p, li { white-space: pre-wrap; }
     <addaction name="separator"/>
     <addaction name="actionSwitch_account"/>
     <addaction name="separator"/>
-    <addaction name="actionGet_chat_lists"/>
    </widget>
    <addaction name="menuOptions"/>
   </widget>

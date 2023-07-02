@@ -231,7 +231,6 @@ public:
         menuOptions->addSeparator();
         menuOptions->addAction(actionSwitch_account);
         menuOptions->addSeparator();
-        menuOptions->addAction(actionGet_group_list);
 
         retranslateUi(groups);
 

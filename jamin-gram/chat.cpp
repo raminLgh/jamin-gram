@@ -12,6 +12,7 @@
 
 QString save_prv_count3 = "0";
 QString save_list_count = "-1";
+QString flag_ct = "0";
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -379,6 +380,7 @@ void chat::on_list_itemClicked(QListWidgetItem *item)
         item->setForeground((QBrush)"yellow");
     }
     save_prv_count3 = "0";
+    flag_ct = "0";
     on_pushButton_2_clicked();
 }
 
@@ -479,7 +481,6 @@ void chat::on_pushButton_2_clicked()
 
             if(code=="200"){
                 //QMessageBox::information(this,"message",obj["message"].toString());
-                if(accuracy == current_chat_item->text()){
 
                 QString tmp =obj["message"].toString();
                 QString count;
@@ -501,18 +502,26 @@ void chat::on_pushButton_2_clicked()
                 qDebug()<<"number of message"<<count;
 
                 ///read data from block
-                if(save_prv_count3!=count){
+                if(save_prv_count3 != count){
 
-                ui->chat_ted->clear();
                 ///////////////
                 //work whit file
                 QString s;
                 s+=QDir::currentPath()+'/'+User.name+"/chats/"+accuracy+".txt";
                 QFile file(s);
                 /////////////////
-                file.open(QFile::ReadOnly|QFile::WriteOnly|QFile::Text);
+                file.open(QFile::ReadOnly|QFile::WriteOnly);
+                if(file.isOpen()){
+                qDebug()<<"now we are at file and want to write";
+                file.write(duc.toJson());
+                }
+                else
+                   qDebug()<<"can't open file for write";
+                file.close();
 
+                if(accuracy == current_chat_item->text()){
 
+                ui->chat_ted->clear();
                 QString b1;
                 for(int i=0;i<count.toInt();++i){
                     b1 = "block " + QString::number(i);
@@ -522,13 +531,6 @@ void chat::on_pushButton_2_clicked()
 
                 if(body!=""){
 
-                        if(file.isOpen()){
-                            QTextStream out(&file);
-                            out<<sender<<" "<<body<<"\n";
-                            qDebug()<<"we in and write";
-                        }
-                        else
-                            qDebug()<<"file can't open421";
 
 
                     if(sender == User.name){
@@ -545,9 +547,8 @@ void chat::on_pushButton_2_clicked()
                     }
                   }
                 }
-                save_prv_count3=count;
-                file.close();
-
+                flag_ct = "1";
+                save_prv_count3 = count;
                 }
                 }
             }
@@ -557,6 +558,67 @@ void chat::on_pushButton_2_clicked()
         }
         else{
             qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
+
+            if(save_prv_count3 =="0" && flag_ct=="0" && accuracy== current_chat_item->text()){
+                ui->chat_ted->clear();
+                QString _s;
+                _s+=QDir::currentPath()+'/'+User.name+"/chats/"+accuracy+".txt";
+                QFile file(_s);
+                file.open(QFile::ReadOnly|QFile::WriteOnly);
+                qDebug()<<_s;
+
+                QByteArray data = file.readAll();
+                QJsonDocument ducu = QJsonDocument::fromJson(data);
+                QJsonObject object = ducu.object();
+                file.close();
+
+                QString _temp =object["message"].toString();
+                QString _count;
+
+                for(int i=0; i<_temp.length();++i){
+                   if(_temp[i]=='-'){
+                       i++;
+                    for(int j =i; j < _temp.length();j++){
+                    _count += _temp[j];
+                    if(_temp[j+1]=='-'){
+                        break;
+                    }
+                   }
+                    break;
+                  }
+                }
+                qDebug()<<"number of message"<< _count;
+
+                QString b1;
+                for(int i=0;i<_count.toInt();++i){
+                    b1 = "block " + QString::number(i);
+
+                    QString body = (object[b1].toObject())["body"].toString();
+                    QString sender = (object[b1].toObject())["src"].toString();
+
+
+                    if(body!=""){
+
+                    //////////////////////////////////////////
+                    if(sender == User.name){
+                        ui->chat_ted->setTextColor(QColor(0, 0, 255));
+                        ui->chat_ted->append("you:");
+                        ui->chat_ted->setAlignment(Qt::AlignRight);
+                        ui->chat_ted->append(body);
+                    }
+                    else{
+                        ui->chat_ted->setTextColor(QColor(255, 70, 0));
+                        ui->chat_ted->append(sender+':');
+                        ui->chat_ted->setAlignment(Qt::AlignLeft);
+                        ui->chat_ted->append(body);
+                        }
+                    }
+                  }
+                flag_ct = "1";
+                save_prv_count3 = _count;
+            }
+            else
+                qDebug()<< "note read from file!";
         }
     });
  }

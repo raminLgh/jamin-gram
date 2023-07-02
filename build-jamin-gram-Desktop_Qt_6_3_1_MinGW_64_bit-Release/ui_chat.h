@@ -207,7 +207,6 @@ public:
         menuOptions->addSeparator();
         menuOptions->addAction(actionSwitch_account);
         menuOptions->addSeparator();
-        menuOptions->addAction(actionGet_chat_lists);
 
         retranslateUi(chat);
 

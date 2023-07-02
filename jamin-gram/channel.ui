@@ -453,7 +453,6 @@ p, li { white-space: pre-wrap; }
     <addaction name="separator"/>
     <addaction name="actionSwitch_account"/>
     <addaction name="separator"/>
-    <addaction name="action_Get_channel_list"/>
    </widget>
    <addaction name="menuSeting"/>
   </widget>

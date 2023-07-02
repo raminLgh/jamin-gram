@@ -1,0 +1,10 @@
+{
+    "block 0": {
+        "body": "I ama developer",
+        "date": "2023-06-28 16:33:23",
+        "dst": "salam",
+        "src": "javad-c"
+    },
+    "code": "200",
+    "message": "There Are -1- Message"
+}

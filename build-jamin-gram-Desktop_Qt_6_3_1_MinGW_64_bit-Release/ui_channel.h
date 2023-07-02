@@ -232,7 +232,6 @@ public:
         menuSeting->addSeparator();
         menuSeting->addAction(actionSwitch_account);
         menuSeting->addSeparator();
-        menuSeting->addAction(action_Get_channel_list);
 
         retranslateUi(channel);
 

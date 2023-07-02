@@ -452,7 +452,6 @@ border-radius:10px;
     <addaction name="separator"/>
     <addaction name="actionSwitch_account"/>
     <addaction name="separator"/>
-    <addaction name="actionGet_group_list"/>
    </widget>
    <addaction name="menuOptions"/>
   </widget>
