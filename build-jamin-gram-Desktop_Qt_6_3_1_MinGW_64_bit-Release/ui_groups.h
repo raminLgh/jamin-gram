@@ -198,7 +198,7 @@ public:
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);"));
+        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logopush.png);"));
         pushButton->setFlat(true);
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -279,6 +279,9 @@ public:
 #endif // QT_CONFIG(tooltip)
         cr_group_lineEdit->setPlaceholderText(QCoreApplication::translate("groups", " Type group_name", nullptr));
         chatpb->setText(QCoreApplication::translate("groups", "chats", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton->setToolTip(QCoreApplication::translate("groups", "send message", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton->setText(QString());
 #if QT_CONFIG(shortcut)
         pushButton->setShortcut(QCoreApplication::translate("groups", "Ctrl+S", nullptr));

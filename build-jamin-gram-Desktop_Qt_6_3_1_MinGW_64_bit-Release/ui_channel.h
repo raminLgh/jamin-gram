@@ -200,7 +200,7 @@ public:
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);"));
+        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logopush.png);"));
         pushButton->setFlat(true);
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
@@ -273,6 +273,9 @@ public:
         cr_chanel_lineEdit->setPlaceholderText(QCoreApplication::translate("channel", " Type channel_name", nullptr));
         label->setText(QString());
         label_2->setText(QString());
+#if QT_CONFIG(tooltip)
+        pushButton->setToolTip(QCoreApplication::translate("channel", "send message", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton->setText(QString());
 #if QT_CONFIG(shortcut)
         pushButton->setShortcut(QCoreApplication::translate("channel", "Ctrl+S", nullptr));

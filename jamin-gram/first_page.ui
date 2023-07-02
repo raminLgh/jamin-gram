@@ -255,9 +255,9 @@ color: rgb(255, 0, 255);</string>
    <widget class="QLineEdit" name="offline">
     <property name="geometry">
      <rect>
-      <x>287</x>
+      <x>288</x>
       <y>495</y>
-      <width>170</width>
+      <width>175</width>
       <height>30</height>
      </rect>
     </property>
@@ -286,9 +286,9 @@ border:2px solid #03dac6;
    <widget class="QTextEdit" name="textEdit_4">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>107</x>
       <y>495</y>
-      <width>150</width>
+      <width>180</width>
       <height>30</height>
      </rect>
     </property>
@@ -320,7 +320,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="addpb">
     <property name="geometry">
      <rect>
-      <x>465</x>
+      <x>475</x>
       <y>495</y>
       <width>90</width>
       <height>30</height>

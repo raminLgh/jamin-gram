@@ -135,7 +135,7 @@ public:
 "color: rgb(255, 0, 255);"));
         offline = new QLineEdit(centralwidget);
         offline->setObjectName(QString::fromUtf8("offline"));
-        offline->setGeometry(QRect(287, 495, 170, 30));
+        offline->setGeometry(QRect(288, 495, 175, 30));
         offline->setFont(font);
         offline->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "background-color : white;\n"
@@ -147,7 +147,7 @@ public:
 "}"));
         textEdit_4 = new QTextEdit(centralwidget);
         textEdit_4->setObjectName(QString::fromUtf8("textEdit_4"));
-        textEdit_4->setGeometry(QRect(130, 495, 150, 30));
+        textEdit_4->setGeometry(QRect(107, 495, 180, 30));
         textEdit_4->setFont(font);
         textEdit_4->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         textEdit_4->setStyleSheet(QString::fromUtf8(""));
@@ -155,7 +155,7 @@ public:
         textEdit_4->setReadOnly(true);
         addpb = new QPushButton(centralwidget);
         addpb->setObjectName(QString::fromUtf8("addpb"));
-        addpb->setGeometry(QRect(465, 495, 90, 30));
+        addpb->setGeometry(QRect(475, 495, 90, 30));
         QFont font5;
         font5.setFamilies({QString::fromUtf8("Arial Narrow")});
         font5.setPointSize(14);

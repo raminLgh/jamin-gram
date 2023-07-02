@@ -437,10 +437,12 @@ void chat::on_pushButton_clicked()
                 }
                 else{
                     QMessageBox::information(this,"message",obj["message"].toString());
+                    ui->type_ted->clear();
                 }
             }
             else{
                 qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
+                //ui->type_ted->clear();
             }
 
          });

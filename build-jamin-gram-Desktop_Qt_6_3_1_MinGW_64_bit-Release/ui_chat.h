@@ -182,7 +182,7 @@ public:
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);"));
+        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logopush.png);"));
         pushButton->setFlat(true);
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
@@ -242,6 +242,9 @@ public:
         chatpb->setText(QCoreApplication::translate("chat", "chats", nullptr));
         channelpb->setText(QCoreApplication::translate("chat", "chanels", nullptr));
         addpb->setText(QCoreApplication::translate("chat", "add", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton->setToolTip(QCoreApplication::translate("chat", "send message", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton->setText(QString());
 #if QT_CONFIG(shortcut)
         pushButton->setShortcut(QCoreApplication::translate("chat", "Ctrl+S", nullptr));

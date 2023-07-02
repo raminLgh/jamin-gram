@@ -495,10 +495,12 @@ void channel::on_pushButton_clicked()
                 }
                 else{
                     QMessageBox::information(this,"message",obj2["message"].toString());
+                    ui->type_ted->clear();
                 }
             }
             else{
                 qDebug()<< "ERROR to recive data from server: "<<reply2->errorString();
+                //ui->type_ted->clear();
             }
 
          });

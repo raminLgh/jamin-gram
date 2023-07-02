@@ -301,11 +301,14 @@ border-radius:10px;
     <property name="acceptDrops">
      <bool>false</bool>
     </property>
+    <property name="toolTip">
+     <string>send message</string>
+    </property>
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/photo/image/Screenshot_20230625_074115_Bale.jpg);</string>
+     <string notr="true">image: url(:/photo/image/logopush.png);</string>
     </property>
     <property name="text">
      <string/>
