@@ -6,7 +6,7 @@
 #include "chat.h"
 #include <QTextStream>
 
-#define arg_cn 10000
+#define arg_cn 8000
 #define time_t 14000
 
 QString save_prv_count = "0";

@@ -83,6 +83,8 @@ void first_page::on_addpb_clicked()
         }
         else{
             qDebug()<<"can not open channel_list.txt";
+
+
         }
 
         channel* ch = new channel();
@@ -90,8 +92,12 @@ void first_page::on_addpb_clicked()
         this->close();
         ch->on_action_Get_channel_list_triggered();
     }
-    else
+    else{
         qDebug()<< "dir is note exist";
+         QMessageBox::information(nullptr,"attention","User not found");
+
+       }
+
     }
 }
 

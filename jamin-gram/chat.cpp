@@ -5,7 +5,7 @@
 #include "concatenate_string.h"
 #include "first_page.h"
 
-#define arg_ca 10000
+#define arg_ca 8000
 #define time_t 14000
 
 QString save_prv_count3 = "0";

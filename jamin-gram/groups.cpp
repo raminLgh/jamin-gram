@@ -5,7 +5,7 @@
 #include "channel.h"
 #include "chat.h"
 
-#define arg_g  10000
+#define arg_g  8000
 #define time_t 14000
 
 extern person User;
@@ -665,9 +665,6 @@ void groups::on_pushButton_2_clicked()
     });
  }
 }
-
-
-
 
 void groups::on_actionExit_triggered()
 {
