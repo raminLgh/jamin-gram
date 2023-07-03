@@ -195,12 +195,12 @@ public:
         label_2->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/image/Screenshot_20230626_132056_Chrome.jpg);"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(441, 430, 44, 44));
+        pushButton->setGeometry(QRect(443, 431, 42, 42));
         pushButton->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logopush.png);"));
+        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/Screenshot_2023-07-03-01-21-59-604_com.miui.gallery.png);"));
         pushButton->setFlat(true);
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));

@@ -125,7 +125,7 @@ color: rgb(255, 255, 255);
      <string notr="true">color: rgb(255, 255, 255);
 border-color: rgb(255, 255, 255);
 background-color: rgb(255, 0, 255);
-border-radius:10px;</string>
+border-radius:11px;</string>
     </property>
     <property name="text">
      <string>Log in</string>
@@ -200,7 +200,7 @@ border-image: url(:/photo/image/IMG_20230612_105708_692.png);</string>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(137, 69, 206);
 color: rgb(255, 255, 255);
-border-radius:10px;</string>
+border-radius:11px;</string>
     </property>
     <property name="text">
      <string>Sign up</string>
@@ -257,7 +257,7 @@ color: rgb(255, 0, 255);</string>
      <rect>
       <x>288</x>
       <y>495</y>
-      <width>175</width>
+      <width>180</width>
       <height>30</height>
      </rect>
     </property>
@@ -273,7 +273,7 @@ color: rgb(255, 0, 255);</string>
      <string notr="true">QLineEdit{
 background-color : white;
 border:2px solid #0055ff;
-border-radius:10px;
+border-radius:11px;
 }
 QLineEdit:focus{
 border:2px solid #03dac6;
@@ -286,9 +286,9 @@ border:2px solid #03dac6;
    <widget class="QTextEdit" name="textEdit_4">
     <property name="geometry">
      <rect>
-      <x>107</x>
+      <x>100</x>
       <y>495</y>
-      <width>180</width>
+      <width>186</width>
       <height>30</height>
      </rect>
     </property>
@@ -320,7 +320,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="addpb">
     <property name="geometry">
      <rect>
-      <x>475</x>
+      <x>480</x>
       <y>495</y>
       <width>90</width>
       <height>30</height>
@@ -336,7 +336,7 @@ p, li { white-space: pre-wrap; }
     <property name="styleSheet">
      <string notr="true">background-color: rgb(85, 170, 255);
 color: white;
-border-radius:10px;
+border-radius:11px;
 </string>
     </property>
     <property name="text">

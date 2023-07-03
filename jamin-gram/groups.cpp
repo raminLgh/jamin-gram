@@ -1,14 +1,12 @@
 #include "groups.h"
 #include "ui_groups.h"
 #include "first_page.h"
-
 #include "concatenate_string.h"
 #include "channel.h"
 #include "chat.h"
-//#define setBackgroundColor setBackground
-//#define setTextColor setForeground
-#define arg_g  14000
-#define time_t 15000
+
+#define arg_g  10000
+#define time_t 14000
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -111,6 +109,9 @@ void groups::on_creatpb_clicked()
         c2.addString("&group_name=");
         c2.addString(ui->cr_group_lineEdit->text());
 
+        QString message = ui->cr_group_lineEdit->text();
+        ui->cr_group_lineEdit->clear();
+
         qDebug()<<c2.getUrl();
 
         //send request
@@ -133,17 +134,17 @@ void groups::on_creatpb_clicked()
                     QMessageBox::information(this,"message",obj2["message"].toString());
 
                     QString s;
-                    s+=QDir::currentPath()+'/'+User.name+"/groups/"+ui->cr_group_lineEdit->text()+".txt";
+                    s+=QDir::currentPath()+'/'+User.name+"/groups/"+message+".txt";
                     QFile file(s);
                     file.open(QFile::WriteOnly|QFile::Text);
                     file.close();
 
-                    ui->list->addItem(ui->cr_group_lineEdit->text());
-                    ui->cr_group_lineEdit->clear();
+                    ui->list->addItem(message);
+
                 }
                 else{
                     QMessageBox::information(this,"Error",obj2["message"].toString());
-                    ui->cr_group_lineEdit->clear();
+
                 }
             }
             else{
@@ -165,6 +166,9 @@ void groups::on_joinpb_clicked()
         cs.addString(User.token);
         cs.addString("&group_name=");
         cs.addString(ui->jo_group_lineEdit->text());
+
+        QString message = ui->jo_group_lineEdit->text();
+        ui->jo_group_lineEdit->clear();
 
         qDebug()<<cs.getUrl();
 
@@ -191,18 +195,18 @@ void groups::on_joinpb_clicked()
 
 
                     QString s;
-                    s+=QDir::currentPath()+'/'+User.name+"/groups/"+ui->jo_group_lineEdit->text()+".txt";
+                    s+=QDir::currentPath()+'/'+User.name+"/groups/"+message+".txt";
                     QFile file(s);
                     file.open(QFile::WriteOnly|QFile::Text);
                     file.close();
 
 
-                    ui->list->addItem(ui->jo_group_lineEdit->text());
-                    ui->jo_group_lineEdit->clear();
+                    ui->list->addItem(message);
+
                 }
                 else{
-                    QMessageBox::information(this,"Eror",obj3["message"].toString());
-                    ui->jo_group_lineEdit->clear();
+                    QMessageBox::information(this,"Error",obj3["message"].toString());
+
                 }
 
             }
@@ -432,6 +436,8 @@ void groups::on_pushButton_clicked()
         concat.addString(ui->type_ted->toPlainText());
 
         QString accuracy2 = current_group_item->text();
+        QString mess = ui->type_ted->toPlainText();
+        ui->type_ted->clear();
 
         qDebug()<<concat.getUrl();
 
@@ -459,20 +465,18 @@ void groups::on_pushButton_clicked()
                     ui->chat_ted->setTextColor(QColor(0, 0, 255));
                     ui->chat_ted->append("you: [now]");
                     ui->chat_ted->setAlignment(Qt::AlignRight);
-                    ui->chat_ted->append(ui->type_ted->toPlainText());
+                    ui->chat_ted->append(mess);
                     //QMessageBox::information(this,"message",obj["message"].toString());
                     }
-                    ///////// clear textEdit type
-                    ui->type_ted->clear();
                 }
                 else{
                     QMessageBox::information(this,"message",obj["message"].toString());
-                    ui->type_ted->clear();
+
                 }
             }
             else{
                 qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
-                //ui->type_ted->clear();
+
             }
 
          });
@@ -575,7 +579,7 @@ void groups::on_pushButton_2_clicked()
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->setTextColor(QColor(152, 0, 114));
                         ui->chat_ted->append(sender+": ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
@@ -645,7 +649,7 @@ void groups::on_pushButton_2_clicked()
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->setTextColor(QColor(152, 0, 114));
                         ui->chat_ted->append(sender+": ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);

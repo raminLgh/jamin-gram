@@ -177,12 +177,12 @@ public:
 "}"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(441, 430, 44, 44));
+        pushButton->setGeometry(QRect(443, 431, 42, 42));
         pushButton->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton->setMouseTracking(false);
         pushButton->setAcceptDrops(false);
         pushButton->setAutoFillBackground(false);
-        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/logopush.png);"));
+        pushButton->setStyleSheet(QString::fromUtf8("image: url(:/photo/image/Screenshot_2023-07-03-01-21-59-604_com.miui.gallery.png);"));
         pushButton->setFlat(true);
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));

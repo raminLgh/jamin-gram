@@ -343,10 +343,10 @@ background:#41cd52;
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>441</x>
-      <y>430</y>
-      <width>44</width>
-      <height>44</height>
+      <x>443</x>
+      <y>431</y>
+      <width>42</width>
+      <height>42</height>
      </rect>
     </property>
     <property name="cursor">
@@ -365,7 +365,7 @@ background:#41cd52;
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/photo/image/logopush.png);</string>
+     <string notr="true">image: url(:/photo/image/Screenshot_2023-07-03-01-21-59-604_com.miui.gallery.png);</string>
     </property>
     <property name="text">
      <string/>

@@ -92,7 +92,7 @@ public:
         login->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "border-color: rgb(255, 255, 255);\n"
 "background-color: rgb(255, 0, 255);\n"
-"border-radius:10px;"));
+"border-radius:11px;"));
         login->setIconSize(QSize(16, 16));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -117,7 +117,7 @@ public:
         signup->setFont(font2);
         signup->setStyleSheet(QString::fromUtf8("background-color: rgb(137, 69, 206);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius:10px;"));
+"border-radius:11px;"));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(388, 330, 63, 30));
@@ -135,19 +135,19 @@ public:
 "color: rgb(255, 0, 255);"));
         offline = new QLineEdit(centralwidget);
         offline->setObjectName(QString::fromUtf8("offline"));
-        offline->setGeometry(QRect(288, 495, 175, 30));
+        offline->setGeometry(QRect(288, 495, 180, 30));
         offline->setFont(font);
         offline->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "background-color : white;\n"
 "border:2px solid #0055ff;\n"
-"border-radius:10px;\n"
+"border-radius:11px;\n"
 "}\n"
 "QLineEdit:focus{\n"
 "border:2px solid #03dac6;\n"
 "}"));
         textEdit_4 = new QTextEdit(centralwidget);
         textEdit_4->setObjectName(QString::fromUtf8("textEdit_4"));
-        textEdit_4->setGeometry(QRect(107, 495, 180, 30));
+        textEdit_4->setGeometry(QRect(100, 495, 186, 30));
         textEdit_4->setFont(font);
         textEdit_4->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         textEdit_4->setStyleSheet(QString::fromUtf8(""));
@@ -155,7 +155,7 @@ public:
         textEdit_4->setReadOnly(true);
         addpb = new QPushButton(centralwidget);
         addpb->setObjectName(QString::fromUtf8("addpb"));
-        addpb->setGeometry(QRect(475, 495, 90, 30));
+        addpb->setGeometry(QRect(480, 495, 90, 30));
         QFont font5;
         font5.setFamilies({QString::fromUtf8("Arial Narrow")});
         font5.setPointSize(14);
@@ -163,7 +163,7 @@ public:
         addpb->setFont(font5);
         addpb->setStyleSheet(QString::fromUtf8("background-color: rgb(85, 170, 255);\n"
 "color: white;\n"
-"border-radius:10px;\n"
+"border-radius:11px;\n"
 ""));
         first_page->setCentralWidget(centralwidget);
         menubar = new QMenuBar(first_page);

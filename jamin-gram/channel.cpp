@@ -1,17 +1,13 @@
 #include "channel.h"
 #include "ui_channel.h"
-
-//#define setBackgroundColor setBackground
-//#define setTextColor setForeground
-#define arg_cn 14000
-#define time_t 15000
 #include "first_page.h"
 #include "concatenate_string.h"
 #include "groups.h"
 #include "chat.h"
-#include <QFile>
-#include <QDir>
 #include <QTextStream>
+
+#define arg_cn 10000
+#define time_t 14000
 
 QString save_prv_count = "0";
 QString flag_cn = "0";
@@ -75,6 +71,9 @@ void channel::on_creatpb_clicked()
         c1.addString("&channel_name=");
         c1.addString(ui->cr_chanel_lineEdit->text());
 
+        QString message = ui->cr_chanel_lineEdit->text();
+        ui->cr_chanel_lineEdit->clear();
+
         qDebug()<<c1.getUrl();
 
 
@@ -100,19 +99,19 @@ void channel::on_creatpb_clicked()
                     QMessageBox::information(this,"message",obj2["message"].toString());
 
                     QString s;
-                    s+=QDir::currentPath()+'/'+User.name+"/channels/"+ui->cr_chanel_lineEdit->text()+".txt";
+                    s+=QDir::currentPath()+'/'+User.name+"/channels/"+message+".txt";
                     QFile file(s);
                     file.open(QFile::WriteOnly|QFile::Text);
                     file.close();
 
 
-                    ui->list->addItem(ui->cr_chanel_lineEdit->text());
-                    ui->cr_chanel_lineEdit->clear();
+                    ui->list->addItem(message);
+
 
                 }
                 else{
-                    QMessageBox::information(this,"Eror",obj2["message"].toString());
-                    ui->cr_chanel_lineEdit->clear();
+                    QMessageBox::information(this,"Error",obj2["message"].toString());
+
                 }
 
 
@@ -138,6 +137,9 @@ void channel::on_joinpb_clicked()
         c1.addString(User.token);
         c1.addString("&channel_name=");
         c1.addString(ui->jo_channel_lineEdit->text());
+
+        QString message = ui->jo_channel_lineEdit->text();
+        ui->jo_channel_lineEdit->clear();
 
         qDebug()<<c1.getUrl();
 
@@ -165,17 +167,17 @@ void channel::on_joinpb_clicked()
 
                      ///////working whit file
                     QString s;
-                    s+=QDir::currentPath()+'/'+User.name+"/channels/"+ui->jo_channel_lineEdit->text()+".txt";
+                    s+=QDir::currentPath()+'/'+User.name+"/channels/"+message+".txt";
                     QFile file(s);
                     file.open(QFile::WriteOnly|QFile::Text);
                     file.close();
 
-                    ui->list->addItem(ui->jo_channel_lineEdit->text());
-                    ui->jo_channel_lineEdit->clear();
+                    ui->list->addItem(message);
+
                 }
                 else{
                     QMessageBox::information(this,"Error",obj2["message"].toString());
-                    ui->jo_channel_lineEdit->clear();
+
                 }
 
             }
@@ -313,7 +315,7 @@ void channel::on_action_Get_channel_list_triggered()
 
             if(code=="200"){
 
-                QMessageBox::information(this,"info",obj["message"].toString());
+                //QMessageBox::information(this,"info",obj["message"].toString());
 
 
                 QString tmp = obj["message"].toString();
@@ -459,6 +461,8 @@ void channel::on_pushButton_clicked()
         c1.addString(ui->type_ted->toPlainText());
 
         QString accuracy2 = current_channel_item->text();
+        QString mess = ui->type_ted->toPlainText();
+        ui->type_ted->clear();
 
         qDebug()<<c1.getUrl();
 
@@ -466,7 +470,6 @@ void channel::on_pushButton_clicked()
         QUrl url2(c1.getUrl());
         QNetworkAccessManager* manager2 = new QNetworkAccessManager();
         QNetworkReply* reply2 = manager2->get(QNetworkRequest(url2));
-
 
         QObject::connect(reply2,&QNetworkReply::finished,[=](){
 
@@ -483,24 +486,24 @@ void channel::on_pushButton_clicked()
                 if(code=="200"){
                     if(accuracy2 == current_channel_item->text()){
                     ///////append message
-                    // احتمالا باید پاک کنیم این قسمت رو
+
                     ui->chat_ted->setTextColor(QColor(0, 0, 255));
                     ui->chat_ted->append("you(Admin): [now]");
                     ui->chat_ted->setAlignment(Qt::AlignRight);
-                    ui->chat_ted->append(ui->type_ted->toPlainText());
+                    ui->chat_ted->append(mess);
                     //QMessageBox::information(this,"message",obj2["message"].toString());
-                    ///////// clear textEdit type
+
                     }
-                    ui->type_ted->clear();
+
                 }
                 else{
                     QMessageBox::information(this,"message",obj2["message"].toString());
-                    ui->type_ted->clear();
+
                 }
             }
             else{
                 qDebug()<< "ERROR to recive data from server: "<<reply2->errorString();
-                //ui->type_ted->clear();
+
             }
 
          });
@@ -604,7 +607,7 @@ void channel::on_pushButton_2_clicked()
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->setTextColor(QColor(152, 0, 114));
                         ui->chat_ted->append(sender+"(Admin): ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
@@ -673,7 +676,7 @@ void channel::on_pushButton_2_clicked()
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->setTextColor(QColor(152, 0, 114));
                         ui->chat_ted->append(sender+"(Admin): ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);

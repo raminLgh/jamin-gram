@@ -5,10 +5,8 @@
 #include "concatenate_string.h"
 #include "first_page.h"
 
-//#define setBackgroundColor setBackground
-//#define setTextColor setForeground
-#define arg_ca 14000
-#define time_t 15000
+#define arg_ca 10000
+#define time_t 14000
 
 QString save_prv_count3 = "0";
 QString save_list_count = "-1";
@@ -105,15 +103,16 @@ void chat::on_grouppb_clicked()
 
 void chat::on_addpb_clicked()
 {
-    QString b;
-    b+=QDir::currentPath()+'/'+User.name+"/chats/"+ui->add_user_lineEdit->text()+".txt";
+    QString b, message = ui->add_user_lineEdit->text();
+    b+=QDir::currentPath()+'/'+User.name+"/chats/"+message+".txt";
+    ui->add_user_lineEdit->clear();
 
-    if(ui->add_user_lineEdit->text().length()==0){
+    if(message.length()==0){
         QMessageBox::information(this,"attention","Enter contact's name first");
     }
     else if(QFile::exists(b)){
         QMessageBox::warning(this,"Error","this user has already been added!");
-        ui->add_user_lineEdit->clear();
+
     }
     else
     {
@@ -125,11 +124,11 @@ void chat::on_addpb_clicked()
         concat.addString("sendmessageuser?token=");
         concat.addString(User.token);
         concat.addString("&dst=");
-        concat.addString(ui->add_user_lineEdit->text()); ///that is item clicked on listWidget
+        concat.addString(message); ///that is item clicked on listWidget
         concat.addString("&body=");
         concat.addString("");
         qDebug()<<"sa2";
-        QString accuracy2 = ui->chat_ted->toPlainText(); //////////save name
+        QString accuracy2 = message; //////////save name
 
         qDebug()<<concat.getUrl();
 
@@ -152,20 +151,20 @@ void chat::on_addpb_clicked()
                 QString code = obj["code"].toString();
 
                 if(code=="200"){
-                    QMessageBox::information(this,"message","contact successfuly added");
+                    QMessageBox::information(this,"message","contact succesfuly added");
                     QString s;
-                    s+=QDir::currentPath()+'/'+User.name+"/chats/"+ui->add_user_lineEdit->text()+".txt";
+                    s+=QDir::currentPath()+'/'+User.name+"/chats/"+message+".txt";
                     QFile file(s);
                     file.open(QFile::WriteOnly|QFile::Text);
                     file.close();
 
-                    ui->list->addItem(ui->add_user_lineEdit->text());
-                    ui->add_user_lineEdit->clear();
+                    ui->list->addItem(message);
+
                 }
                 else{
 
                     QMessageBox::warning(this,"message","Destination User Not Found");
-                    ui->add_user_lineEdit->clear();
+
                 }
 
             }
@@ -402,6 +401,8 @@ void chat::on_pushButton_clicked()
         concat.addString(ui->type_ted->toPlainText());
 
         QString accuracy2 = current_chat_item->text();
+        QString mess = ui->type_ted->toPlainText();
+        ui->type_ted->clear();
 
         qDebug()<<concat.getUrl();
 
@@ -429,20 +430,19 @@ void chat::on_pushButton_clicked()
                     ui->chat_ted->setTextColor(QColor(0, 0, 255));
                     ui->chat_ted->append("you: [now]");
                     ui->chat_ted->setAlignment(Qt::AlignRight);
-                    ui->chat_ted->append(ui->type_ted->toPlainText());
+                    ui->chat_ted->append(mess);
                     //QMessageBox::information(this,"message",obj["message"].toString());
                     }
-                    ///////// clear textEdit type
-                    ui->type_ted->clear();
+
                 }
                 else{
                     QMessageBox::information(this,"message",obj["message"].toString());
-                    ui->type_ted->clear();
+
                 }
             }
             else{
                 qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
-                //ui->type_ted->clear();
+
             }
 
          });
@@ -544,7 +544,7 @@ void chat::on_pushButton_2_clicked()
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->setTextColor(QColor(152, 0, 114));
                         ui->chat_ted->append(sender+": ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
@@ -612,7 +612,7 @@ void chat::on_pushButton_2_clicked()
                         ui->chat_ted->append(body);
                     }
                     else{
-                        ui->chat_ted->setTextColor(QColor(85, 0, 127));
+                        ui->chat_ted->setTextColor(QColor(152, 0, 114));
                         ui->chat_ted->append(sender+": ["+date+']');
                         ui->chat_ted->setAlignment(Qt::AlignLeft);
                         ui->chat_ted->append(body);
