@@ -5,8 +5,8 @@
 #include "concatenate_string.h"
 #include "first_page.h"
 
-#define arg_ca 7000
-#define time_t 12000
+#define arg_ca 5000
+#define time_t 10000
 
 QString save_prv_count3 = "0";
 QString save_list_count = "-1";
@@ -564,7 +564,7 @@ void chat::on_pushButton_2_clicked()
         else{
             qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
 
-            if(save_prv_count3 =="0" && flag_ct=="0" && accuracy== current_chat_item->text()){
+            if(flag_ct=="0" && accuracy== current_chat_item->text()){
                 ui->chat_ted->clear();
                 QString _s;
                 _s+=QDir::currentPath()+'/'+User.name+"/chats/"+accuracy+".txt";

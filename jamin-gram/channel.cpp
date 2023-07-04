@@ -6,8 +6,8 @@
 #include "chat.h"
 #include <QTextStream>
 
-#define arg_cn 7000
-#define time_t 12000
+#define arg_cn 5000
+#define time_t 10000
 
 QString save_prv_count = "0";
 QString flag_cn = "0";
@@ -506,7 +506,6 @@ void channel::on_pushButton_clicked()
                 qDebug()<< "ERROR to recive data from server: "<<reply2->errorString();
 
             }
-
          });
     }
 }
@@ -627,7 +626,7 @@ void channel::on_pushButton_2_clicked()
         else{
             qDebug()<< "ERROR to recive data from server: "<<reply2->errorString();
 
-            if(save_prv_count == "0" && flag_cn == "0" && accuracy == current_channel_item->text()){
+            if(flag_cn == "0" && accuracy == current_channel_item->text()){
                 ui->chat_ted->clear();
                 QString _s;
                 _s+=QDir::currentPath()+'/'+User.name+"/channels/"+accuracy+".txt";

@@ -5,8 +5,8 @@
 #include "channel.h"
 #include "chat.h"
 
-#define arg_g  7000
-#define time_t 12000
+#define arg_g  5000
+#define time_t 10000
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -600,7 +600,7 @@ void groups::on_pushButton_2_clicked()
         else{
             qDebug()<< "ERROR to recive data from server: "<<reply->errorString();
 
-            if(save_prv_count2 == "0"&& flag_gr == "0"&& accuracy == current_group_item->text()){
+            if(flag_gr == "0" && accuracy == current_group_item->text()){
                 ui->chat_ted->clear();
                 QString _s;
                 _s += QDir::currentPath()+'/'+User.name+"/groups/"+accuracy+".txt";
