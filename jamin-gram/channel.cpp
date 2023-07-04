@@ -402,6 +402,7 @@ void channel::on_action_Get_channel_list_triggered()
              QString _name;
              QString _pass;
              in >> _token >> _name >> _pass;
+             in.readLine();
 
              QString listmember;
              while(1){
