@@ -5,8 +5,8 @@
 #include "concatenate_string.h"
 #include "first_page.h"
 
-#define arg_ca 8000
-#define time_t 14000
+#define arg_ca 7000
+#define time_t 12000
 
 QString save_prv_count3 = "0";
 QString save_list_count = "-1";
@@ -344,7 +344,7 @@ void chat::on_actionGet_chat_lists_triggered()
                  QString listmember;
 
                  while(1){
-                     in>>listmember;
+                     listmember = in.readLine();
                      qDebug()<<listmember;
 
                      if(listmember=="")

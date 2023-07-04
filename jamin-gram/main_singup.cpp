@@ -62,6 +62,9 @@ void main_singup::on_verifypb_clicked()
         c1.addString("&password=");
         c1.addString(ui->pasword->text());
         qDebug()<<c1.getUrl();
+        QString _username = ui->username->text();
+        QString _password = ui->pasword->text();
+        QString _phone = ui->phone->text();
 
         //send request
         QUrl url(c1.getUrl());
@@ -88,7 +91,7 @@ void main_singup::on_verifypb_clicked()
                     file.open(QFile::ReadOnly|QFile::WriteOnly|QFile::Append|QFile::Text);
                     if(file.isOpen()){
                         QTextStream ts(&file);
-                        ts<<ui->username->text()<<" "<< ui->phone->text() <<" "<<ui->pasword->text()<<'\n';
+                        ts<<_username<<" "<< _phone <<" "<<_password<<'\n';
                         qDebug()<< "work with file";
                         file.close();
                     }
@@ -99,9 +102,9 @@ void main_singup::on_verifypb_clicked()
                     //creat our url
                     concatenate_string  c2;
                     c2.addString("login?username=");
-                    c2.addString(ui->username->text());
+                    c2.addString(_username);
                     c2.addString("&password=");
-                    c2.addString(ui->pasword->text());
+                    c2.addString(_password);
                     qDebug()<<c2.getUrl();
 
                     //send request
@@ -120,8 +123,8 @@ void main_singup::on_verifypb_clicked()
                             QJsonObject obj2 = duc2.object();
 
                             //new object and get token:
-                            User.name= ui->username->text();
-                            User.pass= ui->pasword->text();
+                            User.name= _username;
+                            User.pass= _password;
                             User.token= obj2["token"].toString();
 
                             QDir d(QDir::currentPath());
@@ -133,10 +136,11 @@ void main_singup::on_verifypb_clicked()
 
 
                             ////// show next page
+                            delete Prev_ptr;
                             channel* ch1 = new channel();
                             ch1->show();
-                            ch1->on_action_Get_channel_list_triggered();
                             this->close();
+                            ch1->on_action_Get_channel_list_triggered();
                             ///
 
                         }

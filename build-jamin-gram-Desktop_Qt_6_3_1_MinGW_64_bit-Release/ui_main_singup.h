@@ -170,7 +170,7 @@ public:
         repasword->setObjectName(QString::fromUtf8("repasword"));
         repasword->setGeometry(QRect(413, 310, 190, 26));
         QFont font;
-        font.setPointSize(8);
+        font.setPointSize(9);
         font.setBold(false);
         repasword->setFont(font);
         repasword->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
@@ -271,7 +271,7 @@ public:
         repasword->setPlaceholderText(QCoreApplication::translate("main_singup", " retype pasword", nullptr));
         verifypb->setText(QCoreApplication::translate("main_singup", "verify", nullptr));
         textEdit_2->setHtml(QCoreApplication::translate("main_singup", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Arial Narrow'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; color:#aa00ff;\">sign</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt;\"> up </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:16pt; color:#0055ff;\">form</span></p></body></html>", nullptr));

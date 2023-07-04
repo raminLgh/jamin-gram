@@ -2,7 +2,6 @@
 #include "ui_main_login.h"
 #include "concatenate_string.h"
 #include "forget.h"
-
 #include "channel.h"
 
 extern QMainWindow* Prev_ptr;
@@ -79,6 +78,7 @@ void main_login::on_verifypb_clicked()
                     d.mkdir("chats");
 
                     /////////show next page
+                    delete Prev_ptr;
                     channel* ch2 = new channel();
                     ch2->show();
                     this->close();
@@ -102,11 +102,9 @@ void main_login::on_verifypb_clicked()
 }
 
 
-
-
-
 void main_login::on_verifypb_2_clicked()
 {
+    delete Prev_ptr;
     Prev_ptr = this;
 
     forget* f1 = new forget();
@@ -116,10 +114,4 @@ void main_login::on_verifypb_2_clicked()
 
 }
 
-void main_login::on_pushButton_clicked()
-{
-    channel* ch2 = new channel();
-    this->close();
-    ch2->show();
-}
 

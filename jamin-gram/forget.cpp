@@ -66,7 +66,7 @@ void forget::on_pushButton_clicked()
             file.close();
         }
         else{
-            QMessageBox::information(this,"forget","File not exist");
+            QMessageBox::information(this,"forget","User not find");
         }
     }
 }
@@ -74,6 +74,7 @@ void forget::on_pushButton_clicked()
 void forget::on_pushButton_2_clicked()
 {
     this->close();
-    //prev_ptr is log in page now
+    //prev_ptr is log_in page now
     Prev_ptr->show();
+    Prev_ptr = this;
 }

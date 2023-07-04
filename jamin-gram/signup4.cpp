@@ -34,8 +34,8 @@ void signup4::on_nextpb_clicked()
 
     main_singup* mainSign = new main_singup();
     mainSign->show();
-
     this->close();
+
     Prev_ptr = this;
 }
 

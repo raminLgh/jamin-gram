@@ -6,8 +6,8 @@
 #include "chat.h"
 #include <QTextStream>
 
-#define arg_cn 8000
-#define time_t 14000
+#define arg_cn 7000
+#define time_t 12000
 
 QString save_prv_count = "0";
 QString flag_cn = "0";
@@ -405,7 +405,7 @@ void channel::on_action_Get_channel_list_triggered()
 
              QString listmember;
              while(1){
-                 in>>listmember;
+                 listmember = in.readLine();
                  qDebug()<<listmember;
 
                  if(listmember=="")

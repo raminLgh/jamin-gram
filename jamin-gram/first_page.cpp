@@ -32,17 +32,21 @@ void first_page::on_signup_clicked()
     delete Prev_ptr;
 
     signup1* sign1 = new signup1();
-    this->close();
     sign1->show();
+    this->close();
+
     Prev_ptr = this;
 }
 
 void first_page::on_login_clicked()
 {
+    delete Prev_ptr;
+
     main_login * mainlog = new main_login();
     mainlog->show();
-
     this->close();
+
+    Prev_ptr = this;
 }
 
 
@@ -86,6 +90,7 @@ void first_page::on_addpb_clicked()
 
 
         }
+        delete Prev_ptr;
 
         channel* ch = new channel();
         ch->show();
@@ -94,10 +99,8 @@ void first_page::on_addpb_clicked()
     }
     else{
         qDebug()<< "dir is note exist";
-         QMessageBox::information(nullptr,"attention","User not found");
+         QMessageBox::information(nullptr,"attention","User not found!");
 
        }
-
     }
 }
-

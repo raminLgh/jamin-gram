@@ -147,7 +147,7 @@ public:
 "}"));
         textEdit_4 = new QTextEdit(centralwidget);
         textEdit_4->setObjectName(QString::fromUtf8("textEdit_4"));
-        textEdit_4->setGeometry(QRect(100, 495, 186, 30));
+        textEdit_4->setGeometry(QRect(100, 494, 186, 31));
         textEdit_4->setFont(font);
         textEdit_4->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         textEdit_4->setStyleSheet(QString::fromUtf8(""));
@@ -193,7 +193,7 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:700; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#55aaff;\">continue</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#0000ff;\">offline</span></p></body></html>", nullptr));
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#55aaff;\">were you</span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600;\"> </span><span style=\" font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600; color:#0000ff;\">log in?</span></p></body></html>", nullptr));
         addpb->setText(QCoreApplication::translate("first_page", "start", nullptr));
     } // retranslateUi
 

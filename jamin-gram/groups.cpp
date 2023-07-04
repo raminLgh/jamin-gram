@@ -5,8 +5,8 @@
 #include "channel.h"
 #include "chat.h"
 
-#define arg_g  8000
-#define time_t 14000
+#define arg_g  7000
+#define time_t 12000
 
 extern person User;
 extern QMainWindow* channel_page;
@@ -380,7 +380,7 @@ void groups::on_actionGet_group_list_triggered()
              QString listmember;
 
              while(1){
-                 in>>listmember;
+                 listmember = in.readLine();
                  qDebug()<<listmember;
 
                  if(listmember=="")

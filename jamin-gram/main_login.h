@@ -23,8 +23,6 @@ private slots:
 
     void on_verifypb_2_clicked();
 
-    void on_pushButton_clicked();
-
 private:
     Ui::main_login *ui;
 };
